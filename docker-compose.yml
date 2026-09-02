@@ -1,0 +1,42 @@
+services:
+
+  app:
+    build: .
+    container_name: aadhaar-app
+    command: uvicorn services.app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      RETRIEVAL_URL: http://retrieval:8001/retrieve
+      LLM_URL: http://llm:8002/generate
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - retrieval
+      - llm
+
+  retrieval:
+    build: .
+    container_name: aadhaar-retrieval
+    command: uvicorn services.retrieval.main:app --host 0.0.0.0 --port 8001
+    ports:
+      - "8001:8001"
+    environment:
+      EMBED_URL: http://host.docker.internal:11434/api/embeddings
+    volumes:
+      - ./vector_db:/app/vector_db
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  llm:
+    build: .
+    container_name: aadhaar-llm
+    command: uvicorn services.llm.main:app --host 0.0.0.0 --port 8002
+    ports:
+      - "8002:8002"
+    environment:
+      MODEL: qwen3:0.6b
+      OLLAMA_URL: http://host.docker.internal:11434/api/chat
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
