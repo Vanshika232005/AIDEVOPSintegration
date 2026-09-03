@@ -3,7 +3,7 @@ from pathlib import Path
 from pypdf import PdfReader
 
 
-PDF_PATH = Path("knowledge_base/UIAI_1.pdf")
+KB_DIR = Path("knowledge_base")
 OUTPUT_PATH = Path("data/chunks.json")
 
 CHUNK_SIZE = 1000
@@ -17,7 +17,6 @@ def chunk_text(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
         return []
 
     chunks = []
-
     start = 0
 
     while start < len(text):
@@ -36,12 +35,12 @@ def chunk_text(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
     return chunks
 
 
-def process_pdf():
-    print(f"Reading: {PDF_PATH}")
+def process_pdf(pdf_path):
+    print(f"Reading: {pdf_path}")
 
-    reader = PdfReader(PDF_PATH)
+    reader = PdfReader(pdf_path)
 
-    all_chunks = []
+    pdf_chunks = []
 
     for page_number, page in enumerate(reader.pages, start=1):
 
@@ -51,24 +50,52 @@ def process_pdf():
 
         for chunk_number, chunk in enumerate(chunks, start=1):
 
-            all_chunks.append({
-                "id": f"page_{page_number}_chunk_{chunk_number}",
-                "source": PDF_PATH.name,
+            pdf_chunks.append({
+                "id": f"{pdf_path.stem}_page_{page_number}_chunk_{chunk_number}",
+                "source": pdf_path.name,
                 "page": page_number,
                 "chunk": chunk
             })
 
+    print(f"  Pages: {len(reader.pages)}")
+    print(f"  Chunks: {len(pdf_chunks)}")
+
+    return pdf_chunks
+
+
+def process_all_pdfs():
+
+    pdf_files = sorted(KB_DIR.glob("*.pdf"))
+
+    if not pdf_files:
+        print("No PDF files found in knowledge_base/")
+        return
+
+    all_chunks = []
+
+    print(f"Found {len(pdf_files)} PDF file(s).")
+    print()
+
+    for pdf_path in pdf_files:
+        chunks = process_pdf(pdf_path)
+        all_chunks.extend(chunks)
+        print()
+
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(all_chunks, f, indent=2, ensure_ascii=False)
+        json.dump(
+            all_chunks,
+            f,
+            indent=2,
+            ensure_ascii=False
+        )
 
-    print()
     print("Processing complete.")
-    print(f"Pages processed: {len(reader.pages)}")
-    print(f"Chunks created: {len(all_chunks)}")
+    print(f"Total PDFs processed: {len(pdf_files)}")
+    print(f"Total chunks created: {len(all_chunks)}")
     print(f"Saved to: {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
-    process_pdf()
+    process_all_pdfs()
