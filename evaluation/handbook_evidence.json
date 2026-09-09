@@ -1,0 +1,663 @@
+[
+  {
+    "question_id": 1,
+    "question": "What documents are required for Aadhaar enrolment?",
+    "candidate_evidence": [
+      {
+        "score": 11,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 9,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 10Aadhaar Handbook for Residents 2021-Ver.2.0 Gift your child a Unique Identity Even Infants can be enrolled for Aadhaar 2.1.2 Head of F amily (HoF) Based Enrolment F or enrolment of family members where individual documents are not available, the enrolment can be done by providing the following details for HoF based enrolment: • Name of Head of the F amily • Proof of Relationship (PoR) of the resident and HoF • Head of Family’s Aadhaar number • Biometric confirmation of the Head of Family at time of enrolment 2.1.3 In troducer Based Enrolment If y ou do not have either of the above documents, you can enroll under Introducer based enrolment. These ‘Introducers’ are verified officials appointed by registrars. These can be: • Registrars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Represen"
+      },
+      {
+        "score": 8,
+        "source": "UIAI_1.pdf",
+        "page": 50,
+        "chunk_id": "UIAI_1_page_50_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 50Aadhaar Handbook for Residents 2021-Ver.2.0 SECTION 12 AADHAAR (ENROLMENT AND UPDATE) REGULATIONS, 2016 Your enr olment and upda te is g overned b y the Aadhaar (Enr olment and Upda te) R egulations, 2016. R egulations of direct relevance to you are reproduced below for your information: 12.1 CHAP TER II - Resident Enrolment Process 3. Biom etric information required for enrolment. — (1) The f ollowing bio metric in formation shall be c ollected fr om all individuals under going enrolment (other than children below five years of age): (i) Facial image; (ii) All ten fingerprints; and (iii) Sc ans of both irises. (2) The s tandards f or c ollecting the biome tric in formation shall be as specified b y the Authority f or this purpose. 4. Demo graphic information required for enrolment. — (1) The f ollowing demogr aphic in formation shall be c ollected fr om all individuals under going enrolment (other than children below five"
+      }
+    ]
+  },
+  {
+    "question_id": 2,
+    "question": "What is Aadhaar enrolment?",
+    "candidate_evidence": [
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 3,
+        "chunk_id": "UIAI_1_page_3_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 3 Aadhaar Handbook for Residents 2021-Ver.2.0 T ABLE OF CONTENTS SECTION 1: INTRODUCTION 6 1.1 Aadhaar Ov erview 6 1.2 Who c an get Aadhaar? 7 1.2.1 Aadhaar f or residents of India 7 1.2.2 Aadhaar f or NRIs 7 1.3 F eatures of Aadhaar 7 1.3.1 Aadhaar is an identifier 7 1.3.2 Aadhaar is an ID , nothing more 7 1.4 Usag e of Aadhaar 7 SE CTION 2: HOW TO ENROL FOR AADHAAR? 8 2.1 En rolment Process 8 2.1.1 Documen t Based Enrolment 9 2.1.2 Head of F amily (HoF) Based Enrolment 10 2.1.3 In troducer Based Enrolment 10 2.1.4 Enr olment of Children 10 2.1.5 Enrolment of Residents with Biometric Exceptions 11 2.2 P oints to remember for Aadhaar Enrolment 12 2.3 Aadhaar Enr olment Centre 12 2.3.1 Loc ate Aadhaar Enrolment Centre near you 13 2.3.2 T ypes of Enrolment Centres 13 2.4 Online Appoin tment Service 14 2.4.1 Ho w to book an online appointment 14 2.4.2 Appoin tment for Aadhaar Services 14 2.5 Aadhaar Generation Status 15 2.5.1 Aa"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 10Aadhaar Handbook for Residents 2021-Ver.2.0 Gift your child a Unique Identity Even Infants can be enrolled for Aadhaar 2.1.2 Head of F amily (HoF) Based Enrolment F or enrolment of family members where individual documents are not available, the enrolment can be done by providing the following details for HoF based enrolment: • Name of Head of the F amily • Proof of Relationship (PoR) of the resident and HoF • Head of Family’s Aadhaar number • Biometric confirmation of the Head of Family at time of enrolment 2.1.3 In troducer Based Enrolment If y ou do not have either of the above documents, you can enroll under Introducer based enrolment. These ‘Introducers’ are verified officials appointed by registrars. These can be: • Registrars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Represen"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 15,
+        "chunk_id": "UIAI_1_page_15_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 15 Aadhaar Handbook for Residents 2021-Ver.2.0 2.5 Aadhaar Generation Status 2.5.1 Aad haar Enrolment Status Check If y ou have given mobile number/email ID during enrolment, y ou will g et SMS/ email notific ations r elated t o y our Aadhaar g eneration. Y ou c an also check if your Aadhaar is generated from UIDAI website or by calling our helpline 1947. T o check your Aadhaar generation status, you will require your EID (Enrolment ID). The top left side of your enrolment acknowledgement slip contains 14 digit enrolment number and 14 digit time stamp having date and time (dd/mm/yyyy hh:mm:ss) of enrolment. 2.5.2 Wha t to do if EID is lost? The enr olment ID is mentioned on the acknowledgement slip that you received after enrolment. Please keep this slip carefully. You are advised to click a clear picture of the slip for your records. In case, you misplace the slip, you can retrieve your EID by these two methods: • Online fro"
+      }
+    ]
+  },
+  {
+    "question_id": 3,
+    "question": "What is the purpose of Aadhaar?",
+    "candidate_evidence": [
+      {
+        "score": 2,
+        "source": "UIAI_1.pdf",
+        "page": 38,
+        "chunk_id": "UIAI_1_page_38_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 38Aadhaar Handbook for Residents 2021-Ver.2.0 UIDAI follows highest level data security protocols SECTION 9: PRIV ACY AND SECURITY OF YOUR AADHAAR DATA Security of your data is inherent in the design of the Aadhaar project. From having a random number which does not reveal anything about the individual to other features listed below, UIDAI keeps the interest of the resident at the centre of its purpose and objectives. 9.1 UID AI Protecting privacy and information • Collecting limited information: Data collected by UIDAI is limited to the purpose of issuing Aadhaar number , and c onfirming the iden tity of Aadhaar number holder . Only basic da ta is c aptured t o es tablish iden tity – name, da te of birth, g ender, and addr ess, and biome tric da ta c omprising phot ograph, t en fing er prin ts and iris sc an. P arent’s/guardian’s name is essen tial for children but not for others. Mobile number and email id are optional. • N"
+      },
+      {
+        "score": 2,
+        "source": "UIAI_1.pdf",
+        "page": 52,
+        "chunk_id": "UIAI_1_page_52_chunk_4",
+        "chunk": "esident in ph ysical or electr onic f orm in acc ordance with the pr ocedure as ma y be specified b y the Authority f or this purpose. The procedures for update, standards and guidelines to be followed along with the formats, templates, checklist to be used for carrying the update shall be as may be specified by the Authority for this purpose."
+      },
+      {
+        "score": 1,
+        "source": "UIAI_1.pdf",
+        "page": 6,
+        "chunk_id": "UIAI_1_page_6_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 6Aadhaar Handbook for Residents 2021-Ver.2.0 SECTION 1: INTRODUCTION Dear Resident, Welcome to Aadhaar family! The Aadhaar handbook is designed to serve as your guide for Aadhaar. We urge you to read through this document and absorb the meaning and purpose of Aadhaar. This handboo k will help y ou under stand y our Aadhaar . All y our ques tions - fr om ho w t o g et Aadhaar , and ho w to get any detail updated in your Aadhaar how you can use your Aadhaar - will be answered in this handbook. Y ou will also find de tailed descrip tions of Aadhaar pr ocesses and ser vices r elated t o y our Aadhaar . With each section, y ou will also see QR Codes. Y ou c an sc an the r elevant QR c ode with an y QR c ode scanner app in your Smartphone to visit the relevant webpage or watch a video tutorial on the mentioned service. Le t’s begin y our Aadhaar journe y with a sneak peek in to the w orld of Aadhaar , the r elated pr ocesses, the s"
+      }
+    ]
+  },
+  {
+    "question_id": 4,
+    "question": "What is Proof of Identity?",
+    "candidate_evidence": [
+      {
+        "score": 10,
+        "source": "UIAI_2.pdf",
+        "page": 9,
+        "chunk_id": "UIAI_2_page_9_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan List IV -Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age Means allowed | Means not allowed Sl. No. List of documents (see note below this tabular statement) Proof of Identity (PoI) document, containing name and photograph Proof of Address (PoA) document, containing name and address in India Proof of Relationship (PoR) document, containing name of child and name of Head of Family (HoF) Proof of Date of Birth (PDB) document, containing name and date of birth 1. Valid Indian Passport    # 2. Ration / PDS Photograph Card / e-Ration Card     3. Voter Identity Card /e-Voter Identity Card, whose details are displayed online on the website of the Election Commission of India or the Chief Electoral Officer concerned     4. Driving licence     5. Service Photo Identity Ca"
+      },
+      {
+        "score": 9,
+        "source": "UIAI_2.pdf",
+        "page": 6,
+        "chunk_id": "UIAI_2_page_6_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age Means allowed | Means not allowed Sl. No. List of documents (see note below this tabular statement) Proof of Identity (PoI) document, containing name and photograph Proof of Address (PoA) document, containing name and address in India Proof of Date of Birth (PDB) document, containing name and date of birth 1. Valid Indian Passport    2. Ration /PDS Photograph Card/e-Ration Card    3. Voter Identity Card /e-Voter Identity Card whose details are displayed online on the website of the Election Commission of India or the Chief Electoral Officer concerned    4. Driving licence    5. Service Photo Identity Card issued by Central Government/ State Government/ PSU/ regulatory body / statutory body    6. Pen"
+      },
+      {
+        "score": 8,
+        "source": "UIAI_1.pdf",
+        "page": 63,
+        "chunk_id": "UIAI_1_page_63_chunk_3",
+        "chunk": "EID number. If the resident is not holding a Proof of Identity & using the Head of the Family identity for enrolment, it is mandatory to provide Head of the family’s details with his/her Aadhaar or EID number. Please refer illustration below for filling EID. Please bring the original Proof of Relationship (POR) document. (See list C below). For other cases, it is optional for the resident to fill up the relationship details. Field 8: DOCUMENTS Write the name of Documents for POI and POA. In case proof of Date of Birth is available, then write the name of Date of Birth document. If the resident is not holding a Proof of Identity & using the Head of Family based enrolment, then write the name of Proof of Relationship document. For Valid list of documents, please refer list of Documents below. Field 9 INTRODUCER/HOF Resident who does not have POI and POA may get enrolled through an Introducer/ Head of Family. Pl contact nearest enrolment centre or your Registrar, for further details. LIST"
+      }
+    ]
+  },
+  {
+    "question_id": 5,
+    "question": "What is Proof of Address?",
+    "candidate_evidence": [
+      {
+        "score": 10,
+        "source": "UIAI_1.pdf",
+        "page": 63,
+        "chunk_id": "UIAI_1_page_63_chunk_2",
+        "chunk": "low). Declared checkbox may be selected if Resident does not have a valid proof of Date of Birth document. Verified checkbox is selected where Resident has provided documents as proof of Date of birth. Field 6: ADDRESS Write complete address. Please bring the original Proof of Address (POA) document. (See list B below). Please note that the Aadhaar letter will be delivered at the given address only. • To include name of Parent / Guardian / Spouse as part of the ad dress, enter the name of person in the c/o field. • Minor Corrections / Enhancements are permissible to make the address complete without altering the base address as mentioned in POA document. Field 7: RELATIONSHIP In case of children below 5 years, it is mandatory to provide father/mother/guardian details with their Aadhaar or EID number. If the resident is not holding a Proof of Identity & using the Head of the Family identity for enrolment, it is mandatory to provide Head of the family’s details with his/her Aadhaar or EI"
+      },
+      {
+        "score": 9,
+        "source": "UIAI_2.pdf",
+        "page": 18,
+        "chunk_id": "UIAI_2_page_18_chunk_2",
+        "chunk": "• Mention the name of Resident in BLOCK LETTER • Name shall be mentioned in the format as to be recorded in the Aadhaar 6. House No/ Bldg./ Apt: • Mention the House Number , Building Name or Apartment Name as per the address 7. Street/Road/ Lane • Mention Street Name, Road & Lane of the address 8. Landmark • Mention the Landmark near your address • This field can be left blank as well, if not required 9. Area/ Locality/ Sector • Mention Area/ Locality/ Sector of your address 10. Village/ Town/ City • Mention Village/ Town/ City of your address. 11. Post Office • Mention the nearest post office of your address • This filed can be left blank 12. District • Mention the District of your address 13. State • Mention the State of your address 14. Pin Code • Mention the pincode of your address. 15. Signature of individual seeking to enrol / Aadhaar number holder • Resident shall do the Signature in the box specified for signature • Illiterate Resident can provide Thumb or Finger impression 16"
+      },
+      {
+        "score": 8,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      }
+    ]
+  },
+  {
+    "question_id": 6,
+    "question": "What is Proof of Date of Birth?",
+    "candidate_evidence": [
+      {
+        "score": 27,
+        "source": "UIAI_2.pdf",
+        "page": 13,
+        "chunk_id": "UIAI_2_page_13_chunk_4",
+        "chunk": "irth certificate as proof of date of birth b. For Non-Resident Indian (NRI) below 18 years of age: - Aadhaar number holder shall submit birth certificate or Indian Passport as proof of date of birth c. For resident Indians and Non-Resident Indian (NRI) of 18 years and above of age: - Aadhaar number holder shall submit any of the acceptable proof of date of birth documents as specified in the above list (ii) If the Aadhaar number holder had earlier submitted birth certificate as proof of date of birth, the Aadhaar number holder shall submit corrected birth certificate bearing same Birth Registration Number (BRN) (iii) If the Aadhaar number holder had earlier submitted any proof of date of birth document except birth certificate (for e.g. Marksheet, Passport etc.), the Aadhaar number holder shall submit corrected version of the same document or submit a birth certificate (iv) In case of date of birth update of woman who has changed her name post-marriage, proof of date of birth documents"
+      },
+      {
+        "score": 15,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 15,
+        "source": "UIAI_2.pdf",
+        "page": 13,
+        "chunk_id": "UIAI_2_page_13_chunk_3",
+        "chunk": "ust have a valid Aadhaar before performing HoF based update (ii) Any one of the parents or the legal guardian can be HoF (iii) Aadhaar number of both the parents is required for HoF based update. In case the child is living with only one parent or living with a legal guardian, the Aadhaar number of only such parent or legal guardian may be given. (iv) Biometric authentication by one of the parents or the legal guardian is mandatory (v) The address mentioned in the Aadhaar of HoF will be used for the address in the Aadhaar of the individual (d) #Request for update of date of birth in Aadhaar shall be accepted, in the following manner: (i) If date of birth is recorded as declared or approximate: a. For resident Indians below 18 years of age: - Aadhaar number holder shall mandatorily submit birth certificate as proof of date of birth b. For Non-Resident Indian (NRI) below 18 years of age: - Aadhaar number holder shall submit birth certificate or Indian Passport as proof of date of birth c"
+      }
+    ]
+  },
+  {
+    "question_id": 7,
+    "question": "What is Proof of Relationship?",
+    "candidate_evidence": [
+      {
+        "score": 8,
+        "source": "UIAI_1.pdf",
+        "page": 63,
+        "chunk_id": "UIAI_1_page_63_chunk_3",
+        "chunk": "EID number. If the resident is not holding a Proof of Identity & using the Head of the Family identity for enrolment, it is mandatory to provide Head of the family’s details with his/her Aadhaar or EID number. Please refer illustration below for filling EID. Please bring the original Proof of Relationship (POR) document. (See list C below). For other cases, it is optional for the resident to fill up the relationship details. Field 8: DOCUMENTS Write the name of Documents for POI and POA. In case proof of Date of Birth is available, then write the name of Date of Birth document. If the resident is not holding a Proof of Identity & using the Head of Family based enrolment, then write the name of Proof of Relationship document. For Valid list of documents, please refer list of Documents below. Field 9 INTRODUCER/HOF Resident who does not have POI and POA may get enrolled through an Introducer/ Head of Family. Pl contact nearest enrolment centre or your Registrar, for further details. LIST"
+      },
+      {
+        "score": 8,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_2.pdf",
+        "page": 4,
+        "chunk_id": "UIAI_2_page_4_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age Means allowed | Means not allowed Sl. No. List of documents (see note below this tabular statement) Proof of Identity (PoI) document, containing name and photograph Proof of Address (PoA) document, containing name and address in India Proof of Relationship (PoR)document, containing name of child and name of Head of Family (HoF) Proof of Date of Birth (PDB) document, containing name and date of birth 1. Birth certificate issued under the Registration of Births and Deaths Act, 1969 and the rules made thereunder     2. Valid Indian Passport     3. Domicile Certificate issued by State Government     4. Scheduled Tribe (ST) / Scheduled Caste (SC) / Other Backward Caste (OBC) Certificate iss"
+      }
+    ]
+  },
+  {
+    "question_id": 8,
+    "question": "Can Aadhaar enrolment be done without supporting documents?",
+    "candidate_evidence": [
+      {
+        "score": 11,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 10,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 10Aadhaar Handbook for Residents 2021-Ver.2.0 Gift your child a Unique Identity Even Infants can be enrolled for Aadhaar 2.1.2 Head of F amily (HoF) Based Enrolment F or enrolment of family members where individual documents are not available, the enrolment can be done by providing the following details for HoF based enrolment: • Name of Head of the F amily • Proof of Relationship (PoR) of the resident and HoF • Head of Family’s Aadhaar number • Biometric confirmation of the Head of Family at time of enrolment 2.1.3 In troducer Based Enrolment If y ou do not have either of the above documents, you can enroll under Introducer based enrolment. These ‘Introducers’ are verified officials appointed by registrars. These can be: • Registrars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Represen"
+      },
+      {
+        "score": 9,
+        "source": "UIAI_1.pdf",
+        "page": 9,
+        "chunk_id": "UIAI_1_page_9_chunk_3",
+        "chunk": "a valid document, you have to produce that for Aadhaar enrolment. In case you do not ha ve docu ments in y our name, y ou c an also use a certific ate issued b y authoriz ed official (r efer t o Anne x. II). UID AI has de fined a s tandard f ormat f or this certific ate. R efer t o the Lis t of Accep table Supporting Documen ts f or V erification a vailable a t: h ttps://uidai.gov.in/images/ commdoc/valid_documents_list.pdf To download Aadhaar Enrolment Form: SCAN To get details of nearby Aadhaar Enrolment Centre: SCAN Carry original documents to Aadhaar centre. These are scanned and given back to you. The document for Aadhaar enrolment should have your name. For List of Valid Supporting Documents SCAN"
+      }
+    ]
+  },
+  {
+    "question_id": 9,
+    "question": "What information is collected during Aadhaar enrolment?",
+    "candidate_evidence": [
+      {
+        "score": 9,
+        "source": "UIAI_1.pdf",
+        "page": 50,
+        "chunk_id": "UIAI_1_page_50_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 50Aadhaar Handbook for Residents 2021-Ver.2.0 SECTION 12 AADHAAR (ENROLMENT AND UPDATE) REGULATIONS, 2016 Your enr olment and upda te is g overned b y the Aadhaar (Enr olment and Upda te) R egulations, 2016. R egulations of direct relevance to you are reproduced below for your information: 12.1 CHAP TER II - Resident Enrolment Process 3. Biom etric information required for enrolment. — (1) The f ollowing bio metric in formation shall be c ollected fr om all individuals under going enrolment (other than children below five years of age): (i) Facial image; (ii) All ten fingerprints; and (iii) Sc ans of both irises. (2) The s tandards f or c ollecting the biome tric in formation shall be as specified b y the Authority f or this purpose. 4. Demo graphic information required for enrolment. — (1) The f ollowing demogr aphic in formation shall be c ollected fr om all individuals under going enrolment (other than children below five"
+      },
+      {
+        "score": 8,
+        "source": "UIAI_1.pdf",
+        "page": 15,
+        "chunk_id": "UIAI_1_page_15_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 15 Aadhaar Handbook for Residents 2021-Ver.2.0 2.5 Aadhaar Generation Status 2.5.1 Aad haar Enrolment Status Check If y ou have given mobile number/email ID during enrolment, y ou will g et SMS/ email notific ations r elated t o y our Aadhaar g eneration. Y ou c an also check if your Aadhaar is generated from UIDAI website or by calling our helpline 1947. T o check your Aadhaar generation status, you will require your EID (Enrolment ID). The top left side of your enrolment acknowledgement slip contains 14 digit enrolment number and 14 digit time stamp having date and time (dd/mm/yyyy hh:mm:ss) of enrolment. 2.5.2 Wha t to do if EID is lost? The enr olment ID is mentioned on the acknowledgement slip that you received after enrolment. Please keep this slip carefully. You are advised to click a clear picture of the slip for your records. In case, you misplace the slip, you can retrieve your EID by these two methods: • Online fro"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 3,
+        "chunk_id": "UIAI_1_page_3_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 3 Aadhaar Handbook for Residents 2021-Ver.2.0 T ABLE OF CONTENTS SECTION 1: INTRODUCTION 6 1.1 Aadhaar Ov erview 6 1.2 Who c an get Aadhaar? 7 1.2.1 Aadhaar f or residents of India 7 1.2.2 Aadhaar f or NRIs 7 1.3 F eatures of Aadhaar 7 1.3.1 Aadhaar is an identifier 7 1.3.2 Aadhaar is an ID , nothing more 7 1.4 Usag e of Aadhaar 7 SE CTION 2: HOW TO ENROL FOR AADHAAR? 8 2.1 En rolment Process 8 2.1.1 Documen t Based Enrolment 9 2.1.2 Head of F amily (HoF) Based Enrolment 10 2.1.3 In troducer Based Enrolment 10 2.1.4 Enr olment of Children 10 2.1.5 Enrolment of Residents with Biometric Exceptions 11 2.2 P oints to remember for Aadhaar Enrolment 12 2.3 Aadhaar Enr olment Centre 12 2.3.1 Loc ate Aadhaar Enrolment Centre near you 13 2.3.2 T ypes of Enrolment Centres 13 2.4 Online Appoin tment Service 14 2.4.1 Ho w to book an online appointment 14 2.4.2 Appoin tment for Aadhaar Services 14 2.5 Aadhaar Generation Status 15 2.5.1 Aa"
+      }
+    ]
+  },
+  {
+    "question_id": 10,
+    "question": "What biometric information is collected for Aadhaar?",
+    "candidate_evidence": [
+      {
+        "score": 4,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_2",
+        "chunk": "trars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Representatives of local NGOs The information captured during Introducer-based Enrolment is: • Introducer’s name • Introducer’s Aadhaar number • One modality of biometric information of the Introducer 2.1.4 Enr olment of Children For HoF based enrolment, the Head of Family has to give biometric confirmation at the time of enrolment."
+      },
+      {
+        "score": 4,
+        "source": "UIAI_1.pdf",
+        "page": 19,
+        "chunk_id": "UIAI_1_page_19_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 19 Aadhaar Handbook for Residents 2021-Ver.2.0 A child’s Aadhaar needs TWO mandatory biometric updates: When the child attains 5 years of age When the child attains 15 years of age These updates are FREE 3.3 Manda tory Biometric Update for Children Th e biometric details of children need to be updated in their Aadhaar when the child a ttains the ag e of 5 y ears, and once ag ain at the age of 15 years. The child’s fingerprints, iris scans and photographs are captured and updated in their Aadhaar data. This helps the child in using his/her Aadhaar as an identifier wherever required. The Aadhaar number assigned to the child remains the same. This mandatory biometric update for children is FREE. 3.4 Upda ting ‘Care of’ field in Aadhaar Address Th e ‘Car e of ’ de tails in Aadhaar ar e a part of Addr ess field. These w ere earlier men tioned as W/ o, D/ o, S/ o or C/ o. These ha ve no w been s tandardized t o C/ o. If y ou upda t"
+      },
+      {
+        "score": 4,
+        "source": "UIAI_1.pdf",
+        "page": 38,
+        "chunk_id": "UIAI_1_page_38_chunk_2",
+        "chunk": "and biome tric da ta c omprising phot ograph, t en fing er prin ts and iris sc an. P arent’s/guardian’s name is essen tial for children but not for others. Mobile number and email id are optional. • No profiling and tracking information collected: The UID AI policy bar s it fr om c ollecting sensitiv e per sonal in formation such as r eligion, c aste, c ommunity, class, e thnicity, inc ome and health s tatus. Pr ofiling of individuals is not possib le thr ough the UID s ystem as the da ta collected is limited to that required for identification and identity confirmation. • Certified machines with Data Encryption: Aadhaar enrolment/update happens with software pr ovided b y UID AI using certified de vices only . The da ta is encr ypted as soon as it is c ollected in order to prevent any leak in transit. • R elease of information – yes or no response: UID AI does not r eveal per sonal in formation in the Aadhaar da tabase. If y ou use y our Aadhaar f or v erification purpose, the only"
+      }
+    ]
+  },
+  {
+    "question_id": 11,
+    "question": "What demographic information is collected during enrolment?",
+    "candidate_evidence": [
+      {
+        "score": 9,
+        "source": "UIAI_1.pdf",
+        "page": 50,
+        "chunk_id": "UIAI_1_page_50_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 50Aadhaar Handbook for Residents 2021-Ver.2.0 SECTION 12 AADHAAR (ENROLMENT AND UPDATE) REGULATIONS, 2016 Your enr olment and upda te is g overned b y the Aadhaar (Enr olment and Upda te) R egulations, 2016. R egulations of direct relevance to you are reproduced below for your information: 12.1 CHAP TER II - Resident Enrolment Process 3. Biom etric information required for enrolment. — (1) The f ollowing bio metric in formation shall be c ollected fr om all individuals under going enrolment (other than children below five years of age): (i) Facial image; (ii) All ten fingerprints; and (iii) Sc ans of both irises. (2) The s tandards f or c ollecting the biome tric in formation shall be as specified b y the Authority f or this purpose. 4. Demo graphic information required for enrolment. — (1) The f ollowing demogr aphic in formation shall be c ollected fr om all individuals under going enrolment (other than children below five"
+      },
+      {
+        "score": 8,
+        "source": "UIAI_1.pdf",
+        "page": 15,
+        "chunk_id": "UIAI_1_page_15_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 15 Aadhaar Handbook for Residents 2021-Ver.2.0 2.5 Aadhaar Generation Status 2.5.1 Aad haar Enrolment Status Check If y ou have given mobile number/email ID during enrolment, y ou will g et SMS/ email notific ations r elated t o y our Aadhaar g eneration. Y ou c an also check if your Aadhaar is generated from UIDAI website or by calling our helpline 1947. T o check your Aadhaar generation status, you will require your EID (Enrolment ID). The top left side of your enrolment acknowledgement slip contains 14 digit enrolment number and 14 digit time stamp having date and time (dd/mm/yyyy hh:mm:ss) of enrolment. 2.5.2 Wha t to do if EID is lost? The enr olment ID is mentioned on the acknowledgement slip that you received after enrolment. Please keep this slip carefully. You are advised to click a clear picture of the slip for your records. In case, you misplace the slip, you can retrieve your EID by these two methods: • Online fro"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 3,
+        "chunk_id": "UIAI_1_page_3_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 3 Aadhaar Handbook for Residents 2021-Ver.2.0 T ABLE OF CONTENTS SECTION 1: INTRODUCTION 6 1.1 Aadhaar Ov erview 6 1.2 Who c an get Aadhaar? 7 1.2.1 Aadhaar f or residents of India 7 1.2.2 Aadhaar f or NRIs 7 1.3 F eatures of Aadhaar 7 1.3.1 Aadhaar is an identifier 7 1.3.2 Aadhaar is an ID , nothing more 7 1.4 Usag e of Aadhaar 7 SE CTION 2: HOW TO ENROL FOR AADHAAR? 8 2.1 En rolment Process 8 2.1.1 Documen t Based Enrolment 9 2.1.2 Head of F amily (HoF) Based Enrolment 10 2.1.3 In troducer Based Enrolment 10 2.1.4 Enr olment of Children 10 2.1.5 Enrolment of Residents with Biometric Exceptions 11 2.2 P oints to remember for Aadhaar Enrolment 12 2.3 Aadhaar Enr olment Centre 12 2.3.1 Loc ate Aadhaar Enrolment Centre near you 13 2.3.2 T ypes of Enrolment Centres 13 2.4 Online Appoin tment Service 14 2.4.1 Ho w to book an online appointment 14 2.4.2 Appoin tment for Aadhaar Services 14 2.5 Aadhaar Generation Status 15 2.5.1 Aa"
+      }
+    ]
+  },
+  {
+    "question_id": 12,
+    "question": "What happens after Aadhaar enrolment?",
+    "candidate_evidence": [
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 3,
+        "chunk_id": "UIAI_1_page_3_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 3 Aadhaar Handbook for Residents 2021-Ver.2.0 T ABLE OF CONTENTS SECTION 1: INTRODUCTION 6 1.1 Aadhaar Ov erview 6 1.2 Who c an get Aadhaar? 7 1.2.1 Aadhaar f or residents of India 7 1.2.2 Aadhaar f or NRIs 7 1.3 F eatures of Aadhaar 7 1.3.1 Aadhaar is an identifier 7 1.3.2 Aadhaar is an ID , nothing more 7 1.4 Usag e of Aadhaar 7 SE CTION 2: HOW TO ENROL FOR AADHAAR? 8 2.1 En rolment Process 8 2.1.1 Documen t Based Enrolment 9 2.1.2 Head of F amily (HoF) Based Enrolment 10 2.1.3 In troducer Based Enrolment 10 2.1.4 Enr olment of Children 10 2.1.5 Enrolment of Residents with Biometric Exceptions 11 2.2 P oints to remember for Aadhaar Enrolment 12 2.3 Aadhaar Enr olment Centre 12 2.3.1 Loc ate Aadhaar Enrolment Centre near you 13 2.3.2 T ypes of Enrolment Centres 13 2.4 Online Appoin tment Service 14 2.4.1 Ho w to book an online appointment 14 2.4.2 Appoin tment for Aadhaar Services 14 2.5 Aadhaar Generation Status 15 2.5.1 Aa"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 10Aadhaar Handbook for Residents 2021-Ver.2.0 Gift your child a Unique Identity Even Infants can be enrolled for Aadhaar 2.1.2 Head of F amily (HoF) Based Enrolment F or enrolment of family members where individual documents are not available, the enrolment can be done by providing the following details for HoF based enrolment: • Name of Head of the F amily • Proof of Relationship (PoR) of the resident and HoF • Head of Family’s Aadhaar number • Biometric confirmation of the Head of Family at time of enrolment 2.1.3 In troducer Based Enrolment If y ou do not have either of the above documents, you can enroll under Introducer based enrolment. These ‘Introducers’ are verified officials appointed by registrars. These can be: • Registrars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Represen"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 15,
+        "chunk_id": "UIAI_1_page_15_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 15 Aadhaar Handbook for Residents 2021-Ver.2.0 2.5 Aadhaar Generation Status 2.5.1 Aad haar Enrolment Status Check If y ou have given mobile number/email ID during enrolment, y ou will g et SMS/ email notific ations r elated t o y our Aadhaar g eneration. Y ou c an also check if your Aadhaar is generated from UIDAI website or by calling our helpline 1947. T o check your Aadhaar generation status, you will require your EID (Enrolment ID). The top left side of your enrolment acknowledgement slip contains 14 digit enrolment number and 14 digit time stamp having date and time (dd/mm/yyyy hh:mm:ss) of enrolment. 2.5.2 Wha t to do if EID is lost? The enr olment ID is mentioned on the acknowledgement slip that you received after enrolment. Please keep this slip carefully. You are advised to click a clear picture of the slip for your records. In case, you misplace the slip, you can retrieve your EID by these two methods: • Online fro"
+      }
+    ]
+  },
+  {
+    "question_id": 13,
+    "question": "What documents can be used as proof of identity?",
+    "candidate_evidence": [
+      {
+        "score": 14,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 13,
+        "source": "UIAI_2.pdf",
+        "page": 9,
+        "chunk_id": "UIAI_2_page_9_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan List IV -Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age Means allowed | Means not allowed Sl. No. List of documents (see note below this tabular statement) Proof of Identity (PoI) document, containing name and photograph Proof of Address (PoA) document, containing name and address in India Proof of Relationship (PoR) document, containing name of child and name of Head of Family (HoF) Proof of Date of Birth (PDB) document, containing name and date of birth 1. Valid Indian Passport    # 2. Ration / PDS Photograph Card / e-Ration Card     3. Voter Identity Card /e-Voter Identity Card, whose details are displayed online on the website of the Election Commission of India or the Chief Electoral Officer concerned     4. Driving licence     5. Service Photo Identity Ca"
+      },
+      {
+        "score": 12,
+        "source": "UIAI_1.pdf",
+        "page": 63,
+        "chunk_id": "UIAI_1_page_63_chunk_3",
+        "chunk": "EID number. If the resident is not holding a Proof of Identity & using the Head of the Family identity for enrolment, it is mandatory to provide Head of the family’s details with his/her Aadhaar or EID number. Please refer illustration below for filling EID. Please bring the original Proof of Relationship (POR) document. (See list C below). For other cases, it is optional for the resident to fill up the relationship details. Field 8: DOCUMENTS Write the name of Documents for POI and POA. In case proof of Date of Birth is available, then write the name of Date of Birth document. If the resident is not holding a Proof of Identity & using the Head of Family based enrolment, then write the name of Proof of Relationship document. For Valid list of documents, please refer list of Documents below. Field 9 INTRODUCER/HOF Resident who does not have POI and POA may get enrolled through an Introducer/ Head of Family. Pl contact nearest enrolment centre or your Registrar, for further details. LIST"
+      }
+    ]
+  },
+  {
+    "question_id": 14,
+    "question": "What documents can be used as proof of address?",
+    "candidate_evidence": [
+      {
+        "score": 14,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 12,
+        "source": "UIAI_2.pdf",
+        "page": 12,
+        "chunk_id": "UIAI_2_page_12_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan Documents applicable for Overseas Citizens of India (OCI) cardholders, Long Term Visa (LTV) holders, nationals of Nepal and Bhutan and other foreign nationals Sl. No. List of documents (see note below this tabular statement) Proof of Identity (PoI) document, containing name and photograph Proof of Address (PoA) document, containing name and address in India Proof of Relationship (PoR) document, containing name of individual and name of Head of Family (HoF) Proof of Date of Birth (PDB) document, containing name and date of birth 32. For OCI cardholders - Valid foreign passport (along with OCI card)  *  # 33. For nationals of Nepal and Bhutan – (a) Passport of Nepal/Bhutan  *  # (b) Any two of the following documents having the same address may be submitted: (i) Valid Nepalese/ Bhutanese Citizenship Certificate (acceptable as proof of date of birth also) (ii) Valid Voter Identity Card issued by the"
+      },
+      {
+        "score": 11,
+        "source": "UIAI_1.pdf",
+        "page": 63,
+        "chunk_id": "UIAI_1_page_63_chunk_2",
+        "chunk": "low). Declared checkbox may be selected if Resident does not have a valid proof of Date of Birth document. Verified checkbox is selected where Resident has provided documents as proof of Date of birth. Field 6: ADDRESS Write complete address. Please bring the original Proof of Address (POA) document. (See list B below). Please note that the Aadhaar letter will be delivered at the given address only. • To include name of Parent / Guardian / Spouse as part of the ad dress, enter the name of person in the c/o field. • Minor Corrections / Enhancements are permissible to make the address complete without altering the base address as mentioned in POA document. Field 7: RELATIONSHIP In case of children below 5 years, it is mandatory to provide father/mother/guardian details with their Aadhaar or EID number. If the resident is not holding a Proof of Identity & using the Head of the Family identity for enrolment, it is mandatory to provide Head of the family’s details with his/her Aadhaar or EI"
+      }
+    ]
+  },
+  {
+    "question_id": 15,
+    "question": "What documents can be used as proof of date of birth?",
+    "candidate_evidence": [
+      {
+        "score": 29,
+        "source": "UIAI_2.pdf",
+        "page": 13,
+        "chunk_id": "UIAI_2_page_13_chunk_4",
+        "chunk": "irth certificate as proof of date of birth b. For Non-Resident Indian (NRI) below 18 years of age: - Aadhaar number holder shall submit birth certificate or Indian Passport as proof of date of birth c. For resident Indians and Non-Resident Indian (NRI) of 18 years and above of age: - Aadhaar number holder shall submit any of the acceptable proof of date of birth documents as specified in the above list (ii) If the Aadhaar number holder had earlier submitted birth certificate as proof of date of birth, the Aadhaar number holder shall submit corrected birth certificate bearing same Birth Registration Number (BRN) (iii) If the Aadhaar number holder had earlier submitted any proof of date of birth document except birth certificate (for e.g. Marksheet, Passport etc.), the Aadhaar number holder shall submit corrected version of the same document or submit a birth certificate (iv) In case of date of birth update of woman who has changed her name post-marriage, proof of date of birth documents"
+      },
+      {
+        "score": 21,
+        "source": "UIAI_2.pdf",
+        "page": 1,
+        "chunk_id": "UIAI_2_page_1_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan LIST OF ACCEPTABLE DOCUMENTS FOR ENROLMENT AND UPDATE List I - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual up to five years of age List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age List III - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar Number of individual eighteen years and above of age List IV - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for update of information in respect of Aadhaar Number Holder of any age"
+      },
+      {
+        "score": 17,
+        "source": "UIAI_2.pdf",
+        "page": 4,
+        "chunk_id": "UIAI_2_page_4_chunk_1",
+        "chunk": "List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan List II - Documents that may be presented to evidence Proof of Identity, Address, Relationship or Date of Birth for enrolment for Aadhaar of individual five years and above and less than eighteen years of age Means allowed | Means not allowed Sl. No. List of documents (see note below this tabular statement) Proof of Identity (PoI) document, containing name and photograph Proof of Address (PoA) document, containing name and address in India Proof of Relationship (PoR)document, containing name of child and name of Head of Family (HoF) Proof of Date of Birth (PDB) document, containing name and date of birth 1. Birth certificate issued under the Registration of Births and Deaths Act, 1969 and the rules made thereunder     2. Valid Indian Passport     3. Domicile Certificate issued by State Government     4. Scheduled Tribe (ST) / Scheduled Caste (SC) / Other Backward Caste (OBC) Certificate iss"
+      }
+    ]
+  },
+  {
+    "question_id": 16,
+    "question": "What is the role of the enrolment operator?",
+    "candidate_evidence": [
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 3,
+        "chunk_id": "UIAI_1_page_3_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 3 Aadhaar Handbook for Residents 2021-Ver.2.0 T ABLE OF CONTENTS SECTION 1: INTRODUCTION 6 1.1 Aadhaar Ov erview 6 1.2 Who c an get Aadhaar? 7 1.2.1 Aadhaar f or residents of India 7 1.2.2 Aadhaar f or NRIs 7 1.3 F eatures of Aadhaar 7 1.3.1 Aadhaar is an identifier 7 1.3.2 Aadhaar is an ID , nothing more 7 1.4 Usag e of Aadhaar 7 SE CTION 2: HOW TO ENROL FOR AADHAAR? 8 2.1 En rolment Process 8 2.1.1 Documen t Based Enrolment 9 2.1.2 Head of F amily (HoF) Based Enrolment 10 2.1.3 In troducer Based Enrolment 10 2.1.4 Enr olment of Children 10 2.1.5 Enrolment of Residents with Biometric Exceptions 11 2.2 P oints to remember for Aadhaar Enrolment 12 2.3 Aadhaar Enr olment Centre 12 2.3.1 Loc ate Aadhaar Enrolment Centre near you 13 2.3.2 T ypes of Enrolment Centres 13 2.4 Online Appoin tment Service 14 2.4.1 Ho w to book an online appointment 14 2.4.2 Appoin tment for Aadhaar Services 14 2.5 Aadhaar Generation Status 15 2.5.1 Aa"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 10Aadhaar Handbook for Residents 2021-Ver.2.0 Gift your child a Unique Identity Even Infants can be enrolled for Aadhaar 2.1.2 Head of F amily (HoF) Based Enrolment F or enrolment of family members where individual documents are not available, the enrolment can be done by providing the following details for HoF based enrolment: • Name of Head of the F amily • Proof of Relationship (PoR) of the resident and HoF • Head of Family’s Aadhaar number • Biometric confirmation of the Head of Family at time of enrolment 2.1.3 In troducer Based Enrolment If y ou do not have either of the above documents, you can enroll under Introducer based enrolment. These ‘Introducers’ are verified officials appointed by registrars. These can be: • Registrars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Represen"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 15,
+        "chunk_id": "UIAI_1_page_15_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 15 Aadhaar Handbook for Residents 2021-Ver.2.0 2.5 Aadhaar Generation Status 2.5.1 Aad haar Enrolment Status Check If y ou have given mobile number/email ID during enrolment, y ou will g et SMS/ email notific ations r elated t o y our Aadhaar g eneration. Y ou c an also check if your Aadhaar is generated from UIDAI website or by calling our helpline 1947. T o check your Aadhaar generation status, you will require your EID (Enrolment ID). The top left side of your enrolment acknowledgement slip contains 14 digit enrolment number and 14 digit time stamp having date and time (dd/mm/yyyy hh:mm:ss) of enrolment. 2.5.2 Wha t to do if EID is lost? The enr olment ID is mentioned on the acknowledgement slip that you received after enrolment. Please keep this slip carefully. You are advised to click a clear picture of the slip for your records. In case, you misplace the slip, you can retrieve your EID by these two methods: • Online fro"
+      }
+    ]
+  },
+  {
+    "question_id": 17,
+    "question": "What is the role of the verifier?",
+    "candidate_evidence": [
+      {
+        "score": 2,
+        "source": "UIAI_1.pdf",
+        "page": 62,
+        "chunk_id": "UIAI_1_page_62_chunk_2",
+        "chunk": "esident Indian (N RI) & in formation (including biome trics) pr ovided b y me t o the UID AI is m y o wn and is true , c orrect and accur ate. I am a ware tha t m y in formation including biome trics will be use d f or g eneration of Aadhaar and authen tication. I unde rstand tha t m y ide ntity in formation (e xcept c ore biome tric) ma y be pr ovided t o an ag ency only with m y c onsent during authen tication or as pe r the provisions of the Aadhaar Act. I have a right to access my identity information (except core biometrics) following the procedure laid down by UIDAI. Verifier’s Stamp and Signature: (Verifier must put his/ her Name, if stamp is not available) Applic ant’s signature/ Thumbprint To be filled by the Enrolment Agency only: Date & time of Enrolment: _________________________________ Please follow the instructions overleaf while filling up the form. Use capital letters only. 1 Pre Enrolment ID (If applicable): 2 In case of Update provide Aadhaar Number (UID): 2.1 Biome"
+      }
+    ]
+  },
+  {
+    "question_id": 18,
+    "question": "How is an Aadhaar number generated?",
+    "candidate_evidence": [
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 31,
+        "chunk_id": "UIAI_1_page_31_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 31 Aadhaar Handbook for Residents 2021-Ver.2.0 Aadhaar P VC Car d is deliv ered t o the r esident’s addr ess b y speed pos t. R esidents who do not ha ve registered mobile number can also order using Non-Registered /Alternate Mobile Number . You can use these identifiers to order Aadhaar PVC card: • Aadhaar number (12 digit) • Virtual ID (16-digit VID is a t oken id entifier tha t c an used in place of Aadhaar number) • EID (28 digit enr olment ID) Y ou can make the payment for your Aadhaar PVC Card online using Credit/ Debit Card, Net Banking or UPI. SMS notific ations ar e sen t t o y our r egistered/ giv en mobile number f or SRN (Se rvice R equest Number), status of the request and AWB (Airway Bill Number) for tracking the Speed Post."
+      },
+      {
+        "score": 7,
+        "source": "UIAI_1.pdf",
+        "page": 53,
+        "chunk_id": "UIAI_1_page_53_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 53 Aadhaar Handbook for Residents 2021-Ver.2.0 20. Con venience fee. — The Authority may authorise Registrars to charge convenience fee from the residents, not e xceeding an amoun t specified b y the Authority , f or upda te of demogr aphic in formation and biometric information. 12.3 CHAP TER VI - Omission or Deactivation of Aadhaar Number and Identity Information 27. Cases r equiring omission of Aadhaar Number. — (1) The Aadhaar num ber of an Aadhaar number holder shall be cancelled in the following circumstances:— (a) If it is established that more than one Aadhaar numbers have been issued to the same person, then the Aadhaar number assigned from the earlier enrolment shall be retained, and all subsequent Aadhaar numbers shall be cancelled . (b) Wher e the Aadhaar number has been g enerated in viola tion of the pr escribed guidelines:— (i) “Phot o on Phot o” c ase wher e c ore biome tric in formation is not a vailable: Whe"
+      },
+      {
+        "score": 7,
+        "source": "UIAI_2.pdf",
+        "page": 13,
+        "chunk_id": "UIAI_2_page_13_chunk_4",
+        "chunk": "irth certificate as proof of date of birth b. For Non-Resident Indian (NRI) below 18 years of age: - Aadhaar number holder shall submit birth certificate or Indian Passport as proof of date of birth c. For resident Indians and Non-Resident Indian (NRI) of 18 years and above of age: - Aadhaar number holder shall submit any of the acceptable proof of date of birth documents as specified in the above list (ii) If the Aadhaar number holder had earlier submitted birth certificate as proof of date of birth, the Aadhaar number holder shall submit corrected birth certificate bearing same Birth Registration Number (BRN) (iii) If the Aadhaar number holder had earlier submitted any proof of date of birth document except birth certificate (for e.g. Marksheet, Passport etc.), the Aadhaar number holder shall submit corrected version of the same document or submit a birth certificate (iv) In case of date of birth update of woman who has changed her name post-marriage, proof of date of birth documents"
+      }
+    ]
+  },
+  {
+    "question_id": 19,
+    "question": "What should a resident do if there is an error in their Aadhaar information?",
+    "candidate_evidence": [
+      {
+        "score": 6,
+        "source": "UIAI_1.pdf",
+        "page": 5,
+        "chunk_id": "UIAI_1_page_5_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 5 Aadhaar Handbook for Residents 2021-Ver.2.0 9.3 How you can further protect your Aadhaar Information 39 SE CTION 10: GRIEVANCE HANDLING 40 10.1 Aadhaar Sampa rk Kendra - Helpline 1947 40 10.2 Help via Email 41 10.3 Aadhaar W ebsite 41 10.4 Aadhaar Cha tbot 42 10.5 So cial Media 43 10.5.1 Official Social Media Profiles: 43 10.5.2 Beware of Fake Profiles/ User Accounts 45 10.6 Aadhaar Regional Offices 46 SE CTION 11: THE AADHAAR ACT 2016 48 11.1 Responsibilities of UIDAI 49 SE CTION 12: AADHAAR ( ENROLMENT AN D UPD ATE) RE GULATIONS, 2 016 50 12.1 CHAP TER II - Resident Enrolment Process 50 12.2 CHAPTER IV - Update of Resident Information 52 12.3 CHAPTER VI - Omission or Deactivation of Aadhaar Number and Identity Information 53 SE CTION 13: APPENDIX 56 13.1 Annexure I - List of valid supporting documents 56 13.2 Annexure II – Format for Certificate (For Aadhaar Enrolment/ Update) 58 13.3 Annexure III – How to fill (Certifica"
+      },
+      {
+        "score": 6,
+        "source": "UIAI_1.pdf",
+        "page": 63,
+        "chunk_id": "UIAI_1_page_63_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 63 Aadhaar Handbook for Residents 2021-Ver.2.0 INSTRUCTIONS TO FOLLOW WHILE FILLING UP THE ENROLMENT FORM Field 3: NAME Write full name without salutations/titles. Please bring the original* Proof of Identity (POI) document. (See list A below). Variation in Resident’s Name in contrast to POI is permissible as long as the change is minor spelling only, without altering the Name in POI document. For Example: If Resident’s POI reads “Preeti”, then “Priti” can be recorded if Resident wants so. Field 5: DOB / AGE Fill in Date of Birth in DDMMYYYY format. If exact Date of Birth is not known, approximate age in Years may be filled in the space provided. Please bring the original Proof of Date of Birth (DOB), if available. (See list D below). Declared checkbox may be selected if Resident does not have a valid proof of Date of Birth document. Verified checkbox is selected where Resident has provided documents as proof of Date of birth"
+      },
+      {
+        "score": 5,
+        "source": "UIAI_1.pdf",
+        "page": 50,
+        "chunk_id": "UIAI_1_page_50_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 50Aadhaar Handbook for Residents 2021-Ver.2.0 SECTION 12 AADHAAR (ENROLMENT AND UPDATE) REGULATIONS, 2016 Your enr olment and upda te is g overned b y the Aadhaar (Enr olment and Upda te) R egulations, 2016. R egulations of direct relevance to you are reproduced below for your information: 12.1 CHAP TER II - Resident Enrolment Process 3. Biom etric information required for enrolment. — (1) The f ollowing bio metric in formation shall be c ollected fr om all individuals under going enrolment (other than children below five years of age): (i) Facial image; (ii) All ten fingerprints; and (iii) Sc ans of both irises. (2) The s tandards f or c ollecting the biome tric in formation shall be as specified b y the Authority f or this purpose. 4. Demo graphic information required for enrolment. — (1) The f ollowing demogr aphic in formation shall be c ollected fr om all individuals under going enrolment (other than children below five"
+      }
+    ]
+  },
+  {
+    "question_id": 20,
+    "question": "What is demographic authentication?",
+    "candidate_evidence": [
+      {
+        "score": 4,
+        "source": "UIAI_1.pdf",
+        "page": 36,
+        "chunk_id": "UIAI_1_page_36_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 36Aadhaar Handbook for Residents 2021-Ver.2.0 You will receive any Aadhaar-based credits in only one account that you have mapped to the NPCI mapper. • Upda te Demographic Online: If you have your Aadhaar registered mobile number, you can place an online demographic details update request using the SSUP (self- service update portal) of Aadhaar. This service requires mandatory OTP authentication • Aadhaar Bank Linking Status: You can check your Aadhaar and Bank Account Linking Status in NPCI mapper using this service. This service requires mandatory OTP authentication. • Aadhaar Update History: You can use this service to get a chronological history of all updates done in your Aadhaar. The OTP for this service will be sent to your registered mobile number • V erify Email/ Mobile Number: You can use this service to verify their email or mobile number in your Aadhaar. The OTP for this service will be sent to your registered mobi"
+      },
+      {
+        "score": 3,
+        "source": "UIAI_1.pdf",
+        "page": 17,
+        "chunk_id": "UIAI_1_page_17_chunk_2",
+        "chunk": "ur r egistered mobile number t o g et the OTP to login to SSUP . If the registered mobile number is not available, you can visit any Aadhaar Enr olment Cen tre with y our Aadhaar and sup porting documen t t o place an upda te r equest. 3.2.1 Upda ting Demographic details online with Document Y ou can place a request to update the Demographic (Name (Minor Update), Address, DOB, Gender, Regional Language) details in your Aadhaar with a valid Proof of documents in your(applicant) name (see lis t in Section 13.1, Anne x–I). The pr ocess f or online upda te is as f ollows Update Aadhaar Demographic details online conveniently from your home"
+      },
+      {
+        "score": 2,
+        "source": "UIAI_1.pdf",
+        "page": 20,
+        "chunk_id": "UIAI_1_page_20_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 20Aadhaar Handbook for Residents 2021-Ver.2.0 3.5 Li mits on number of updates As per the update policy of UIDAI, the following limits have been set for update of demographic information in their Aadhaar: • Name – Can be updated twice • Gender – Once • Date of Birth – Once Th e pr ocess f or the abo ve upda tes within the permissible limits is same as described in Section 3.1 abo ve. An y other in formation in y our Aadhaar c an be upda ted as and when r equired. Ther e is no limit on the number of updates for any other demographic information – address, email ID, mobile number; or biometrics – photograph, fingerprints, iris scans. 3.6 Ex ception Process for Aadhaar Update If for any reason, you need to update the above three fields (name, gender and date of birth) in y our Aadhaar again (beyond the permissible limit), you need to: 1. Visit an y Aadhaar Enr olment Cen tre (with v alid supporting docume nt f or N ame & Da te o"
+      }
+    ]
+  },
+  {
+    "question_id": 21,
+    "question": "What is biometric authentication?",
+    "candidate_evidence": [
+      {
+        "score": 4,
+        "source": "UIAI_1.pdf",
+        "page": 19,
+        "chunk_id": "UIAI_1_page_19_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 19 Aadhaar Handbook for Residents 2021-Ver.2.0 A child’s Aadhaar needs TWO mandatory biometric updates: When the child attains 5 years of age When the child attains 15 years of age These updates are FREE 3.3 Manda tory Biometric Update for Children Th e biometric details of children need to be updated in their Aadhaar when the child a ttains the ag e of 5 y ears, and once ag ain at the age of 15 years. The child’s fingerprints, iris scans and photographs are captured and updated in their Aadhaar data. This helps the child in using his/her Aadhaar as an identifier wherever required. The Aadhaar number assigned to the child remains the same. This mandatory biometric update for children is FREE. 3.4 Upda ting ‘Care of’ field in Aadhaar Address Th e ‘Car e of ’ de tails in Aadhaar ar e a part of Addr ess field. These w ere earlier men tioned as W/ o, D/ o, S/ o or C/ o. These ha ve no w been s tandardized t o C/ o. If y ou upda t"
+      },
+      {
+        "score": 3,
+        "source": "UIAI_1.pdf",
+        "page": 20,
+        "chunk_id": "UIAI_1_page_20_chunk_3",
+        "chunk": "r c aptured biome tric da ta of a r esident, his/her Aadhaar is deactiv ated t emporarily and the Aadhaar holder is duly notified of this. If y our Aadhaar gets suspended, you would not be able to avail any service based on Aadhaar OTP/ biometric authentication. In such c ases, the Aadhaar holder needs to follow the below steps: 1. R efer t o the e mail/ SMS/ le tter b y UID AI or c all 1947 t o kno w sub sequent c ourse of action. 2. If the deactiv ation is due t o biome trics r elated r eason, visit an y Aadhaar Enr olment Cen tre and update your biometrics. Name can be updated TWICE Gender can be updated only ONCE Want to update Date of Birth, Name and Gender in Aadhaar? Date of birth can be updated only ONCE NOTE THE FOLLOWING"
+      },
+      {
+        "score": 3,
+        "source": "UIAI_1.pdf",
+        "page": 39,
+        "chunk_id": "UIAI_1_page_39_chunk_3",
+        "chunk": "er vice, you can use the Virtual ID or VID – a 16-digit token for your Aadhaar. You can generate your VID from uidai. gov.in, mAadhaar App or via Aadhaar SMS service. • Biome tric Lock/ Unlock: This service enables you to lock and temporarily unlock your biometrics in Aadhaar. The OTP for this service will be sent to your registered mobile number. • Aadhaar Lock/ Unlock: If you do not wish to use your Aadhaar, you can lock your Aadhaar number. By doing this, you will not be able t o perf orm an y authen tication using Aadhaar , VID & ANCS Token for biometric, demographic & OTP based authen tication. Aadhaar can be unlocked only using VID (Virtual ID). The OTP for this service will be sent to your registered mobile number. To know more about Biometric Lock/ Unlock service SCAN To know more about Aadhaar Lock/ Unlock service SCAN To know more about VID SCAN"
+      }
+    ]
+  },
+  {
+    "question_id": 22,
+    "question": "What is Aadhaar authentication?",
+    "candidate_evidence": [
+      {
+        "score": 2,
+        "source": "UIAI_1.pdf",
+        "page": 36,
+        "chunk_id": "UIAI_1_page_36_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 36Aadhaar Handbook for Residents 2021-Ver.2.0 You will receive any Aadhaar-based credits in only one account that you have mapped to the NPCI mapper. • Upda te Demographic Online: If you have your Aadhaar registered mobile number, you can place an online demographic details update request using the SSUP (self- service update portal) of Aadhaar. This service requires mandatory OTP authentication • Aadhaar Bank Linking Status: You can check your Aadhaar and Bank Account Linking Status in NPCI mapper using this service. This service requires mandatory OTP authentication. • Aadhaar Update History: You can use this service to get a chronological history of all updates done in your Aadhaar. The OTP for this service will be sent to your registered mobile number • V erify Email/ Mobile Number: You can use this service to verify their email or mobile number in your Aadhaar. The OTP for this service will be sent to your registered mobi"
+      },
+      {
+        "score": 2,
+        "source": "UIAI_1.pdf",
+        "page": 37,
+        "chunk_id": "UIAI_1_page_37_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 37 Aadhaar Handbook for Residents 2021-Ver.2.0 To read FAQs SCAN • Aadhaar Authentication History: Using this service, you can g et de tails of authen tication perf ormed b y y ou in pas t 6 mon ths. The OTP for this service will be sent to your registered mobile number. • Offline eKYC Service: Using this service, you can generate your digitally signed Aadhaar details that you may use for KYC purposes. To know more about Aadhaar Authentication History SCAN To know more about Aadhaar Paperless Offline eKYC: SCAN 8.3 Fr equently Asked Questions UID AI also has e xtensive F AQs section on the w ebsite and mAadhaar app to help residents understand Aadhaar process, services and products."
+      },
+      {
+        "score": 1,
+        "source": "UIAI_1.pdf",
+        "page": 7,
+        "chunk_id": "UIAI_1_page_7_chunk_4",
+        "chunk": "ffline v erification, as the c ase ma y be. It elimina tes the need f or pr oviding iden tity documen ts each time y ou wish t o access ser vices, benefits and subsidies. Aadhaar provides a portable proof of identity that can be verified through Aadhaar Authentication online anytime, anywhere. Indian Passport is mandatory Identity proof for Aadhaar Enrolment of NRIs."
+      }
+    ]
+  },
+  {
+    "question_id": 23,
+    "question": "Can a resident update Aadhaar information?",
+    "candidate_evidence": [
+      {
+        "score": 10,
+        "source": "UIAI_1.pdf",
+        "page": 20,
+        "chunk_id": "UIAI_1_page_20_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 20Aadhaar Handbook for Residents 2021-Ver.2.0 3.5 Li mits on number of updates As per the update policy of UIDAI, the following limits have been set for update of demographic information in their Aadhaar: • Name – Can be updated twice • Gender – Once • Date of Birth – Once Th e pr ocess f or the abo ve upda tes within the permissible limits is same as described in Section 3.1 abo ve. An y other in formation in y our Aadhaar c an be upda ted as and when r equired. Ther e is no limit on the number of updates for any other demographic information – address, email ID, mobile number; or biometrics – photograph, fingerprints, iris scans. 3.6 Ex ception Process for Aadhaar Update If for any reason, you need to update the above three fields (name, gender and date of birth) in y our Aadhaar again (beyond the permissible limit), you need to: 1. Visit an y Aadhaar Enr olment Cen tre (with v alid supporting docume nt f or N ame & Da te o"
+      },
+      {
+        "score": 9,
+        "source": "UIAI_1.pdf",
+        "page": 4,
+        "chunk_id": "UIAI_1_page_4_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 4Aadhaar Handbook for Residents 2021-Ver.2.0 3.5 Li mits on number of updates 20 3.6 Exception Process for Aadhaar Update 20 3.7 Update in case of Aadhaar Deactivation 20 3.8 Aadhaar Upda te Status Check 21 3.9 P oints to remember for Aadhaar Update 21 3.10 Exit Fr om Aadhaar 21 SE CTION 4: VALID LIST OF DOCUMENTS FOR AADHAAR ENROLMENT/ UPDATE 22 4.1 Proof of Identity (POI) 23 4.2 Pr oof of Address (POA) 23 4.3 Da te of Birth (DOB) 23 4.4 Proof of Relationship (POR) 23 4.5 Certificate for Aadhaar Enrolment/ Update 23 SE CTION 5: CHARGES/ FEES FOR AADHAAR ENROLMENT/ UPDATE 24 5.1 N o charges for Aadhaar Enrolment/ Update Form 24 5.2 Ho w to complaint if the centre charges you extra 25 SE CTION 6: GETTING AADHAAR 26 6.1 Aadhaar Generation 26 6.2 Aadhaar Letter 26 6.3 Do wnload eAadhaar 27 6.3.1 O TP to download Aadhaar & Password 28 6.3.2 Validating the digital signature on eAadhaar 28 6.3.3 Do wnloaded Aadhaar is legally valid"
+      },
+      {
+        "score": 9,
+        "source": "UIAI_1.pdf",
+        "page": 52,
+        "chunk_id": "UIAI_1_page_52_chunk_2",
+        "chunk": "vide f or han dling of such e xceptions in the enrolment and upda te software, and such enr olment shall be carried out as per the procedure as may be specified by the Authority for this purpose. 12.2 CHAP TER IV - Update of Resident Information 16. R equest for update of identity information. — An Aadhaar number holder ma y seek alt eration of his demogr aphic in formation or biome tric in formation in c ases specified under Section 31 of the Act in acc ordance with update procedure specified in this Chapter . 17. Mand atory update for children. — The Authority shall r equire the bio metric in formation of childr en t o be upda ted upon a ttaining fiv e y ears of ag e and fift een y ears of ag e in acc ordance with the pr ocedure specified by the Authority. 19. Mode of upda ting residents’ information. — The pr ocess of upda ting r esidents’ in formation in the CIDR ma y be c arried out thr ough the following modes:— (a) A t any enrolment centre with the assistance of the operator and"
+      }
+    ]
+  },
+  {
+    "question_id": 24,
+    "question": "What types of information can be updated in Aadhaar?",
+    "candidate_evidence": [
+      {
+        "score": 3,
+        "source": "UIAI_1.pdf",
+        "page": 5,
+        "chunk_id": "UIAI_1_page_5_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 5 Aadhaar Handbook for Residents 2021-Ver.2.0 9.3 How you can further protect your Aadhaar Information 39 SE CTION 10: GRIEVANCE HANDLING 40 10.1 Aadhaar Sampa rk Kendra - Helpline 1947 40 10.2 Help via Email 41 10.3 Aadhaar W ebsite 41 10.4 Aadhaar Cha tbot 42 10.5 So cial Media 43 10.5.1 Official Social Media Profiles: 43 10.5.2 Beware of Fake Profiles/ User Accounts 45 10.6 Aadhaar Regional Offices 46 SE CTION 11: THE AADHAAR ACT 2016 48 11.1 Responsibilities of UIDAI 49 SE CTION 12: AADHAAR ( ENROLMENT AN D UPD ATE) RE GULATIONS, 2 016 50 12.1 CHAP TER II - Resident Enrolment Process 50 12.2 CHAPTER IV - Update of Resident Information 52 12.3 CHAPTER VI - Omission or Deactivation of Aadhaar Number and Identity Information 53 SE CTION 13: APPENDIX 56 13.1 Annexure I - List of valid supporting documents 56 13.2 Annexure II – Format for Certificate (For Aadhaar Enrolment/ Update) 58 13.3 Annexure III – How to fill (Certifica"
+      },
+      {
+        "score": 3,
+        "source": "UIAI_1.pdf",
+        "page": 20,
+        "chunk_id": "UIAI_1_page_20_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 20Aadhaar Handbook for Residents 2021-Ver.2.0 3.5 Li mits on number of updates As per the update policy of UIDAI, the following limits have been set for update of demographic information in their Aadhaar: • Name – Can be updated twice • Gender – Once • Date of Birth – Once Th e pr ocess f or the abo ve upda tes within the permissible limits is same as described in Section 3.1 abo ve. An y other in formation in y our Aadhaar c an be upda ted as and when r equired. Ther e is no limit on the number of updates for any other demographic information – address, email ID, mobile number; or biometrics – photograph, fingerprints, iris scans. 3.6 Ex ception Process for Aadhaar Update If for any reason, you need to update the above three fields (name, gender and date of birth) in y our Aadhaar again (beyond the permissible limit), you need to: 1. Visit an y Aadhaar Enr olment Cen tre (with v alid supporting docume nt f or N ame & Da te o"
+      },
+      {
+        "score": 3,
+        "source": "UIAI_1.pdf",
+        "page": 20,
+        "chunk_id": "UIAI_1_page_20_chunk_3",
+        "chunk": "r c aptured biome tric da ta of a r esident, his/her Aadhaar is deactiv ated t emporarily and the Aadhaar holder is duly notified of this. If y our Aadhaar gets suspended, you would not be able to avail any service based on Aadhaar OTP/ biometric authentication. In such c ases, the Aadhaar holder needs to follow the below steps: 1. R efer t o the e mail/ SMS/ le tter b y UID AI or c all 1947 t o kno w sub sequent c ourse of action. 2. If the deactiv ation is due t o biome trics r elated r eason, visit an y Aadhaar Enr olment Cen tre and update your biometrics. Name can be updated TWICE Gender can be updated only ONCE Want to update Date of Birth, Name and Gender in Aadhaar? Date of birth can be updated only ONCE NOTE THE FOLLOWING"
+      }
+    ]
+  },
+  {
+    "question_id": 25,
+    "question": "What should be done if the requested information is not available in the Aadhaar Handbook?",
+    "candidate_evidence": [
+      {
+        "score": 6,
+        "source": "UIAI_2.pdf",
+        "page": 11,
+        "chunk_id": "UIAI_2_page_11_chunk_2",
+        "chunk": "id/post-paid bill, not older than 3 months)     21. Water bill (not older than 3 months)     22. Telephone landline bill/ post-paid mobile bill/ broadband bill (not older than 3 months)     23. Property Tax Receipt (not older than 1 year)     24. Valid sale agreement/ gift deed registered with the Registrar Office, or registered or unregistered rent, lease agreement or leave and licence agreement     25. Gas bill (not older than 3 months)     26. Allotment letter of accommodation issued by Central Government/ State Government/ PSU / regulatory body / statutory body (not older than 1 year)     27. Life or medical insurance Policy (valid up to 1 year from the date of issue of the Policy)     28. Birth certificate issued under the Registration of Births and Deaths Act, 1969 and the rules made thereunder    # 29. Prisoner Induction Document (PID) issued by Prison Officer with signature and seal     30. Self-declaration from an immediate family member"
+      },
+      {
+        "score": 5,
+        "source": "UIAI_1.pdf",
+        "page": 9,
+        "chunk_id": "UIAI_1_page_9_chunk_2",
+        "chunk": "nts who do not ha ve the r equired documen ts in their name lik e family members/ homeless/ orphans etc. or for residents who have biometrics exceptions wher e the r equired biome tric de tails c annot be c aptured. E ach c ase of enr olment is e xplained below: 2.1.1 Documen t Based Enrolment Y ou c an enr ol f or Aadhaar b y pr oviding a v alid Pr oof of Iden tity (P oI) and a valid Proof of Address (PoA) as per the list of acceptable documents available on enrolment form or UIDAI website (see Section 13.1, Annex-I): • Proof of Identity (POI) - Mandatory • Pr oof of Address (POA) – Mandatory • Da te of Birth (DOB) – You are required to submit one of the valid DoB documents as per UIDAI list. If you do not have that, you can declare your Date of Birth or give approximate age. If y ou have a valid document, you have to produce that for Aadhaar enrolment. In case you do not ha ve docu ments in y our name, y ou c an also use a certific ate issued b y authoriz ed official (r efer t o Anne"
+      },
+      {
+        "score": 5,
+        "source": "UIAI_1.pdf",
+        "page": 10,
+        "chunk_id": "UIAI_1_page_10_chunk_1",
+        "chunk": "Unique Identification Authority of India Government of India 10Aadhaar Handbook for Residents 2021-Ver.2.0 Gift your child a Unique Identity Even Infants can be enrolled for Aadhaar 2.1.2 Head of F amily (HoF) Based Enrolment F or enrolment of family members where individual documents are not available, the enrolment can be done by providing the following details for HoF based enrolment: • Name of Head of the F amily • Proof of Relationship (PoR) of the resident and HoF • Head of Family’s Aadhaar number • Biometric confirmation of the Head of Family at time of enrolment 2.1.3 In troducer Based Enrolment If y ou do not have either of the above documents, you can enroll under Introducer based enrolment. These ‘Introducers’ are verified officials appointed by registrars. These can be: • Registrars’ own employees • Elect ed local body members • Members of local administrative bodies • P ostman • Influencers such as teachers • Health w orkers • Doct ors • Ang anwadis/Asha workers • Represen"
+      }
+    ]
+  }
+]

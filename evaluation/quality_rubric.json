@@ -1,0 +1,324 @@
+{
+  "rubric_version": "1.0",
+  "scoring_principles": {
+    "correctness": "Score based on coverage of the expected facts. Do not award credit for unsupported or contradictory claims.",
+    "retrieval_quality": "A retrieved chunk is relevant only when it contains information that can directly support the answer. Lexical similarity alone is not sufficient.",
+    "hallucination": "A hallucination is a factual claim that is not supported by the retrieved context or the handbook evidence for the question.",
+    "abstention": "For questions whose requested information is not established by the handbook, a response should explicitly acknowledge the limitation rather than invent information."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What documents are required for Aadhaar enrolment?",
+      "expected_facts": [
+        "Proof of Identity (POI) is required.",
+        "Proof of Address (POA) is required.",
+        "A valid Date of Birth (DoB) document is required when available.",
+        "Head of Family (HoF) based enrolment can use Proof of Relationship (PoR), the HoF Aadhaar number, and biometric confirmation of the HoF when individual documents are unavailable.",
+        "Introducer based enrolment is possible when the required documents are unavailable."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [9, 10, 63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 9, 13]}
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is Aadhaar enrolment?",
+      "expected_facts": [
+        "Aadhaar enrolment is the process of registering a resident for Aadhaar.",
+        "The enrolment process captures the resident's demographic and biometric information.",
+        "Aadhaar enrolment is free.",
+        "A resident can enrol for Aadhaar only once."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [8, 9, 10, 50]}
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of Aadhaar?",
+      "expected_facts": [
+        "Aadhaar provides a portable proof of identity.",
+        "Aadhaar can be used to access services, benefits and subsidies.",
+        "Identity can be verified through Aadhaar Authentication online."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [6, 7, 38]}
+      ]
+    },
+    {
+      "id": 4,
+      "question": "What is Proof of Identity?",
+      "expected_facts": [
+        "Proof of Identity (POI) is an identity document accepted by UIDAI for establishing the resident's identity during Aadhaar enrolment or update.",
+        "POI is a mandatory document for document-based enrolment."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [9, 63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 9]}
+      ]
+    },
+    {
+      "id": 5,
+      "question": "What is Proof of Address?",
+      "expected_facts": [
+        "Proof of Address (POA) is an accepted document used to establish the resident's address.",
+        "POA is mandatory for document-based Aadhaar enrolment."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [9, 63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 12, 18]}
+      ]
+    },
+    {
+      "id": 6,
+      "question": "What is Proof of Date of Birth?",
+      "expected_facts": [
+        "Proof of Date of Birth is a valid document from the UIDAI-accepted list used to establish the resident's date of birth.",
+        "If a resident does not have a valid DoB document, the handbook allows declaration of the date of birth or approximate age.",
+        "If a valid DoB document is available, it should be produced for enrolment."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [9, 63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 13]}
+      ]
+    },
+    {
+      "id": 7,
+      "question": "What is Proof of Relationship?",
+      "expected_facts": [
+        "Proof of Relationship (PoR) establishes the relationship between the resident and the Head of Family.",
+        "PoR is used in Head of Family based enrolment."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [10, 63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 4]}
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Can Aadhaar enrolment be done without supporting documents?",
+      "expected_facts": [
+        "Yes, alternative enrolment methods exist when individual supporting documents are unavailable.",
+        "Head of Family based enrolment can be used where individual documents are unavailable.",
+        "Introducer based enrolment can be used when the required documents are not available."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [9, 10]},
+        {"source": "UIAI_2.pdf", "pages": [1]}
+      ]
+    },
+    {
+      "id": 9,
+      "question": "What information is collected during Aadhaar enrolment?",
+      "expected_facts": [
+        "Demographic information is collected.",
+        "Biometric information is collected.",
+        "The enrolment process captures information required for Aadhaar identity creation."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [10, 38, 50, 63]}
+      ]
+    },
+    {
+      "id": 10,
+      "question": "What biometric information is collected for Aadhaar?",
+      "expected_facts": [
+        "Photograph is collected.",
+        "Fingerprints are collected.",
+        "Iris scans are collected.",
+        "For children, fingerprints, iris scans and photographs are captured during mandatory biometric updates."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [19, 50, 63]}
+      ]
+    },
+    {
+      "id": 11,
+      "question": "What demographic information is collected during enrolment?",
+      "expected_facts": [
+        "Demographic information includes personal identity and address-related information captured during enrolment.",
+        "Name and date of birth are examples of demographic information.",
+        "Address is demographic information.",
+        "Mobile number and email are part of the demographic information fields, where provided."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [3, 10, 50, 63]}
+      ]
+    },
+    {
+      "id": 12,
+      "question": "What happens after Aadhaar enrolment?",
+      "expected_facts": [
+        "The enrolment information is processed for Aadhaar generation.",
+        "The resident can use the enrolment information or enrolment ID to check generation/status information.",
+        "Aadhaar can subsequently be downloaded or received as an Aadhaar letter when generated."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [3, 15, 26, 27]}
+      ]
+    },
+    {
+      "id": 13,
+      "question": "What documents can be used as proof of identity?",
+      "expected_facts": [
+        "Only documents from the UIDAI-valid supporting-document list should be presented as POI.",
+        "The handbook provides a specific list of acceptable POI documents."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 9]}
+      ]
+    },
+    {
+      "id": 14,
+      "question": "What documents can be used as proof of address?",
+      "expected_facts": [
+        "Only documents from the UIDAI-valid supporting-document list should be presented as POA.",
+        "The handbook provides a specific list of acceptable POA documents.",
+        "Examples include accepted utility or property-related documents where they satisfy the stated validity conditions."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 12, 18]}
+      ]
+    },
+    {
+      "id": 15,
+      "question": "What documents can be used as proof of date of birth?",
+      "expected_facts": [
+        "Only documents from the UIDAI-valid supporting-document list should be used as DoB proof.",
+        "Birth certificate is an example of an accepted DoB document in the handbook's document list."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 4, 13]}
+      ]
+    },
+    {
+      "id": 16,
+      "question": "What is the role of the enrolment operator?",
+      "expected_facts": [
+        "The operator assists with the Aadhaar enrolment process.",
+        "The operator is involved in capturing and entering resident information into the enrolment system.",
+        "The operator assists residents at the enrolment centre."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [3, 10, 50, 62]}
+      ]
+    },
+    {
+      "id": 17,
+      "question": "What is the role of the verifier?",
+      "expected_facts": [
+        "The verifier is involved in verification of the resident's enrolment/update information and supporting documentation.",
+        "The enrolment/update form contains a verifier stamp and signature as part of the verification process."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [62, 63]}
+      ],
+      "evaluation_note": "The current lexical retrieval candidate for this question is weak. Do not treat lexical similarity as proof that retrieval succeeded."
+    },
+    {
+      "id": 18,
+      "question": "How is an Aadhaar number generated?",
+      "expected_facts": [
+        "Aadhaar generation occurs after enrolment information has been submitted and processed.",
+        "The Aadhaar number is generated by UIDAI's system rather than manually assigned by the resident or operator.",
+        "The Aadhaar number is a unique 12-digit identity number."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [6, 15, 26, 31]}
+      ]
+    },
+    {
+      "id": 19,
+      "question": "What should a resident do if there is an error in their Aadhaar information?",
+      "expected_facts": [
+        "The resident should request an update/correction of the incorrect information.",
+        "Updates can be performed through the applicable Aadhaar update process.",
+        "Valid supporting documents may be required depending on the field being corrected."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [17, 18, 20, 63]}
+      ]
+    },
+    {
+      "id": 20,
+      "question": "What is demographic authentication?",
+      "expected_facts": [
+        "Demographic authentication is authentication using demographic information associated with Aadhaar.",
+        "It is one of the modes of Aadhaar authentication."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [36, 37, 39]}
+      ],
+      "evaluation_note": "The currently retrieved pages provide contextual evidence but may not contain a complete formal definition."
+    },
+    {
+      "id": 21,
+      "question": "What is biometric authentication?",
+      "expected_facts": [
+        "Biometric authentication uses biometric information associated with the resident's Aadhaar.",
+        "Biometric information includes characteristics such as fingerprints and iris scans.",
+        "Biometric authentication is one of the modes through which Aadhaar can be authenticated."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [19, 20, 39, 50]}
+      ],
+      "evaluation_note": "The retrieved candidates mainly discuss biometric updates and biometric locking rather than giving a direct definition. Retrieval quality should therefore be judged against actual supporting content, not lexical score."
+    },
+    {
+      "id": 22,
+      "question": "What is Aadhaar authentication?",
+      "expected_facts": [
+        "Aadhaar authentication is an online process through which Aadhaar identity can be verified.",
+        "Authentication can involve demographic, biometric or OTP-based authentication.",
+        "The authentication response can be a yes/no verification response.",
+        "Aadhaar authentication does not provide the requesting entity unrestricted access to the resident's Aadhaar database."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [7, 36, 37, 38, 39]}
+      ]
+    },
+    {
+      "id": 23,
+      "question": "Can a resident update Aadhaar information?",
+      "expected_facts": [
+        "Yes, an Aadhaar number holder can request alteration/update of demographic or biometric information.",
+        "Updates can be performed through an enrolment centre.",
+        "Some demographic updates can also be performed online using the applicable self-service process when the registered mobile number is available."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [17, 18, 20, 36, 52]}
+      ]
+    },
+    {
+      "id": 24,
+      "question": "What types of information can be updated in Aadhaar?",
+      "expected_facts": [
+        "Demographic information can be updated.",
+        "Address can be updated.",
+        "Name, gender and date of birth can be updated subject to the stated limits.",
+        "Email ID and mobile number can be updated.",
+        "Biometric information such as photograph, fingerprints and iris scans can be updated."
+      ],
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [17, 20, 52]}
+      ]
+    },
+    {
+      "id": 25,
+      "question": "What should be done if the requested information is not available in the Aadhaar Handbook?",
+      "expected_facts": [
+        "The assistant should not invent or fabricate information that is not supported by the handbook.",
+        "The assistant should clearly state that the requested information is not available in the provided handbook.",
+        "Where appropriate, the resident should be directed to the official UIDAI information channels for further information."
+      ],
+      "gold_sources": [],
+      "evaluation_note": "This is an out-of-knowledge-base/abstention test. The retrieved lexical candidates are not valid evidence for answering the question. A response should be rewarded for appropriate abstention rather than for matching unrelated handbook text."
+    }
+  ]
+}
+
