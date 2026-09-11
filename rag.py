@@ -9,7 +9,7 @@ import faiss
 # ============================================================
 
 EMBEDDING_MODEL = "nomic-embed-text"
-LLM_MODEL = "qwen3:0.6b"
+LLM_MODEL = "qwen2.5-coder:1.5b"
 
 EMBED_URL = "http://localhost:11434/api/embed"
 CHAT_URL = "http://localhost:11434/api/chat"

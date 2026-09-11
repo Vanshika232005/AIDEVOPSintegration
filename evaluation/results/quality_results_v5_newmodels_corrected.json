@@ -1,0 +1,105 @@
+{
+  "evaluation_version": "week4_quality_v5_newmodels_corrected",
+  "models": [
+    "qwen2.5-coder:1.5b",
+    "llama3.2:3b",
+    "deepseek-coder:1.3b"
+  ],
+  "methodology": {
+    "rag_source": "evaluation/results/rag_analysis_25_newmodels.json",
+    "rag_retrieval": "Retrieval is shared across all three models because the same retrieval pipeline and retrieved context were used.",
+    "grounded_answer_correctness": "Mean expected-fact coverage supported by the retrieved context.",
+    "unsupported_claim_rate": "Percentage of responses flagged by the automated evaluator as containing unsupported factual claims. This is a proxy, not human-confirmed hallucination.",
+    "appropriate_abstention": "Abstention when context is insufficient or when the explicit out-of-KB question requires refusal.",
+    "inappropriate_abstention": "Abstention when the retrieved context contains sufficient evidence.",
+    "retrieval_comparison_rule": "Retrieval quality is reported as a shared pipeline metric and is not used to rank the models."
+  },
+  "rag": {
+    "qwen2.5-coder:1.5b": {
+      "questions": 25,
+      "context_sufficient_count": 19,
+      "context_sufficiency_percent": 76.0,
+      "facts_supported": 64,
+      "facts_missing": 12,
+      "grounded_answer_correctness_percent": 84.0,
+      "unsupported_claim_signal_count": 1,
+      "unsupported_claim_signal_rate_percent": 4.0,
+      "appropriate_abstention_count": 2,
+      "appropriate_abstention_rate_percent": 8.0,
+      "inappropriate_abstention_count": 4,
+      "inappropriate_abstention_rate_percent": 16.0,
+      "shared_retrieval_gold_location_coverage_percent": 24.73,
+      "retrieval_is_shared_across_models": true,
+      "avg_response_latency_seconds": 0.0,
+      "avg_output_tokens": 0.0,
+      "avg_total_tokens": 0.0
+    },
+    "llama3.2:3b": {
+      "questions": 25,
+      "context_sufficient_count": 19,
+      "context_sufficiency_percent": 76.0,
+      "facts_supported": 64,
+      "facts_missing": 12,
+      "grounded_answer_correctness_percent": 84.0,
+      "unsupported_claim_signal_count": 2,
+      "unsupported_claim_signal_rate_percent": 8.0,
+      "appropriate_abstention_count": 5,
+      "appropriate_abstention_rate_percent": 20.0,
+      "inappropriate_abstention_count": 4,
+      "inappropriate_abstention_rate_percent": 16.0,
+      "shared_retrieval_gold_location_coverage_percent": 24.73,
+      "retrieval_is_shared_across_models": true,
+      "avg_response_latency_seconds": 0.0,
+      "avg_output_tokens": 0.0,
+      "avg_total_tokens": 0.0
+    },
+    "deepseek-coder:1.3b": {
+      "questions": 25,
+      "context_sufficient_count": 19,
+      "context_sufficiency_percent": 76.0,
+      "facts_supported": 64,
+      "facts_missing": 12,
+      "grounded_answer_correctness_percent": 84.0,
+      "unsupported_claim_signal_count": 2,
+      "unsupported_claim_signal_rate_percent": 8.0,
+      "appropriate_abstention_count": 0,
+      "appropriate_abstention_rate_percent": 0.0,
+      "inappropriate_abstention_count": 0,
+      "inappropriate_abstention_rate_percent": 0.0,
+      "shared_retrieval_gold_location_coverage_percent": 24.73,
+      "retrieval_is_shared_across_models": true,
+      "avg_response_latency_seconds": 0.0,
+      "avg_output_tokens": 0.0,
+      "avg_total_tokens": 0.0
+    }
+  },
+  "global_execution": {
+    "qwen2.5-coder:1.5b": {
+      "evaluation_records": 35,
+      "execution_success_percent": 77.14,
+      "test_failed_count": 8,
+      "error_count": 0,
+      "avg_latency_seconds": 17.7183,
+      "avg_output_tokens": 236.4,
+      "avg_total_tokens": 515.6857
+    },
+    "llama3.2:3b": {
+      "evaluation_records": 35,
+      "execution_success_percent": 77.14,
+      "test_failed_count": 8,
+      "error_count": 0,
+      "avg_latency_seconds": 29.477,
+      "avg_output_tokens": 157,
+      "avg_total_tokens": 428.9429
+    },
+    "deepseek-coder:1.3b": {
+      "evaluation_records": 35,
+      "execution_success_percent": 71.43,
+      "test_failed_count": 9,
+      "error_count": 1,
+      "avg_latency_seconds": 25.0349,
+      "avg_output_tokens": 334.9706,
+      "avg_total_tokens": 731.8824
+    }
+  }
+}

@@ -36,7 +36,7 @@ services:
     ports:
       - "8002:8002"
     environment:
-      MODEL: qwen3:0.6b
+      MODEL: qwen2.5-coder:1.5b
       OLLAMA_URL: http://host.docker.internal:11434/api/chat
     extra_hosts:
       - "host.docker.internal:host-gateway"

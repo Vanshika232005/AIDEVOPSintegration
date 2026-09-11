@@ -1,0 +1,180 @@
+{
+  "rubric_version": "5.0",
+  "objective": "Measure how different LLMs perform on different software-engineering task types and RAG tasks. The primary comparison must be category-wise, not a single overall score.",
+
+  "models": [
+    "qwen3:0.6b",
+    "gemma3:270m",
+    "smollm2:360m"
+  ],
+
+  "category_metrics": {
+
+    "Explanation": {
+      "primary_metric": "Correctness",
+      "secondary_metrics": [
+        "Completeness",
+        "Relevance",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Expert/rubric-based scoring against expected points.",
+      "score_scale": "0-100",
+      "interpretation": "Measures whether the model accurately explains the requested code behavior without introducing unsupported claims."
+    },
+
+    "Code Retrieval": {
+      "primary_metric": "Retrieval Accuracy",
+      "secondary_metrics": [
+        "Exactness",
+        "Relevance",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Compare identified files, functions, symbols, URLs, or execution order with the expected answer.",
+      "score_scale": "0-100",
+      "interpretation": "Measures the model's ability to locate and identify relevant code elements in the codebase."
+    },
+
+    "Dependency Understanding": {
+      "primary_metric": "Dependency Accuracy",
+      "secondary_metrics": [
+        "Completeness",
+        "Dependency Path Accuracy",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Score whether the model correctly identifies components and relationships in the execution or data dependency graph.",
+      "score_scale": "0-100",
+      "interpretation": "Measures understanding of how modules, services, files, APIs, and data artifacts depend on one another."
+    },
+
+    "Bug Analysis": {
+      "primary_metric": "Bug Diagnosis Accuracy",
+      "secondary_metrics": [
+        "Root Cause Accuracy",
+        "Fix Quality",
+        "Relevance",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Score identification of the actual bug, root cause, likely effect, and technically appropriate fix.",
+      "score_scale": "0-100",
+      "interpretation": "Measures the model's ability to reason about faults in the existing code and configuration."
+    },
+
+    "Code Generation": {
+      "primary_metric": "Code Test-Pass Rate",
+      "secondary_metrics": [
+        "Functional Correctness",
+        "Requirement Coverage",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Execute generated code against predefined isolated tests. Do not modify or execute directly against the production Week 3 files.",
+      "score_scale": "0-100",
+      "interpretation": "Measures whether generated code satisfies the requested behavior and passes automated tests."
+    },
+
+    "Refactoring": {
+      "primary_metric": "Code Test-Pass Rate",
+      "secondary_metrics": [
+        "Behavior Preservation",
+        "Requirement Coverage",
+        "Code Quality",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Execute refactored code against predefined tests and compare required behavior with the original implementation.",
+      "score_scale": "0-100",
+      "interpretation": "Measures whether the model can restructure code without breaking required behavior."
+    },
+
+    "RAG based Question": {
+      "primary_metric": "Grounded Answer Correctness",
+      "secondary_metrics": [
+        "Retrieval Quality",
+        "Relevance",
+        "Hallucination Rate",
+        "Abstention Quality",
+        "Response Latency",
+        "Output Token Usage"
+      ],
+      "scoring_method": "Evaluate retrieved evidence against gold handbook sources and evaluate the final answer against expected handbook facts.",
+      "score_scale": "0-100",
+      "interpretation": "Measures retrieval quality and the model's ability to produce grounded answers from the Aadhaar Handbook."
+    }
+  },
+
+  "global_metrics": {
+    "response_latency": {
+      "unit": "seconds",
+      "description": "Wall-clock time required to obtain the model response."
+    },
+    "output_tokens": {
+      "description": "Number of generated output tokens when available."
+    },
+    "total_tokens": {
+      "description": "Total prompt plus generated tokens when available."
+    },
+    "resource_consumption": {
+      "metrics": [
+        "CPU usage",
+        "Memory usage"
+      ],
+      "description": "Resource consumption recorded during evaluation when available."
+    }
+  },
+
+  "rag_metrics": {
+    "retrieval_quality": {
+      "description": "Measures whether retrieved chunks contain evidence that directly supports the expected answer.",
+      "not_definition": "Lexical similarity alone must not be treated as evidence of retrieval success."
+    },
+    "grounded_answer_correctness": {
+      "description": "Measures coverage of expected facts while penalizing unsupported or contradictory claims."
+    },
+    "hallucination_rate": {
+      "description": "Percentage of evaluated responses containing factual claims unsupported by the retrieved context or gold handbook evidence."
+    },
+    "abstention_quality": {
+      "description": "For out-of-knowledge-base questions, rewards explicit acknowledgement that the handbook does not establish the requested information."
+    }
+  },
+
+  "code_metrics": {
+    "test_pass_rate": {
+      "formula": "passed_tests / total_tests * 100"
+    },
+    "behavior_preservation": {
+      "description": "Refactored code must preserve the behavior required by the original implementation and evaluation specification."
+    }
+  },
+
+  "comparison_rules": [
+    "Every model must receive exactly the same 35 evaluation tasks.",
+    "The seven categories must be reported separately.",
+    "Do not use a single overall accuracy as the primary conclusion.",
+    "For each category, identify the strongest model using that category's primary metric.",
+    "Secondary metrics must be reported alongside the primary metric.",
+    "Latency and token usage must be reported so quality can be considered together with efficiency.",
+    "Code Generation and Refactoring must use automated tests rather than subjective scoring alone.",
+    "RAG retrieval quality must be evaluated against supporting evidence rather than lexical similarity alone.",
+    "Out-of-knowledge-base RAG tasks should reward appropriate abstention.",
+    "The evaluation must preserve the same task wording across all models."
+  ],
+
+  "expected_category_output": {
+    "required_fields": [
+      "category",
+      "model",
+      "task_count",
+      "primary_metric",
+      "primary_score",
+      "secondary_metrics",
+      "average_latency",
+      "average_output_tokens"
+    ],
+    "required_conclusion": "State which model performs best for the category and explain the result using the measured metrics."
+  }
+}

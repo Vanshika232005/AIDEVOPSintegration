@@ -11,7 +11,7 @@ from pydantic import BaseModel
 # ============================================================
 
 OLLAMA_URL = "http://host.docker.internal:11434/api/chat"
-MODEL = os.getenv("MODEL", "qwen3:0.6b")
+MODEL = os.getenv("MODEL", "qwen2.5-coder:1.5b")
 
 
 # ============================================================

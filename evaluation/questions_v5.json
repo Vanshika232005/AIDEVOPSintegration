@@ -1,0 +1,436 @@
+{
+  "evaluation_version": "5.0",
+  "objective": "Compare three LLMs across seven distinct software-engineering and RAG task categories using the same tasks for every model.",
+  "models": [
+    "qwen3:0.6b",
+    "gemma3:270m",
+    "smollm2:360m"
+  ],
+  "categories": [
+    "Explanation",
+    "Code Retrieval",
+    "Dependency Understanding",
+    "Bug Analysis",
+    "Code Generation",
+    "Refactoring",
+    "RAG based Question"
+  ],
+  "tasks": [
+
+    {
+      "id": "EXP-01",
+      "category": "Explanation",
+      "task": "Explain the complete request flow when a user submits a question through the Streamlit frontend to the final LLM answer.",
+      "target_files": ["frontend/app.py", "services/app/main.py", "services/retrieval/main.py", "services/llm/main.py"],
+      "evaluation_type": "expert_rubric",
+      "expected_points": [
+        "Frontend sends the question to the application service.",
+        "Application service calls the retrieval service.",
+        "Retrieval service creates a query embedding and searches the FAISS index.",
+        "Retrieved chunks are passed as context to the LLM service.",
+        "LLM service sends the prompt to Ollama and returns the generated answer.",
+        "Application service returns answer and source metadata to the frontend."
+      ]
+    },
+    {
+      "id": "EXP-02",
+      "category": "Explanation",
+      "task": "Explain how chunk_text() in process_documents.py works, including CHUNK_SIZE, CHUNK_OVERLAP, start, end, and the stopping condition.",
+      "target_files": ["process_documents.py"],
+      "evaluation_type": "expert_rubric",
+      "expected_points": [
+        "Whitespace is normalized.",
+        "Chunks have a default size of 1000 characters.",
+        "Adjacent chunks overlap by 200 characters.",
+        "The next chunk starts at end minus overlap.",
+        "Processing stops when the final chunk reaches the end of the text."
+      ]
+    },
+    {
+      "id": "EXP-03",
+      "category": "Explanation",
+      "task": "Explain how create_embeddings.py converts the chunks in data/chunks.json into data/embeddings.npy.",
+      "target_files": ["create_embeddings.py"],
+      "evaluation_type": "expert_rubric",
+      "expected_points": [
+        "chunks.json is loaded.",
+        "Each chunk is sent to Ollama's embedding endpoint.",
+        "nomic-embed-text is used.",
+        "The returned embeddings are collected.",
+        "The embeddings are converted to float32 NumPy data.",
+        "The resulting array is saved as embeddings.npy."
+      ]
+    },
+    {
+      "id": "EXP-04",
+      "category": "Explanation",
+      "task": "Explain how create_vector_db.py builds the FAISS index and verifies that every chunk has a corresponding vector.",
+      "target_files": ["create_vector_db.py"],
+      "evaluation_type": "expert_rubric",
+      "expected_points": [
+        "embeddings.npy is loaded.",
+        "The embedding dimension is taken from embeddings.shape[1].",
+        "IndexFlatL2 is created.",
+        "All embeddings are added to the index.",
+        "The index is saved to vector_db/aadhaar.index.",
+        "index.ntotal is compared with the number of chunks."
+      ]
+    },
+    {
+      "id": "EXP-05",
+      "category": "Explanation",
+      "task": "Explain the purpose of clean_answer() and build_prompt() in services/llm/main.py.",
+      "target_files": ["services/llm/main.py"],
+      "evaluation_type": "expert_rubric",
+      "expected_points": [
+        "clean_answer removes think tags.",
+        "Escaped newline and tab sequences are converted.",
+        "Excessive blank lines are reduced.",
+        "build_prompt instructs the model to use only supplied handbook context.",
+        "The prompt includes an abstention instruction when information is unavailable."
+      ]
+    },
+
+    {
+      "id": "RET-01",
+      "category": "Code Retrieval",
+      "task": "Identify the exact file and function responsible for searching the FAISS index during a user query.",
+      "target_files": ["services/retrieval/main.py"],
+      "evaluation_type": "exact_retrieval",
+      "expected_answer": "services/retrieval/main.py, retrieve(), using index.search()"
+    },
+    {
+      "id": "RET-02",
+      "category": "Code Retrieval",
+      "task": "Identify where the application service obtains the retrieved chunks and then constructs the context sent to the LLM service.",
+      "target_files": ["services/app/main.py"],
+      "evaluation_type": "exact_retrieval",
+      "expected_points": [
+        "POST to RETRIEVAL_URL",
+        "retrieval_data.get('results', [])",
+        "context_parts",
+        "context = '\\n'.join(context_parts)"
+      ]
+    },
+    {
+      "id": "RET-03",
+      "category": "Code Retrieval",
+      "task": "Identify the embedding model and Ollama embedding endpoint used by the retrieval service.",
+      "target_files": ["services/retrieval/main.py"],
+      "evaluation_type": "exact_retrieval",
+      "expected_answer": "nomic-embed-text:latest and http://host.docker.internal:11434/api/embed"
+    },
+    {
+      "id": "RET-04",
+      "category": "Code Retrieval",
+      "task": "Identify the function in services/llm/main.py that removes <think>...</think> sections from an LLM response.",
+      "target_files": ["services/llm/main.py"],
+      "evaluation_type": "exact_retrieval",
+      "expected_answer": "clean_answer()"
+    },
+    {
+      "id": "RET-05",
+      "category": "Code Retrieval",
+      "task": "Identify the three scripts that form the document ingestion pipeline before retrieval and give them in execution order.",
+      "target_files": ["process_documents.py", "create_embeddings.py", "create_vector_db.py"],
+      "evaluation_type": "exact_retrieval",
+      "expected_answer": "process_documents.py -> create_embeddings.py -> create_vector_db.py"
+    },
+
+    {
+      "id": "DEP-01",
+      "category": "Dependency Understanding",
+      "task": "Trace the dependencies involved when /ask is called, from the application service through retrieval and LLM generation.",
+      "target_files": ["services/app/main.py", "services/retrieval/main.py", "services/llm/main.py"],
+      "evaluation_type": "dependency_rubric",
+      "expected_points": [
+        "app depends on retrieval",
+        "app depends on llm",
+        "retrieval depends on Ollama embeddings, FAISS index and chunks.json",
+        "llm depends on Ollama chat",
+        "final response travels back through app to caller"
+      ]
+    },
+    {
+      "id": "DEP-02",
+      "category": "Dependency Understanding",
+      "task": "Explain the dependency chain from the original PDF files to a searchable FAISS index.",
+      "target_files": ["process_documents.py", "create_embeddings.py", "create_vector_db.py"],
+      "evaluation_type": "dependency_rubric",
+      "expected_answer": "PDF files -> chunks.json -> embeddings.npy -> aadhaar.index"
+    },
+    {
+      "id": "DEP-03",
+      "category": "Dependency Understanding",
+      "task": "Explain why the FAISS index and chunks.json must remain aligned for retrieval to work correctly.",
+      "target_files": ["services/retrieval/main.py", "create_vector_db.py"],
+      "evaluation_type": "dependency_rubric",
+      "expected_points": [
+        "FAISS search returns vector positions.",
+        "The vector position is used as an index into chunks.",
+        "A mismatch can associate a vector with the wrong chunk or cause indexing problems.",
+        "create_vector_db.py explicitly checks vector count against chunk count."
+      ]
+    },
+    {
+      "id": "DEP-04",
+      "category": "Dependency Understanding",
+      "task": "Explain how Docker Compose connects the app, retrieval, and LLM services and which services the app depends on.",
+      "target_files": ["docker-compose.yml"],
+      "evaluation_type": "dependency_rubric",
+      "expected_points": [
+        "app exposes port 8000",
+        "retrieval exposes port 8001",
+        "llm exposes port 8002",
+        "app depends_on retrieval and llm",
+        "retrieval mounts vector_db and data",
+        "services communicate using Docker service names"
+      ]
+    },
+    {
+      "id": "DEP-05",
+      "category": "Dependency Understanding",
+      "task": "Explain the relationship between frontend/app.py, run.py, and services/app/main.py when submitting an Aadhaar question.",
+      "target_files": ["frontend/app.py", "run.py", "services/app/main.py"],
+      "evaluation_type": "dependency_rubric",
+      "expected_points": [
+        "frontend/app.py is the Streamlit UI client",
+        "run.py is a command-line client",
+        "both target the application API",
+        "services/app/main.py implements /ask"
+      ]
+    },
+
+    {
+      "id": "BUG-01",
+      "category": "Bug Analysis",
+      "task": "docker-compose.yml defines EMBED_URL for the retrieval container as http://host.docker.internal:11434/api/embeddings. Inspect services/retrieval/main.py and identify the configuration problem and its likely effect.",
+      "target_files": ["docker-compose.yml", "services/retrieval/main.py"],
+      "evaluation_type": "bug_rubric",
+      "expected_points": [
+        "The compose environment variable uses /api/embeddings.",
+        "services/retrieval/main.py currently uses a hard-coded /api/embed URL.",
+        "The environment variable therefore has no effect with the current implementation.",
+        "The model should identify the configuration inconsistency rather than claim that the environment variable is being used."
+      ]
+    },
+    {
+      "id": "BUG-02",
+      "category": "Bug Analysis",
+      "task": "A developer changes QueryRequest.top_k to 0 and calls /retrieve. Analyze the likely behavior and explain what validation should be added.",
+      "target_files": ["services/retrieval/main.py"],
+      "evaluation_type": "bug_rubric",
+      "expected_points": [
+        "top_k currently has no explicit positive-range validation.",
+        "FAISS search expects a meaningful number of neighbors.",
+        "A constrained integer range such as 1 through the available index size should be enforced."
+      ]
+    },
+    {
+      "id": "BUG-03",
+      "category": "Bug Analysis",
+      "task": "A developer changes create_embeddings.py so that one failed embedding request returns None but still appends the value. Explain why this can break the later FAISS stage.",
+      "target_files": ["create_embeddings.py", "create_vector_db.py"],
+      "evaluation_type": "bug_rubric",
+      "expected_points": [
+        "Embeddings must form a consistent numeric matrix.",
+        "None would prevent construction of a valid numeric embedding array.",
+        "The FAISS index expects vectors with a consistent dimension."
+      ]
+    },
+    {
+      "id": "BUG-04",
+      "category": "Bug Analysis",
+      "task": "The application service receives an empty results list from retrieval. Identify how the current code handles this case and explain why this prevents an unnecessary LLM call.",
+      "target_files": ["services/app/main.py"],
+      "evaluation_type": "bug_rubric",
+      "expected_points": [
+        "It checks if not results.",
+        "It returns the handbook-not-found message.",
+        "It returns an empty sources list.",
+        "It does not call the LLM service in this branch."
+      ]
+    },
+    {
+      "id": "BUG-05",
+      "category": "Bug Analysis",
+      "task": "A developer removes the reshape(1, -1) operation before FAISS index.search(). Explain the dimensionality problem this can cause.",
+      "target_files": ["services/retrieval/main.py"],
+      "evaluation_type": "bug_rubric",
+      "expected_points": [
+        "The query embedding represents one vector.",
+        "FAISS search expects a two-dimensional array of query vectors.",
+        "reshape(1, -1) converts the single embedding into the required shape."
+      ]
+    },
+
+    {
+      "id": "GEN-01",
+      "category": "Code Generation",
+      "task": "Modify a copy of services/retrieval/main.py so QueryRequest validates top_k as an integer between 1 and 10. Do not modify the production file.",
+      "target_files": ["services/retrieval/main.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "GEN-01",
+      "expected_behavior": "Valid top_k values 1-10 are accepted and values outside that range are rejected."
+    },
+    {
+      "id": "GEN-02",
+      "category": "Code Generation",
+      "task": "Generate a Python helper function that accepts the retrieval results list and returns a formatted context string containing DOCUMENT number, source, page, and chunk for every result.",
+      "target_files": ["services/app/main.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "GEN-02",
+      "expected_behavior": "The helper preserves result order and includes document number, source, page and chunk."
+    },
+    {
+      "id": "GEN-03",
+      "category": "Code Generation",
+      "task": "Generate a helper function for process_documents.py that safely reads PDF page text and returns an empty string when extract_text() returns None.",
+      "target_files": ["process_documents.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "GEN-03",
+      "expected_behavior": "Normal text is returned unchanged and None becomes an empty string."
+    },
+    {
+      "id": "GEN-04",
+      "category": "Code Generation",
+      "task": "Generate a function that validates that the number of FAISS vectors equals the number of chunks and raises ValueError when they differ.",
+      "target_files": ["create_vector_db.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "GEN-04",
+      "expected_behavior": "Matching counts pass; mismatched counts raise ValueError."
+    },
+    {
+      "id": "GEN-05",
+      "category": "Code Generation",
+      "task": "Generate a helper function for no_rag.py that returns True when a question is blank or whitespace-only and False otherwise.",
+      "target_files": ["no_rag.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "GEN-05",
+      "expected_behavior": "Empty and whitespace-only strings return True."
+    },
+
+    {
+      "id": "REF-01",
+      "category": "Refactoring",
+      "task": "Refactor the chunk_text() implementation in an isolated copy so the core chunking logic is placed in a clearly named helper while preserving the existing output for the same input.",
+      "target_files": ["process_documents.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "REF-01",
+      "expected_behavior": "Existing chunking behavior and overlap are preserved."
+    },
+    {
+      "id": "REF-02",
+      "category": "Refactoring",
+      "task": "Refactor the retrieval service so the embedding URL and model are configurable through function parameters or configuration rather than being duplicated as hard-coded values, while preserving retrieval behavior.",
+      "target_files": ["services/retrieval/main.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "REF-02",
+      "expected_behavior": "Configuration can be supplied externally and retrieval output behavior is unchanged."
+    },
+    {
+      "id": "REF-03",
+      "category": "Refactoring",
+      "task": "Refactor the source/context formatting logic in services/app/main.py into a separate reusable function without changing the /ask response structure.",
+      "target_files": ["services/app/main.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "REF-03",
+      "expected_behavior": "Formatted context remains equivalent and /ask response fields remain compatible."
+    },
+    {
+      "id": "REF-04",
+      "category": "Refactoring",
+      "task": "Refactor no_rag.py so the model name and chat URL are supplied through function parameters or configuration instead of being tightly coupled to ask_llm().",
+      "target_files": ["no_rag.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "REF-04",
+      "expected_behavior": "ask_llm can be reused with a different model or endpoint without changing its core logic."
+    },
+    {
+      "id": "REF-05",
+      "category": "Refactoring",
+      "task": "Refactor create_embeddings.py so embedding generation and file saving are separated into independently testable functions while preserving the final embeddings.npy output.",
+      "target_files": ["create_embeddings.py"],
+      "evaluation_type": "automated_test",
+      "test_id": "REF-05",
+      "expected_behavior": "Embedding generation and persistence are separate responsibilities and output remains compatible."
+    },
+
+    {
+      "id": "RAG-01",
+      "category": "RAG based Question",
+      "task": "What documents are required for Aadhaar enrolment?",
+      "target_files": ["knowledge_base/UIAI_1.pdf", "knowledge_base/UIAI_2.pdf"],
+      "evaluation_type": "rag_rubric",
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [9, 10, 63]},
+        {"source": "UIAI_2.pdf", "pages": [1, 9, 13]}
+      ],
+      "expected_facts": [
+        "Proof of Identity is required.",
+        "Proof of Address is required.",
+        "A valid Date of Birth document is required when available.",
+        "Head of Family based enrolment can be used when individual documents are unavailable.",
+        "Introducer based enrolment is possible when required documents are unavailable."
+      ]
+    },
+    {
+      "id": "RAG-02",
+      "category": "RAG based Question",
+      "task": "What biometric information is collected for Aadhaar?",
+      "target_files": ["knowledge_base/UIAI_1.pdf"],
+      "evaluation_type": "rag_rubric",
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [19, 50, 63]}
+      ],
+      "expected_facts": [
+        "Photograph is collected.",
+        "Fingerprints are collected.",
+        "Iris scans are collected."
+      ]
+    },
+    {
+      "id": "RAG-03",
+      "category": "RAG based Question",
+      "task": "What should a resident do if there is an error in their Aadhaar information?",
+      "target_files": ["knowledge_base/UIAI_1.pdf"],
+      "evaluation_type": "rag_rubric",
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [17, 18, 20, 63]}
+      ],
+      "expected_facts": [
+        "The resident should request an update or correction.",
+        "The applicable Aadhaar update process should be followed.",
+        "Supporting documents may be required depending on the field."
+      ]
+    },
+    {
+      "id": "RAG-04",
+      "category": "RAG based Question",
+      "task": "What is Aadhaar authentication?",
+      "target_files": ["knowledge_base/UIAI_1.pdf"],
+      "evaluation_type": "rag_rubric",
+      "gold_sources": [
+        {"source": "UIAI_1.pdf", "pages": [7, 36, 37, 38, 39]}
+      ],
+      "expected_facts": [
+        "It is an online process through which Aadhaar identity can be verified.",
+        "Authentication can involve demographic, biometric or OTP-based authentication.",
+        "The response can provide yes/no verification.",
+        "Authentication does not provide unrestricted access to the resident's Aadhaar database."
+      ]
+    },
+    {
+      "id": "RAG-05",
+      "category": "RAG based Question",
+      "task": "What should be done if the requested information is not available in the Aadhaar Handbook?",
+      "target_files": ["knowledge_base/UIAI_1.pdf", "knowledge_base/UIAI_2.pdf"],
+      "evaluation_type": "rag_abstention",
+      "gold_sources": [],
+      "expected_facts": [
+        "The assistant should not invent information.",
+        "The assistant should acknowledge that the information is not available in the provided handbook."
+      ]
+    }
+  ]
+}

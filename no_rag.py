@@ -1,7 +1,7 @@
 import requests
 
 
-MODEL = "qwen3:0.6b"
+MODEL = "qwen2.5-coder:1.5b"
 CHAT_URL = "http://localhost:11434/api/chat"
 
 
