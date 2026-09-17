@@ -2,9 +2,9 @@
   "evaluation_version": "week4_25_questions_newmodels_v2",
   "questions_expected": 25,
   "models": [
-    "qwen2.5-coder:1.5b",
+    "deepseek-coder:1.3b",
     "llama3.2:3b",
-    "deepseek-coder:1.3b"
+    "qwen2.5-coder:1.5b"
   ],
   "total_recorded_runs": 75,
   "metric_methodology": {
@@ -20,78 +20,78 @@
     "ai_output_testing": "Independent pass/fail checks covering relevance, retrieved-context support, unsupported-claim screening, expected format, answering when information exists, and abstention when information is unavailable."
   },
   "models_results": {
-    "qwen2.5-coder:1.5b": {
+    "deepseek-coder:1.3b": {
       "question_count": 25,
-      "generation_success_rate_percent": 100.0,
-      "average_correctness_percent": 28.27,
+      "generation_success_rate_percent": 96.0,
+      "average_correctness_percent": 21.53,
       "average_response_relevance_percent": 82.0,
       "retrieval": {
         "average_evidence_hit_rate_percent": 85.33,
         "average_gold_coverage_percent": 24.03,
         "note": "Retrieval is produced by the shared Week 3 retrieval service using the same knowledge base and top-k condition for all three models."
       },
-      "hallucination_signal_rate_percent": 4.0,
-      "composite_test_pass_rate_percent": 20.0,
+      "hallucination_signal_rate_percent": 8.0,
+      "composite_test_pass_rate_percent": 12.0,
       "ai_output_testing": {
-        "pass_rate_percent": 48.0,
-        "passed": 12,
+        "pass_rate_percent": 44.0,
+        "passed": 11,
         "total": 25
       },
       "performance": {
-        "successful_generations": 25,
-        "generation_failures": 0,
+        "successful_generations": 24,
+        "generation_failures": 1,
         "response_latency_seconds": {
-          "mean": 16.2908,
-          "median": 15.8173,
-          "min": 12.8903,
-          "max": 26.0394,
-          "count": 25
+          "mean": 28.2985,
+          "median": 24.615,
+          "min": 18.643,
+          "max": 57.8965,
+          "count": 24
         },
         "token_usage": {
           "prompt_tokens": {
-            "mean": 815.6,
-            "median": 825.0,
-            "min": 617.0,
-            "max": 1051.0,
-            "count": 25
+            "mean": 1010.5,
+            "median": 1010.5,
+            "min": 767.0,
+            "max": 1286.0,
+            "count": 24
           },
           "output_tokens": {
-            "mean": 40.6,
-            "median": 32.0,
-            "min": 13.0,
-            "max": 110.0,
-            "count": 25
+            "mean": 186.1667,
+            "median": 110.5,
+            "min": 66.0,
+            "max": 587.0,
+            "count": 24
           },
           "total_tokens": {
-            "mean": 856.2,
-            "median": 866.0,
-            "min": 649.0,
-            "max": 1161.0,
-            "count": 25
+            "mean": 1196.6667,
+            "median": 1208.0,
+            "min": 887.0,
+            "max": 1572.0,
+            "count": 24
           }
         },
         "evaluator_process_cpu_percent_snapshot": {
           "before": {
-            "mean": 45.72,
-            "median": 43.5,
-            "min": 6.9,
-            "max": 85.7,
+            "mean": 45.632,
+            "median": 51.7,
+            "min": 12.9,
+            "max": 80.0,
             "count": 25
           },
           "after": {
-            "mean": 21.012,
-            "median": 20.0,
-            "min": 7.7,
-            "max": 34.5,
+            "mean": 22.928,
+            "median": 20.6,
+            "min": 4.4,
+            "max": 60.7,
             "count": 25
           },
           "note": "CPU percentage snapshots are measurements of the evaluation process, not isolated Ollama model CPU usage."
         },
         "evaluator_process_memory_delta_mb": {
-          "mean": 0.01,
+          "mean": 0.0094,
           "median": 0.0039,
           "min": 0.0,
-          "max": 0.1406,
+          "max": 0.0625,
           "count": 25
         },
         "resource_note": "Resource values were collected by the evaluation process. They should not be interpreted as direct isolated model resource consumption."
@@ -100,9 +100,9 @@
         {
           "question_id": 1,
           "question": "What documents are required for Aadhaar enrolment?",
-          "answer": "The information was not found in the provided Aadhaar Handbook.",
-          "correctness": 0.0,
-          "response_relevance": 0.5,
+          "answer": "The list provided in the UIAI_1.pdf file is a summary and does not contain specific details about each type of Document that must be presented to an official or verified individual during their registration process on Aadhaar (Indian ID). \n\nHowever, from your question it seems like you are asking for information related specifically with the enrolment procedure in India. In this case:\n- Documents required by UIAI_2 page 1 and list of documents provided under that tabular statement would be applicable to Aadhaar Enrollments (upto five years, between eighteen and above). However, these are not specific details about the enrolment process. The information on this webpage is more related to general guidelines for online enrollment in India which may include documents such as birth certificates or passports if applicable under relevant laws like Birth Registration Act (BRCA) etc., but does not specifically mention Aadhaar Enrollments and their requirements during the process.\n- Documents required by UIAI_2 page 3 would be specific to enrolment in an individual of five years or above, as per your question about \"individuals upto five years\". This includes documents such as proof of identity (PoI), address details and relationship information for the person.\n- Documents required by UIAI_2 page 4 would be specific to enrolment in an individual between eighteen and above, including a document proving legal guardianship or court cases under relevant laws like National Trust Act etc., as per your question about \"individuals five years and above\". This includes documents such as proof of identity (PoI), address details and date-of-birth information for the person.\n",
+          "correctness": 0.4,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -195,41 +195,41 @@
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": false,
+              "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "fact": "Proof of Identity (POI) is required.",
-              "overlap": 0.0,
-              "supported": false
+              "overlap": 1.0,
+              "supported": true
             },
             {
               "fact": "Proof of Address (POA) is required.",
-              "overlap": 0.0,
-              "supported": false
+              "overlap": 0.75,
+              "supported": true
             },
             {
               "fact": "A valid Date of Birth (DoB) document is required when available.",
-              "overlap": 0.0,
+              "overlap": 0.5714,
               "supported": false
             },
             {
               "fact": "Head of Family (HoF) based enrolment can use Proof of Relationship (PoR), the HoF Aadhaar number, and biometric confirmation of the HoF when individual documents are unavailable.",
-              "overlap": 0.0667,
+              "overlap": 0.4,
               "supported": false
             },
             {
               "fact": "Introducer based enrolment is possible when the required documents are unavailable.",
-              "overlap": 0.0,
+              "overlap": 0.4286,
               "supported": false
             }
           ]
@@ -237,7 +237,7 @@
         {
           "question_id": 2,
           "question": "What is Aadhaar enrolment?",
-          "answer": "Aadhaar enrolment is the process of obtaining a unique identification number (Aadhaar) for individuals in India. The process involves providing minimal demographic and biometric data during the enrollment process, which is totally free of cost. Users need to enroll for Aadhaar only once. The enrolment process can be done through an Aadhaar Enrolment Centre or by visiting a nearby location with specific documents.",
+          "answer": "Aadhaar Enrolment refers to the process of verifying your identity by issuing and maintaining unique identification numbers (IDs) called 'Aadhaars'. This ID provides a secure way for you, both as an individual or in combination with other individuals who share similar characteristics. It's also used during child care programs where children are enrolled to receive Aadhaar services such as mobile phone number and email verification through SMS messages (SMSAahal).\n",
           "correctness": 0.5,
           "response_relevance": 1.0,
           "retrieval": {
@@ -351,17 +351,17 @@
             },
             {
               "fact": "The enrolment process captures the resident's demographic and biometric information.",
-              "overlap": 0.5714,
+              "overlap": 0.2857,
               "supported": false
             },
             {
               "fact": "Aadhaar enrolment is free.",
-              "overlap": 1.0,
+              "overlap": 0.6667,
               "supported": true
             },
             {
               "fact": "A resident can enrol for Aadhaar only once.",
-              "overlap": 0.5,
+              "overlap": 0.25,
               "supported": false
             }
           ]
@@ -369,8 +369,8 @@
         {
           "question_id": 3,
           "question": "What is the purpose of Aadhaar?",
-          "answer": "The purpose of Aadhaar is to provide a unique and secure identification system for individuals in India, ensuring that everyone has a single, permanent identity document. This helps in various government services, including access to healthcare, banking, education, and more.",
-          "correctness": 0.3333,
+          "answer": "The primary purposes of Aadhaar are as follows in a context provided by UIAI_1 (Unique Identification Authority of India Government of India): \n\n- To provide identification for individuals and businesses. The unique identifier, or 'Aadhaar', is generated through the process of demographic verification using biometric data such as fingerprints from smartphones to name identifiers that are hard to duplicate in real life scenarios (like passports). This ensures a high level of security while verifying identity for individuals and businesses.\n- To access services provided by UIDAI, which is an exclusive Aadhaar centre run by India's government. It provides various types of identification like personal details or business identifiers to residents in the state-of-the-art environment. \n   (Source: https://www.youtube.com/user/AadhaarUID) [Note that this is a YouTube channel, not an Aadhaar Handbook]\n",
+          "correctness": 0.6667,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -421,7 +421,7 @@
           },
           "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": false,
+          "composite_test_pass": true,
           "ai_output_testing": {
             "pass": true,
             "checks": {
@@ -437,8 +437,8 @@
           "fact_details": [
             {
               "fact": "Aadhaar provides a portable proof of identity.",
-              "overlap": 0.4,
-              "supported": false
+              "overlap": 0.6,
+              "supported": true
             },
             {
               "fact": "Aadhaar can be used to access services, benefits and subsidies.",
@@ -447,7 +447,7 @@
             },
             {
               "fact": "Identity can be verified through Aadhaar Authentication online.",
-              "overlap": 0.3333,
+              "overlap": 0.5,
               "supported": false
             }
           ]
@@ -455,7 +455,7 @@
         {
           "question_id": 4,
           "question": "What is Proof of Identity?",
-          "answer": "Proof of Identity (PoI) document only if it contains at least the name and photograph of the individual.",
+          "answer": "Proof of Identity (PoI), also known simply as \"Identity proof\", refers to a document that contains at least one piece of information about an individual, such as their name and photograph. This can be used by individuals or entities for verification purposes in the Aadhaar system online anytime, anywhere without needing any identity documents each time they wish to access services, benefits, subsidies etc., provided it is submitted correctly with all necessary details including names of parents/guardians if applicable (if required).\n",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -540,7 +540,7 @@
           "fact_details": [
             {
               "fact": "Proof of Identity (POI) is an identity document accepted by UIDAI for establishing the resident's identity during Aadhaar enrolment or update.",
-              "overlap": 0.3333,
+              "overlap": 0.4167,
               "supported": false
             },
             {
@@ -553,7 +553,7 @@
         {
           "question_id": 5,
           "question": "What is Proof of Address?",
-          "answer": "Proof of Address refers to documents containing Name & Address. The information was found in the provided Aadhaar Handbook on page 63.",
+          "answer": "Proof of Birth or Residency (POA), also known as Passport/Birth Certificate. It's a piece of information that provides proof for the resident to be an Indian, and it includes details such as Name & Age on file with Aadhaar system in India only if they are 18 years old or older when registered at home (not required by law). The POA is usually issued through official government portals like UIAI_2.pdf page:3 for individuals aged above eighteen and also includes details such as Name, Date of Birth & Residency Number on file with Aadhaar system in India only if they are 18 years old or older when registered at home (not required by law).\n",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -634,12 +634,12 @@
           "fact_details": [
             {
               "fact": "Proof of Address (POA) is an accepted document used to establish the resident's address.",
-              "overlap": 0.2857,
+              "overlap": 0.4286,
               "supported": false
             },
             {
               "fact": "POA is mandatory for document-based Aadhaar enrolment.",
-              "overlap": 0.1667,
+              "overlap": 0.3333,
               "supported": false
             }
           ]
@@ -647,7 +647,7 @@
         {
           "question_id": 6,
           "question": "What is Proof of Date of Birth?",
-          "answer": "Proof of Date of Birth refers to any document that verifies the individual's date of birth. It can be a birth certificate, Indian Passport, or any other acceptable proof listed in the Aadhaar Handbook.",
+          "answer": "Proof of date of birth (POB) documents are used by individuals in India as a proof that they were born on the specified day. They provide evidence for their identity and privacy, ensuring only authorized individuals can access personal information related to them based upon Aadhaar number or other unique identifiers provided during registration process at an institution like government-owned organizations (GOI).\n",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -740,17 +740,17 @@
           "fact_details": [
             {
               "fact": "Proof of Date of Birth is a valid document from the UIDAI-accepted list used to establish the resident's date of birth.",
-              "overlap": 0.4,
+              "overlap": 0.3,
               "supported": false
             },
             {
               "fact": "If a resident does not have a valid DoB document, the handbook allows declaration of the date of birth or approximate age.",
-              "overlap": 0.3333,
+              "overlap": 0.1667,
               "supported": false
             },
             {
               "fact": "If a valid DoB document is available, it should be produced for enrolment.",
-              "overlap": 0.1429,
+              "overlap": 0.0,
               "supported": false
             }
           ]
@@ -758,8 +758,8 @@
         {
           "question_id": 7,
           "question": "What is Proof of Relationship?",
-          "answer": "Proof of Relationship (PoR) document contains at least the name of individual and name of Head of Family (HoF).",
-          "correctness": 1.0,
+          "answer": "Proof of Relation (PoR), also known simply as \"Relationships\", document, or relationship证明，is a legal and financial form used to prove that an individual has been engaged in the course of human relations. It's essentially proof of one person having control over another at some point during their interaction with each other on social media platforms like Facebook etc., before they became connected through these interactions (i.e, it proves there is a relationship).\n",
+          "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -827,38 +827,38 @@
           },
           "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": true,
+          "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": true,
+              "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "fact": "Proof of Relationship (PoR) establishes the relationship between the resident and the Head of Family.",
-              "overlap": 0.625,
-              "supported": true
+              "overlap": 0.375,
+              "supported": false
             },
             {
               "fact": "PoR is used in Head of Family based enrolment.",
-              "overlap": 0.6,
-              "supported": true
+              "overlap": 0.2,
+              "supported": false
             }
           ]
         },
         {
           "question_id": 8,
           "question": "Can Aadhaar enrolment be done without supporting documents?",
-          "answer": "Yes, Aadhaar enrolment can be done without supporting documents.\n\nPage: 7",
+          "answer": "Yes, it is possible to enroll in an Aadhaar account using only the information provided by UIAI_1 and not needing any additional support or documentation. However, this does require a non-resident Indian (NRI) with valid Indian Passport who has been enrolled for one of these documents: Proof of Identity document containing name and photograph; Proof of Address document containing name and address in India; Date of Birth proof document containing the details provided by UIAI_2.\n",
           "correctness": 0.0,
-          "response_relevance": 1.0,
+          "response_relevance": 0.5,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -953,17 +953,17 @@
           "fact_details": [
             {
               "fact": "Yes, alternative enrolment methods exist when individual supporting documents are unavailable.",
-              "overlap": 0.4444,
+              "overlap": 0.2222,
               "supported": false
             },
             {
               "fact": "Head of Family based enrolment can be used where individual documents are unavailable.",
-              "overlap": 0.2857,
+              "overlap": 0.1429,
               "supported": false
             },
             {
               "fact": "Introducer based enrolment can be used when the required documents are not available.",
-              "overlap": 0.3333,
+              "overlap": 0.1667,
               "supported": false
             }
           ]
@@ -971,7 +971,7 @@
         {
           "question_id": 9,
           "question": "What information is collected during Aadhaar enrolment?",
-          "answer": "During Aadhaar enrolment, you need to provide minimal demographic and biometric data. This includes your name, Aadhaar number, and one modality of biometric information (such as fingerprints or facial recognition). The information is captured during the enrollment process, which is totally free of cost. Please note that you need to enroll for Aadhaar only once.",
+          "answer": "During an Aadhaar enrollment process for residents in India, a variety of personal and demographic data are gathered from various sources including the user's device (Aadhaar Enrollment Centre), smartphone or computer system. The specific information collected can vary based on different factors like location type(Bank/Post Office etc.), service delivery method used by users such as online, offline services in a local body member organization and so forth.\n",
           "correctness": 0.6667,
           "response_relevance": 1.0,
           "retrieval": {
@@ -1060,7 +1060,7 @@
           "fact_details": [
             {
               "fact": "Demographic information is collected.",
-              "overlap": 0.6667,
+              "overlap": 1.0,
               "supported": true
             },
             {
@@ -1070,7 +1070,7 @@
             },
             {
               "fact": "The enrolment process captures information required for Aadhaar identity creation.",
-              "overlap": 0.5,
+              "overlap": 0.375,
               "supported": false
             }
           ]
@@ -1078,8 +1078,8 @@
         {
           "question_id": 10,
           "question": "What biometric information is collected for Aadhaar?",
-          "answer": "The Aadhaar Handbook context does not provide specific details about the biometric information collected for Aadhaar. The handbook focuses more on the authentication and verification processes rather than biometrics.",
-          "correctness": 0.0,
+          "answer": "Biometrics, also known as fingerprints and facial recognition data (FRD), are a type of unique identification method that uses physical characteristics such as the shape or size of an object to verify someone's identity. \n\nIn Aadhaar system, biometric information is collected for verification purposes:\n1. Fingerprint Data - This includes finger print patterns and sizes used by users in daily life activities like walking, sitting, standing etc., which are unique identifiers that can be scanned or captured using a device with an infrared sensor (like smartphones). \n2. Face Recognition data- Aadhaar uses facial recognition technology to verify the identity of individuals who use their mobile phones and computers for daily life activities like walking, sitting etc., by comparing face images in real time from users' devices or cameras using algorithms that are trained on a large database containing pictures of people with known identities.\n3. Voice Recognition data - Aadhaar also uses voice recognition technology to verify the identity and authenticity of individuals who use their mobile phones for daily life activities, by comparing spoken language patterns in real time from users' devices or microphones using algorithms that are trained on a large database containing recordings (sounds) of people with known identities.\n4. Hardware Tokens - These tokens generated during the enrollment process can be used to verify Aadhaar ID, which includes fingerprint data and face/voice recognition information from users' devices or smartphones in future transactions for secure authentication purposes. \n5. Biometric Verification Data- This is a unique identifier that uniquely identifies an individual using biometrics (finger print patterns) to verify their identity at the point of registration, during online services and on mobile applications like UID AI etc., which are used by government authorities for verification in Aadhaar systems.\n",
+          "correctness": 0.25,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -1128,7 +1128,7 @@
               "supported_by_retrieved_context": false,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": false,
+              "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
             "reason": "One or more output checks failed"
@@ -1141,8 +1141,8 @@
             },
             {
               "fact": "Fingerprints are collected.",
-              "overlap": 0.5,
-              "supported": false
+              "overlap": 1.0,
+              "supported": true
             },
             {
               "fact": "Iris scans are collected.",
@@ -1151,7 +1151,7 @@
             },
             {
               "fact": "For children, fingerprints, iris scans and photographs are captured during mandatory biometric updates.",
-              "overlap": 0.1,
+              "overlap": 0.4,
               "supported": false
             }
           ]
@@ -1159,7 +1159,7 @@
         {
           "question_id": 11,
           "question": "What demographic information is collected during enrolment?",
-          "answer": "The demographic information collected during enrolment includes:\n\n- Introducer's name\n- Introducer's Aadhaar number\n- One modality of biometric information of the Introducer\n\nPage: 10",
+          "answer": "During the resident enrollment process, biometric information such as facial images (i), fingerprints with ten fingers scanned and both irises' scan results are required. The Aadhaar handbook provides more details about this in Section 12 of its guidelines for residents enrolling at UIAI_1:\n\n- Facial image - This is a biometric identification method used by individuals to verify their identity, often done through facial recognition technology or an app like Google's Face ID. The information captured during the introducer based enrollment (other than children under five years of age) includes Introducer’s name and Aadhaar number along with one modality of biometric identification for each child in House-of-Fame enrolments, where a Head of Family must provide biometric confirmation at time of enrolment.\n  \nPlease note that the specific details may vary depending on your location or country's local laws and regulations regarding Aadhaar enrollment process as per UIAI_1:50 (Page 4). Also, it is important to ensure you are following all relevant privacy guidelines when collecting such sensitive information. For more accurate responses based solely upon the provided context in this document, please consult with a legal expert or an AI model trained specifically on Aadhaar data for your specific location and country's regulations regarding enrolment process of individuals under UIAI_1:50 (Page 4).\n",
           "correctness": 0.25,
           "response_relevance": 1.0,
           "retrieval": {
@@ -1244,22 +1244,22 @@
           "fact_details": [
             {
               "fact": "Demographic information includes personal identity and address-related information captured during enrolment.",
-              "overlap": 0.5,
-              "supported": false
+              "overlap": 0.6,
+              "supported": true
             },
             {
               "fact": "Name and date of birth are examples of demographic information.",
-              "overlap": 0.5,
+              "overlap": 0.3333,
               "supported": false
             },
             {
               "fact": "Address is demographic information.",
-              "overlap": 0.6667,
-              "supported": true
+              "overlap": 0.3333,
+              "supported": false
             },
             {
               "fact": "Mobile number and email are part of the demographic information fields, where provided.",
-              "overlap": 0.4286,
+              "overlap": 0.2857,
               "supported": false
             }
           ]
@@ -1267,8 +1267,8 @@
         {
           "question_id": 12,
           "question": "What happens after Aadhaar enrolment?",
-          "answer": "After Aadhaar enrolment, you receive an SMS of Aadhaar generation documents for scanning. You then collect your documents and enroll slip to get Aadhaar.",
-          "correctness": 0.3333,
+          "answer": "After completing an Aadhaar enrollment process on your mobile device, you will receive a unique ID (Aadhaar) that is issued to the person. This information can be used for various purposes such as verification in online banking systems or accessing services like UIDAI and other governmental applications within India.\n",
+          "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -1334,26 +1334,26 @@
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": true,
+              "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "fact": "The enrolment information is processed for Aadhaar generation.",
-              "overlap": 0.6,
-              "supported": true
+              "overlap": 0.4,
+              "supported": false
             },
             {
               "fact": "The resident can use the enrolment information or enrolment ID to check generation/status information.",
-              "overlap": 0.3333,
+              "overlap": 0.1667,
               "supported": false
             },
             {
@@ -1366,9 +1366,9 @@
         {
           "question_id": 13,
           "question": "What documents can be used as proof of identity?",
-          "answer": "The information was not found in the provided Aadhaar Handbook.",
+          "answer": "The list provided in UIAI_2.pdf page number three (Criteria for acceptability of the documents submitted to evidence Identity, Address and Date Of Birth) does not contain specific criteria that all Aadhaar Proofs should meet before they can be used as proof of identity or address/date-of-birth information in a user's context. \n\nHowever, it is generally accepted among the users (and legal entities), for any document to serve as evidence Identity and Address will need at least:\n1) To contain an image with name along side date & time of creation or last update; this can be done using Aadhaar card itself. \n2) The information should not have been tampered in the process, ie., it must remain unchanged after being created/updated on a physical device (like smartphone). This is to ensure that even if someone else accesses your data from another source or location they cannot alter this document for themselves without changing its content.\n3) The name of person should be mentioned along with the image in such documents, so as not only can it serve identity but also serves a purpose (like proofing an event). \n4) It must contain at least one date-of-birth and/or birth certificate if applicable for children under five years. This is to ensure that even though they are younger than sixteen the document will be valid, as per Aadhaar's rules of dating from a child (five or more).\n5) The documents should not contain any other information apart from these four mentioned above which can serve identity and address/date-of-birth. \n6) It must have been submitted in the name that is being enrolled, otherwise it cannot be used as proof of Identity for a person under sixteen years old or older because Aadhaar rules do not allow this (unless they are children). This can also serve to prove their identity if someone else accesses your data from another source.\n",
           "correctness": 0.0,
-          "response_relevance": 0.0,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -1439,7 +1439,7 @@
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": false,
+              "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
@@ -1451,12 +1451,12 @@
           "fact_details": [
             {
               "fact": "Only documents from the UIDAI-valid supporting-document list should be presented as POI.",
-              "overlap": 0.0,
+              "overlap": 0.5556,
               "supported": false
             },
             {
               "fact": "The handbook provides a specific list of acceptable POI documents.",
-              "overlap": 0.1429,
+              "overlap": 0.4286,
               "supported": false
             }
           ]
@@ -1464,9 +1464,9 @@
         {
           "question_id": 14,
           "question": "What documents can be used as proof of address?",
-          "answer": "The information was not found in the provided Aadhaar Handbook.",
+          "answer": "The list provided in UIAI_2.pdf page 13, \"List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan * Proof of Address documents\", includes the following types of proof-of-address (PoA) documents:\n\nProof of Identity Document(s): Name & photograph 1. Passport, ID card number or government photo identity cards issued by PSU and Electricity Bill not older than three months; Water bill not older than three months ; Telephone landline bills not older than three months (not more recent); Property tax receipt not over a year old; Credit Card statement not longer than 3 months in use, Insurance policy.\nProof of Address Document(s): Name & address details such as passport ID card number or government photo identity cards issued by PSU and Electricity Bill older than three years (not more recent); Water bill newer than two years but less then four; Telephone landline bills not longer in use, Property tax receipt over a year old with no renewal required ; Credit Card statement new for 3 months of usage or insurance policy.\n",
           "correctness": 0.0,
-          "response_relevance": 0.0,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -1526,15 +1526,15 @@
               }
             ]
           },
-          "hallucination_signal": false,
+          "hallucination_signal": true,
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": false,
+              "relevance": true,
               "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": true,
+              "unsupported_claim_screen": false,
               "expected_format": true,
               "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
@@ -1544,17 +1544,17 @@
           "fact_details": [
             {
               "fact": "Only documents from the UIDAI-valid supporting-document list should be presented as POA.",
-              "overlap": 0.0,
+              "overlap": 0.4444,
               "supported": false
             },
             {
               "fact": "The handbook provides a specific list of acceptable POA documents.",
-              "overlap": 0.1429,
+              "overlap": 0.5714,
               "supported": false
             },
             {
               "fact": "Examples include accepted utility or property-related documents where they satisfy the stated validity conditions.",
-              "overlap": 0.0,
+              "overlap": 0.1818,
               "supported": false
             }
           ]
@@ -1562,9 +1562,9 @@
         {
           "question_id": 15,
           "question": "What documents can be used as proof of date of birth?",
-          "answer": "The information was not found in the provided Aadhaar Handbook.",
-          "correctness": 0.0,
-          "response_relevance": 0.0,
+          "answer": "The Aadhaar Handbook provides a list of acceptable proofs of identity, address (AADHAAR), and dates of birth for residents. For non-residents or individuals under 18 years old who are not resident Indians as per the UIAI_2 document provided in source page number \"3\", only documents related to date of birth can be used:\n\ni) Birth certificate (for Non-Resident Indian NRI below 18): This is a digital or physical form that contains information such as name, gender and age. It's usually obtained from the government department in India for residents who are not resident Indians under 18 years of old. For non-residents above this year (NRI), only birth certificate can be used to prove their date of birth which is a physical document that contains information such as name, gender and age on it or any other proof they have obtained from the government department in India for residents who are not resident Indians under 18 years old.\n\nii) Indian Passport (for Resident Individuals): This can be either an original passport with a digital photo ID card attached to one side, as well as another copy on both sides of each document or any other proof they have obtained from the government department in India for residents who are not resident Indians under 18 years old.\n",
+          "correctness": 0.5,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -1633,36 +1633,36 @@
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
-              "relevance": false,
+              "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": false,
+              "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "fact": "Only documents from the UIDAI-valid supporting-document list should be used as DoB proof.",
-              "overlap": 0.0,
+              "overlap": 0.4444,
               "supported": false
             },
             {
               "fact": "Birth certificate is an example of an accepted DoB document in the handbook's document list.",
-              "overlap": 0.125,
-              "supported": false
+              "overlap": 0.625,
+              "supported": true
             }
           ]
         },
         {
           "question_id": 16,
           "question": "What is the role of the enrolment operator?",
-          "answer": "The role of the enrolment operator is to assist with the enrollment process by providing assistance and guidance during the biometric confirmation at the time of enrolment.",
+          "answer": "The Enrollment Operator's main function in an Aadhaar system, as per UIAI_1.pdf page 50 and source mentioned above (Source :UIAI_1.pdf), is to provide information about the enrollee such as their name, aadhar number etc., for further verification during enrollment process or identification of an existing user in case they have already registered with Aadhaar system beforehand using biometric data provided by them at registration time (as per UIAI_1.pdf page 52).\n",
           "correctness": 0.3333,
-          "response_relevance": 1.0,
+          "response_relevance": 0.5,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -1750,12 +1750,12 @@
             },
             {
               "fact": "The operator is involved in capturing and entering resident information into the enrolment system.",
-              "overlap": 0.25,
+              "overlap": 0.375,
               "supported": false
             },
             {
               "fact": "The operator assists residents at the enrolment centre.",
-              "overlap": 0.4,
+              "overlap": 0.2,
               "supported": false
             }
           ]
@@ -1763,7 +1763,7 @@
         {
           "question_id": 17,
           "question": "What is the role of the verifier?",
-          "answer": "The role of the verifier is to verify the information provided by the certifier according to the checklist.",
+          "answer": "The Verifier in an Aadhaar system plays a crucial role. It's responsible for validating and confirming information related to individuals, including their personal details like name, date of birth etc., as well as authenticity through digital signatures or photos taken during the enrollment process by users who want to register themselves on this platform (like Aadhaar).\n",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -1826,7 +1826,7 @@
             },
             {
               "fact": "The enrolment/update form contains a verifier stamp and signature as part of the verification process.",
-              "overlap": 0.1,
+              "overlap": 0.2,
               "supported": false
             }
           ]
@@ -1834,9 +1834,9 @@
         {
           "question_id": 18,
           "question": "How is an Aadhaar number generated?",
-          "answer": "The information was not found in the provided Aadhaar Handbook.",
+          "answer": null,
           "correctness": 0.0,
-          "response_relevance": 0.5,
+          "response_relevance": 0.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -1902,44 +1902,28 @@
             ]
           },
           "hallucination_signal": false,
-          "generation_error": null,
+          "generation_error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=300)",
           "composite_test_pass": false,
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": true,
-              "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": true,
-              "expected_format": true,
+              "relevance": false,
+              "supported_by_retrieved_context": false,
+              "unsupported_claim_screen": false,
+              "expected_format": false,
               "answer_when_information_exists": false,
-              "refuse_when_information_unavailable": true
+              "refuse_when_information_unavailable": false
             },
-            "reason": "One or more output checks failed"
+            "reason": "Generation error"
           },
-          "fact_details": [
-            {
-              "fact": "Aadhaar generation occurs after enrolment information has been submitted and processed.",
-              "overlap": 0.2,
-              "supported": false
-            },
-            {
-              "fact": "The Aadhaar number is generated by UIDAI's system rather than manually assigned by the resident or operator.",
-              "overlap": 0.0909,
-              "supported": false
-            },
-            {
-              "fact": "The Aadhaar number is a unique 12-digit identity number.",
-              "overlap": 0.2,
-              "supported": false
-            }
-          ]
+          "fact_details": []
         },
         {
           "question_id": 19,
           "question": "What should a resident do if there is an error in their Aadhaar information?",
-          "answer": "If there is an error in your Aadhaar information, you should visit an Aadhaar Enrolment Centre with a valid supporting document for Name and Date of Birth. Place an update request, send the latest URN to the Aadhaar help centre by calling 1947 or via email to help@uidai.gov.in and request for 'exception update'. The case is then assigned to the UIDAI's Regional Office that handles your region for due diligence. Once verified, your update request will be processed and the outcome communicated to you.",
+          "answer": "The user needs to contact the UID AI's regional office, which handles all residents for due diligence. They can then file a complaint with them and provide necessary details such as your name (name), gender(gender) , date of birth (date of Birth). The unique identification authority will process this request once verified by their official channels or through email to help@uidai.gov.in .\n",
           "correctness": 0.0,
-          "response_relevance": 1.0,
+          "response_relevance": 0.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -2018,7 +2002,7 @@
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": true,
+              "relevance": false,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
@@ -2030,7 +2014,7 @@
           "fact_details": [
             {
               "fact": "The resident should request an update/correction of the incorrect information.",
-              "overlap": 0.5714,
+              "overlap": 0.1429,
               "supported": false
             },
             {
@@ -2040,7 +2024,7 @@
             },
             {
               "fact": "Valid supporting documents may be required depending on the field being corrected.",
-              "overlap": 0.25,
+              "overlap": 0.0,
               "supported": false
             }
           ]
@@ -2048,8 +2032,8 @@
         {
           "question_id": 20,
           "question": "What is demographic authentication?",
-          "answer": "Demographic authentication involves verifying the identity of a person using their Aadhaar number and other relevant information. This can be done through various methods such as scanning a QR code on the Aadhaar card, verifying an email or mobile number, or using an Aadhaar-based credit service. The process typically requires a one-time password (OTP) to authenticate the user's identity.",
-          "correctness": 1.0,
+          "answer": "Demographic Authentication, also known as Personal Identification (PIN), refers to the process of verifying a person's identity by providing their personal details such as name and date of birth. This method uses an Aadhaar card which is unique for each individual in India. The PIN used during this authentication can be verified using various methods, including online services or mobile applications that provide secure QR codes to scan the digital ID on a physical device like smartphone (Aadhaar Scanner App).\n",
+          "correctness": 0.5,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -2115,40 +2099,40 @@
               }
             ]
           },
-          "hallucination_signal": true,
+          "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": true,
+          "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": false,
+              "unsupported_claim_screen": true,
               "expected_format": true,
               "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "fact": "Demographic authentication is authentication using demographic information associated with Aadhaar.",
-              "overlap": 0.8,
+              "overlap": 0.6,
               "supported": true
             },
             {
               "fact": "It is one of the modes of Aadhaar authentication.",
-              "overlap": 0.75,
-              "supported": true
+              "overlap": 0.5,
+              "supported": false
             }
           ]
         },
         {
           "question_id": 21,
           "question": "What is biometric authentication?",
-          "answer": "Biometric authentication involves using unique physical characteristics of an individual to verify their identity. This can include fingerprints, facial recognition, iris scans, or voice recognition. The Aadhaar Handbook provides specific instructions on how to update your biometrics if they are not provided during enrollment.",
-          "correctness": 0.3333,
-          "response_relevance": 1.0,
+          "answer": "Biometrics refers to a method of identification that uses physical characteristics such as fingerprints, facial recognition or voice data in place of password-like identifiers like usernames and passphrases. It's used for various purposes including user verification (logging into systems), access control, health information tracking etc., where the use of sensitive personal details is minimized to enhance security while maintaining privacy.\n",
+          "correctness": 0.0,
+          "response_relevance": 0.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -2213,35 +2197,35 @@
               }
             ]
           },
-          "hallucination_signal": false,
+          "hallucination_signal": true,
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
-              "relevance": true,
+              "relevance": false,
               "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": true,
+              "unsupported_claim_screen": false,
               "expected_format": true,
-              "answer_when_information_exists": true,
+              "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "fact": "Biometric authentication uses biometric information associated with the resident's Aadhaar.",
-              "overlap": 0.4286,
+              "overlap": 0.2857,
               "supported": false
             },
             {
               "fact": "Biometric information includes characteristics such as fingerprints and iris scans.",
-              "overlap": 0.625,
-              "supported": true
+              "overlap": 0.5,
+              "supported": false
             },
             {
               "fact": "Biometric authentication is one of the modes through which Aadhaar can be authenticated.",
-              "overlap": 0.4286,
+              "overlap": 0.0,
               "supported": false
             }
           ]
@@ -2249,7 +2233,7 @@
         {
           "question_id": 22,
           "question": "What is Aadhaar authentication?",
-          "answer": "Aadhaar authentication involves verifying the identity of an individual using their Aadhaar number. This can be done online or offline, depending on the service provider's requirements. The process typically involves scanning a QR code that contains demographic details and a digital signature. The service provider needs to use an Aadhaar QR Code Scanner App (also available in mAadhaar) to scan the Secure QR Code on the presented Aadhaar.",
+          "answer": "AADHAAR (Unique Identification Authority of India Government of India) Authentication refers to the process by which a person's identity information, such as name and date of birth or PAN number, can be verified. This is done using Aadhaar-based services provided in mobile applications like UIDAI App for Android users (also available on iOS), eAadhaar app etc., to verify the authenticity of a person's identity information stored inside an individual’s digital wallet or card such as AADHAAR.\n",
           "correctness": 0.25,
           "response_relevance": 1.0,
           "retrieval": {
@@ -2365,7 +2349,7 @@
         {
           "question_id": 23,
           "question": "Can a resident update Aadhaar information?",
-          "answer": "Yes, a resident can update Aadhaar information through an Aadhaar Enrolment Centre across the country. The handbook provides clear instructions on how to check details of your Aadhaar for any other required updates and submit valid supporting documents for verification or updating demographic details such as name, address, date of birth, gender, mobile number, or email ID.",
+          "answer": "Yes, the user can update their personal details in an online form provided by UIDAI (Unique Identification Authority of India). This includes name and address. However, for biometric data like photographs or fingerprints that are not included as part of Aadhaar information itself cannot be updated directly through this process due to privacy concerns related with these sensitive details. \n\nFor updating the other personal identifiable attributes such as date of birth (DOB), gender and mobile number, you need a valid supporting document or verification from your UIDAI representative for each attribute separately which can take upto two days in most Aadhaar Enrolment Centres across India to complete. \n\nPlease note that the process may vary based on various factors like location of residence (Aadhaar enrolment centre), language preference, and other specific requirements set by UIDAI or your local government for updating personal details such as DOB in Aadhaars due to privacy concerns related with these sensitive attributes.\n",
           "correctness": 0.6667,
           "response_relevance": 1.0,
           "retrieval": {
@@ -2455,7 +2439,7 @@
             },
             {
               "fact": "Updates can be performed through an enrolment centre.",
-              "overlap": 0.8,
+              "overlap": 0.6,
               "supported": true
             },
             {
@@ -2468,7 +2452,7 @@
         {
           "question_id": 24,
           "question": "What types of information can be updated in Aadhaar?",
-          "answer": "The information that can be updated in Aadhaar includes:\n\n1. Name\n2. Address\n3. Date of Birth\n\nThese details are specified in the Aadhaar Handbook context provided.",
+          "answer": "In an Aadhaar (Individual Universal ID), the following details are typically updatable by users. These include name, address, date of birth and gender if they wish to change them due to any reason such as marriage or divorce etc., along with biometric data like photographs, fingerprints, iris scans for identification verification purposes:\n\n1. Name - This is the full legal first name + last name (if applicable). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n2. Address - This is the complete address where one lives with full details (street name + house number). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n3. Date of Birth - This is the date when one was born (in DDMMYY format). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n4. Gender - This is the gender of one (Male/Female). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n5. Mobile Number - This is the phone number where one lives with full details (country code + actual Phone No). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n6. Email ID - This is the email address where one lives with full details (email id + domain). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n7. Biometric Data - This includes photographs (if one has taken them), fingerprints/iris scans(for identification verification purposes). The Aadhaar system will update these details in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n",
           "correctness": 0.4,
           "response_relevance": 1.0,
           "retrieval": {
@@ -2573,13 +2557,13 @@
           "fact_details": [
             {
               "fact": "Demographic information can be updated.",
-              "overlap": 0.6667,
-              "supported": true
+              "overlap": 0.3333,
+              "supported": false
             },
             {
               "fact": "Address can be updated.",
-              "overlap": 1.0,
-              "supported": true
+              "overlap": 0.5,
+              "supported": false
             },
             {
               "fact": "Name, gender and date of birth can be updated subject to the stated limits.",
@@ -2588,21 +2572,21 @@
             },
             {
               "fact": "Email ID and mobile number can be updated.",
-              "overlap": 0.25,
-              "supported": false
+              "overlap": 0.75,
+              "supported": true
             },
             {
               "fact": "Biometric information such as photograph, fingerprints and iris scans can be updated.",
-              "overlap": 0.25,
-              "supported": false
+              "overlap": 0.75,
+              "supported": true
             }
           ]
         },
         {
           "question_id": 25,
           "question": "What should be done if the requested information is not available in the Aadhaar Handbook?",
-          "answer": "The information was not found in the provided Aadhaar Handbook.",
-          "correctness": 1.0,
+          "answer": "The user's question seems to have been cut off. Could you please provide more context or clarify what specific issue they are facing with their Aadhaar details and how it relates to computer science, if this is a programming-related problem that requires information from an external source such as the UIAI_1 Handbook?\n",
+          "correctness": 0.0,
           "response_relevance": 0.5,
           "retrieval": {
             "top_k": 3,
@@ -2643,23 +2627,23 @@
           },
           "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": true,
+          "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
               "answer_when_information_exists": true,
-              "refuse_when_information_unavailable": true
+              "refuse_when_information_unavailable": false
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "criterion": "explicit_abstention",
-              "passed": true
+              "passed": false
             }
           ]
         }
@@ -5310,78 +5294,78 @@
         }
       ]
     },
-    "deepseek-coder:1.3b": {
+    "qwen2.5-coder:1.5b": {
       "question_count": 25,
-      "generation_success_rate_percent": 96.0,
-      "average_correctness_percent": 21.53,
+      "generation_success_rate_percent": 100.0,
+      "average_correctness_percent": 28.27,
       "average_response_relevance_percent": 82.0,
       "retrieval": {
         "average_evidence_hit_rate_percent": 85.33,
         "average_gold_coverage_percent": 24.03,
         "note": "Retrieval is produced by the shared Week 3 retrieval service using the same knowledge base and top-k condition for all three models."
       },
-      "hallucination_signal_rate_percent": 8.0,
-      "composite_test_pass_rate_percent": 12.0,
+      "hallucination_signal_rate_percent": 4.0,
+      "composite_test_pass_rate_percent": 20.0,
       "ai_output_testing": {
-        "pass_rate_percent": 44.0,
-        "passed": 11,
+        "pass_rate_percent": 48.0,
+        "passed": 12,
         "total": 25
       },
       "performance": {
-        "successful_generations": 24,
-        "generation_failures": 1,
+        "successful_generations": 25,
+        "generation_failures": 0,
         "response_latency_seconds": {
-          "mean": 28.2985,
-          "median": 24.615,
-          "min": 18.643,
-          "max": 57.8965,
-          "count": 24
+          "mean": 16.2908,
+          "median": 15.8173,
+          "min": 12.8903,
+          "max": 26.0394,
+          "count": 25
         },
         "token_usage": {
           "prompt_tokens": {
-            "mean": 1010.5,
-            "median": 1010.5,
-            "min": 767.0,
-            "max": 1286.0,
-            "count": 24
+            "mean": 815.6,
+            "median": 825.0,
+            "min": 617.0,
+            "max": 1051.0,
+            "count": 25
           },
           "output_tokens": {
-            "mean": 186.1667,
-            "median": 110.5,
-            "min": 66.0,
-            "max": 587.0,
-            "count": 24
+            "mean": 40.6,
+            "median": 32.0,
+            "min": 13.0,
+            "max": 110.0,
+            "count": 25
           },
           "total_tokens": {
-            "mean": 1196.6667,
-            "median": 1208.0,
-            "min": 887.0,
-            "max": 1572.0,
-            "count": 24
+            "mean": 856.2,
+            "median": 866.0,
+            "min": 649.0,
+            "max": 1161.0,
+            "count": 25
           }
         },
         "evaluator_process_cpu_percent_snapshot": {
           "before": {
-            "mean": 45.632,
-            "median": 51.7,
-            "min": 12.9,
-            "max": 80.0,
+            "mean": 45.72,
+            "median": 43.5,
+            "min": 6.9,
+            "max": 85.7,
             "count": 25
           },
           "after": {
-            "mean": 22.928,
-            "median": 20.6,
-            "min": 4.4,
-            "max": 60.7,
+            "mean": 21.012,
+            "median": 20.0,
+            "min": 7.7,
+            "max": 34.5,
             "count": 25
           },
           "note": "CPU percentage snapshots are measurements of the evaluation process, not isolated Ollama model CPU usage."
         },
         "evaluator_process_memory_delta_mb": {
-          "mean": 0.0094,
+          "mean": 0.01,
           "median": 0.0039,
           "min": 0.0,
-          "max": 0.0625,
+          "max": 0.1406,
           "count": 25
         },
         "resource_note": "Resource values were collected by the evaluation process. They should not be interpreted as direct isolated model resource consumption."
@@ -5390,9 +5374,9 @@
         {
           "question_id": 1,
           "question": "What documents are required for Aadhaar enrolment?",
-          "answer": "The list provided in the UIAI_1.pdf file is a summary and does not contain specific details about each type of Document that must be presented to an official or verified individual during their registration process on Aadhaar (Indian ID). \n\nHowever, from your question it seems like you are asking for information related specifically with the enrolment procedure in India. In this case:\n- Documents required by UIAI_2 page 1 and list of documents provided under that tabular statement would be applicable to Aadhaar Enrollments (upto five years, between eighteen and above). However, these are not specific details about the enrolment process. The information on this webpage is more related to general guidelines for online enrollment in India which may include documents such as birth certificates or passports if applicable under relevant laws like Birth Registration Act (BRCA) etc., but does not specifically mention Aadhaar Enrollments and their requirements during the process.\n- Documents required by UIAI_2 page 3 would be specific to enrolment in an individual of five years or above, as per your question about \"individuals upto five years\". This includes documents such as proof of identity (PoI), address details and relationship information for the person.\n- Documents required by UIAI_2 page 4 would be specific to enrolment in an individual between eighteen and above, including a document proving legal guardianship or court cases under relevant laws like National Trust Act etc., as per your question about \"individuals five years and above\". This includes documents such as proof of identity (PoI), address details and date-of-birth information for the person.\n",
-          "correctness": 0.4,
-          "response_relevance": 1.0,
+          "answer": "The information was not found in the provided Aadhaar Handbook.",
+          "correctness": 0.0,
+          "response_relevance": 0.5,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -5485,41 +5469,41 @@
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": true,
+              "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "fact": "Proof of Identity (POI) is required.",
-              "overlap": 1.0,
-              "supported": true
+              "overlap": 0.0,
+              "supported": false
             },
             {
               "fact": "Proof of Address (POA) is required.",
-              "overlap": 0.75,
-              "supported": true
+              "overlap": 0.0,
+              "supported": false
             },
             {
               "fact": "A valid Date of Birth (DoB) document is required when available.",
-              "overlap": 0.5714,
+              "overlap": 0.0,
               "supported": false
             },
             {
               "fact": "Head of Family (HoF) based enrolment can use Proof of Relationship (PoR), the HoF Aadhaar number, and biometric confirmation of the HoF when individual documents are unavailable.",
-              "overlap": 0.4,
+              "overlap": 0.0667,
               "supported": false
             },
             {
               "fact": "Introducer based enrolment is possible when the required documents are unavailable.",
-              "overlap": 0.4286,
+              "overlap": 0.0,
               "supported": false
             }
           ]
@@ -5527,7 +5511,7 @@
         {
           "question_id": 2,
           "question": "What is Aadhaar enrolment?",
-          "answer": "Aadhaar Enrolment refers to the process of verifying your identity by issuing and maintaining unique identification numbers (IDs) called 'Aadhaars'. This ID provides a secure way for you, both as an individual or in combination with other individuals who share similar characteristics. It's also used during child care programs where children are enrolled to receive Aadhaar services such as mobile phone number and email verification through SMS messages (SMSAahal).\n",
+          "answer": "Aadhaar enrolment is the process of obtaining a unique identification number (Aadhaar) for individuals in India. The process involves providing minimal demographic and biometric data during the enrollment process, which is totally free of cost. Users need to enroll for Aadhaar only once. The enrolment process can be done through an Aadhaar Enrolment Centre or by visiting a nearby location with specific documents.",
           "correctness": 0.5,
           "response_relevance": 1.0,
           "retrieval": {
@@ -5641,17 +5625,17 @@
             },
             {
               "fact": "The enrolment process captures the resident's demographic and biometric information.",
-              "overlap": 0.2857,
+              "overlap": 0.5714,
               "supported": false
             },
             {
               "fact": "Aadhaar enrolment is free.",
-              "overlap": 0.6667,
+              "overlap": 1.0,
               "supported": true
             },
             {
               "fact": "A resident can enrol for Aadhaar only once.",
-              "overlap": 0.25,
+              "overlap": 0.5,
               "supported": false
             }
           ]
@@ -5659,8 +5643,8 @@
         {
           "question_id": 3,
           "question": "What is the purpose of Aadhaar?",
-          "answer": "The primary purposes of Aadhaar are as follows in a context provided by UIAI_1 (Unique Identification Authority of India Government of India): \n\n- To provide identification for individuals and businesses. The unique identifier, or 'Aadhaar', is generated through the process of demographic verification using biometric data such as fingerprints from smartphones to name identifiers that are hard to duplicate in real life scenarios (like passports). This ensures a high level of security while verifying identity for individuals and businesses.\n- To access services provided by UIDAI, which is an exclusive Aadhaar centre run by India's government. It provides various types of identification like personal details or business identifiers to residents in the state-of-the-art environment. \n   (Source: https://www.youtube.com/user/AadhaarUID) [Note that this is a YouTube channel, not an Aadhaar Handbook]\n",
-          "correctness": 0.6667,
+          "answer": "The purpose of Aadhaar is to provide a unique and secure identification system for individuals in India, ensuring that everyone has a single, permanent identity document. This helps in various government services, including access to healthcare, banking, education, and more.",
+          "correctness": 0.3333,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -5711,7 +5695,7 @@
           },
           "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": true,
+          "composite_test_pass": false,
           "ai_output_testing": {
             "pass": true,
             "checks": {
@@ -5727,8 +5711,8 @@
           "fact_details": [
             {
               "fact": "Aadhaar provides a portable proof of identity.",
-              "overlap": 0.6,
-              "supported": true
+              "overlap": 0.4,
+              "supported": false
             },
             {
               "fact": "Aadhaar can be used to access services, benefits and subsidies.",
@@ -5737,7 +5721,7 @@
             },
             {
               "fact": "Identity can be verified through Aadhaar Authentication online.",
-              "overlap": 0.5,
+              "overlap": 0.3333,
               "supported": false
             }
           ]
@@ -5745,7 +5729,7 @@
         {
           "question_id": 4,
           "question": "What is Proof of Identity?",
-          "answer": "Proof of Identity (PoI), also known simply as \"Identity proof\", refers to a document that contains at least one piece of information about an individual, such as their name and photograph. This can be used by individuals or entities for verification purposes in the Aadhaar system online anytime, anywhere without needing any identity documents each time they wish to access services, benefits, subsidies etc., provided it is submitted correctly with all necessary details including names of parents/guardians if applicable (if required).\n",
+          "answer": "Proof of Identity (PoI) document only if it contains at least the name and photograph of the individual.",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -5830,7 +5814,7 @@
           "fact_details": [
             {
               "fact": "Proof of Identity (POI) is an identity document accepted by UIDAI for establishing the resident's identity during Aadhaar enrolment or update.",
-              "overlap": 0.4167,
+              "overlap": 0.3333,
               "supported": false
             },
             {
@@ -5843,7 +5827,7 @@
         {
           "question_id": 5,
           "question": "What is Proof of Address?",
-          "answer": "Proof of Birth or Residency (POA), also known as Passport/Birth Certificate. It's a piece of information that provides proof for the resident to be an Indian, and it includes details such as Name & Age on file with Aadhaar system in India only if they are 18 years old or older when registered at home (not required by law). The POA is usually issued through official government portals like UIAI_2.pdf page:3 for individuals aged above eighteen and also includes details such as Name, Date of Birth & Residency Number on file with Aadhaar system in India only if they are 18 years old or older when registered at home (not required by law).\n",
+          "answer": "Proof of Address refers to documents containing Name & Address. The information was found in the provided Aadhaar Handbook on page 63.",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -5924,12 +5908,12 @@
           "fact_details": [
             {
               "fact": "Proof of Address (POA) is an accepted document used to establish the resident's address.",
-              "overlap": 0.4286,
+              "overlap": 0.2857,
               "supported": false
             },
             {
               "fact": "POA is mandatory for document-based Aadhaar enrolment.",
-              "overlap": 0.3333,
+              "overlap": 0.1667,
               "supported": false
             }
           ]
@@ -5937,7 +5921,7 @@
         {
           "question_id": 6,
           "question": "What is Proof of Date of Birth?",
-          "answer": "Proof of date of birth (POB) documents are used by individuals in India as a proof that they were born on the specified day. They provide evidence for their identity and privacy, ensuring only authorized individuals can access personal information related to them based upon Aadhaar number or other unique identifiers provided during registration process at an institution like government-owned organizations (GOI).\n",
+          "answer": "Proof of Date of Birth refers to any document that verifies the individual's date of birth. It can be a birth certificate, Indian Passport, or any other acceptable proof listed in the Aadhaar Handbook.",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -6030,17 +6014,17 @@
           "fact_details": [
             {
               "fact": "Proof of Date of Birth is a valid document from the UIDAI-accepted list used to establish the resident's date of birth.",
-              "overlap": 0.3,
+              "overlap": 0.4,
               "supported": false
             },
             {
               "fact": "If a resident does not have a valid DoB document, the handbook allows declaration of the date of birth or approximate age.",
-              "overlap": 0.1667,
+              "overlap": 0.3333,
               "supported": false
             },
             {
               "fact": "If a valid DoB document is available, it should be produced for enrolment.",
-              "overlap": 0.0,
+              "overlap": 0.1429,
               "supported": false
             }
           ]
@@ -6048,8 +6032,8 @@
         {
           "question_id": 7,
           "question": "What is Proof of Relationship?",
-          "answer": "Proof of Relation (PoR), also known simply as \"Relationships\", document, or relationship证明，is a legal and financial form used to prove that an individual has been engaged in the course of human relations. It's essentially proof of one person having control over another at some point during their interaction with each other on social media platforms like Facebook etc., before they became connected through these interactions (i.e, it proves there is a relationship).\n",
-          "correctness": 0.0,
+          "answer": "Proof of Relationship (PoR) document contains at least the name of individual and name of Head of Family (HoF).",
+          "correctness": 1.0,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -6117,38 +6101,38 @@
           },
           "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": false,
+          "composite_test_pass": true,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": false,
+              "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "fact": "Proof of Relationship (PoR) establishes the relationship between the resident and the Head of Family.",
-              "overlap": 0.375,
-              "supported": false
+              "overlap": 0.625,
+              "supported": true
             },
             {
               "fact": "PoR is used in Head of Family based enrolment.",
-              "overlap": 0.2,
-              "supported": false
+              "overlap": 0.6,
+              "supported": true
             }
           ]
         },
         {
           "question_id": 8,
           "question": "Can Aadhaar enrolment be done without supporting documents?",
-          "answer": "Yes, it is possible to enroll in an Aadhaar account using only the information provided by UIAI_1 and not needing any additional support or documentation. However, this does require a non-resident Indian (NRI) with valid Indian Passport who has been enrolled for one of these documents: Proof of Identity document containing name and photograph; Proof of Address document containing name and address in India; Date of Birth proof document containing the details provided by UIAI_2.\n",
+          "answer": "Yes, Aadhaar enrolment can be done without supporting documents.\n\nPage: 7",
           "correctness": 0.0,
-          "response_relevance": 0.5,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -6243,17 +6227,17 @@
           "fact_details": [
             {
               "fact": "Yes, alternative enrolment methods exist when individual supporting documents are unavailable.",
-              "overlap": 0.2222,
+              "overlap": 0.4444,
               "supported": false
             },
             {
               "fact": "Head of Family based enrolment can be used where individual documents are unavailable.",
-              "overlap": 0.1429,
+              "overlap": 0.2857,
               "supported": false
             },
             {
               "fact": "Introducer based enrolment can be used when the required documents are not available.",
-              "overlap": 0.1667,
+              "overlap": 0.3333,
               "supported": false
             }
           ]
@@ -6261,7 +6245,7 @@
         {
           "question_id": 9,
           "question": "What information is collected during Aadhaar enrolment?",
-          "answer": "During an Aadhaar enrollment process for residents in India, a variety of personal and demographic data are gathered from various sources including the user's device (Aadhaar Enrollment Centre), smartphone or computer system. The specific information collected can vary based on different factors like location type(Bank/Post Office etc.), service delivery method used by users such as online, offline services in a local body member organization and so forth.\n",
+          "answer": "During Aadhaar enrolment, you need to provide minimal demographic and biometric data. This includes your name, Aadhaar number, and one modality of biometric information (such as fingerprints or facial recognition). The information is captured during the enrollment process, which is totally free of cost. Please note that you need to enroll for Aadhaar only once.",
           "correctness": 0.6667,
           "response_relevance": 1.0,
           "retrieval": {
@@ -6350,7 +6334,7 @@
           "fact_details": [
             {
               "fact": "Demographic information is collected.",
-              "overlap": 1.0,
+              "overlap": 0.6667,
               "supported": true
             },
             {
@@ -6360,7 +6344,7 @@
             },
             {
               "fact": "The enrolment process captures information required for Aadhaar identity creation.",
-              "overlap": 0.375,
+              "overlap": 0.5,
               "supported": false
             }
           ]
@@ -6368,8 +6352,8 @@
         {
           "question_id": 10,
           "question": "What biometric information is collected for Aadhaar?",
-          "answer": "Biometrics, also known as fingerprints and facial recognition data (FRD), are a type of unique identification method that uses physical characteristics such as the shape or size of an object to verify someone's identity. \n\nIn Aadhaar system, biometric information is collected for verification purposes:\n1. Fingerprint Data - This includes finger print patterns and sizes used by users in daily life activities like walking, sitting, standing etc., which are unique identifiers that can be scanned or captured using a device with an infrared sensor (like smartphones). \n2. Face Recognition data- Aadhaar uses facial recognition technology to verify the identity of individuals who use their mobile phones and computers for daily life activities like walking, sitting etc., by comparing face images in real time from users' devices or cameras using algorithms that are trained on a large database containing pictures of people with known identities.\n3. Voice Recognition data - Aadhaar also uses voice recognition technology to verify the identity and authenticity of individuals who use their mobile phones for daily life activities, by comparing spoken language patterns in real time from users' devices or microphones using algorithms that are trained on a large database containing recordings (sounds) of people with known identities.\n4. Hardware Tokens - These tokens generated during the enrollment process can be used to verify Aadhaar ID, which includes fingerprint data and face/voice recognition information from users' devices or smartphones in future transactions for secure authentication purposes. \n5. Biometric Verification Data- This is a unique identifier that uniquely identifies an individual using biometrics (finger print patterns) to verify their identity at the point of registration, during online services and on mobile applications like UID AI etc., which are used by government authorities for verification in Aadhaar systems.\n",
-          "correctness": 0.25,
+          "answer": "The Aadhaar Handbook context does not provide specific details about the biometric information collected for Aadhaar. The handbook focuses more on the authentication and verification processes rather than biometrics.",
+          "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -6418,7 +6402,7 @@
               "supported_by_retrieved_context": false,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": true,
+              "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
             },
             "reason": "One or more output checks failed"
@@ -6431,8 +6415,8 @@
             },
             {
               "fact": "Fingerprints are collected.",
-              "overlap": 1.0,
-              "supported": true
+              "overlap": 0.5,
+              "supported": false
             },
             {
               "fact": "Iris scans are collected.",
@@ -6441,7 +6425,7 @@
             },
             {
               "fact": "For children, fingerprints, iris scans and photographs are captured during mandatory biometric updates.",
-              "overlap": 0.4,
+              "overlap": 0.1,
               "supported": false
             }
           ]
@@ -6449,7 +6433,7 @@
         {
           "question_id": 11,
           "question": "What demographic information is collected during enrolment?",
-          "answer": "During the resident enrollment process, biometric information such as facial images (i), fingerprints with ten fingers scanned and both irises' scan results are required. The Aadhaar handbook provides more details about this in Section 12 of its guidelines for residents enrolling at UIAI_1:\n\n- Facial image - This is a biometric identification method used by individuals to verify their identity, often done through facial recognition technology or an app like Google's Face ID. The information captured during the introducer based enrollment (other than children under five years of age) includes Introducer’s name and Aadhaar number along with one modality of biometric identification for each child in House-of-Fame enrolments, where a Head of Family must provide biometric confirmation at time of enrolment.\n  \nPlease note that the specific details may vary depending on your location or country's local laws and regulations regarding Aadhaar enrollment process as per UIAI_1:50 (Page 4). Also, it is important to ensure you are following all relevant privacy guidelines when collecting such sensitive information. For more accurate responses based solely upon the provided context in this document, please consult with a legal expert or an AI model trained specifically on Aadhaar data for your specific location and country's regulations regarding enrolment process of individuals under UIAI_1:50 (Page 4).\n",
+          "answer": "The demographic information collected during enrolment includes:\n\n- Introducer's name\n- Introducer's Aadhaar number\n- One modality of biometric information of the Introducer\n\nPage: 10",
           "correctness": 0.25,
           "response_relevance": 1.0,
           "retrieval": {
@@ -6534,22 +6518,22 @@
           "fact_details": [
             {
               "fact": "Demographic information includes personal identity and address-related information captured during enrolment.",
-              "overlap": 0.6,
-              "supported": true
+              "overlap": 0.5,
+              "supported": false
             },
             {
               "fact": "Name and date of birth are examples of demographic information.",
-              "overlap": 0.3333,
+              "overlap": 0.5,
               "supported": false
             },
             {
               "fact": "Address is demographic information.",
-              "overlap": 0.3333,
-              "supported": false
+              "overlap": 0.6667,
+              "supported": true
             },
             {
               "fact": "Mobile number and email are part of the demographic information fields, where provided.",
-              "overlap": 0.2857,
+              "overlap": 0.4286,
               "supported": false
             }
           ]
@@ -6557,8 +6541,8 @@
         {
           "question_id": 12,
           "question": "What happens after Aadhaar enrolment?",
-          "answer": "After completing an Aadhaar enrollment process on your mobile device, you will receive a unique ID (Aadhaar) that is issued to the person. This information can be used for various purposes such as verification in online banking systems or accessing services like UIDAI and other governmental applications within India.\n",
-          "correctness": 0.0,
+          "answer": "After Aadhaar enrolment, you receive an SMS of Aadhaar generation documents for scanning. You then collect your documents and enroll slip to get Aadhaar.",
+          "correctness": 0.3333,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -6624,26 +6608,26 @@
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": false,
+              "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "fact": "The enrolment information is processed for Aadhaar generation.",
-              "overlap": 0.4,
-              "supported": false
+              "overlap": 0.6,
+              "supported": true
             },
             {
               "fact": "The resident can use the enrolment information or enrolment ID to check generation/status information.",
-              "overlap": 0.1667,
+              "overlap": 0.3333,
               "supported": false
             },
             {
@@ -6656,9 +6640,9 @@
         {
           "question_id": 13,
           "question": "What documents can be used as proof of identity?",
-          "answer": "The list provided in UIAI_2.pdf page number three (Criteria for acceptability of the documents submitted to evidence Identity, Address and Date Of Birth) does not contain specific criteria that all Aadhaar Proofs should meet before they can be used as proof of identity or address/date-of-birth information in a user's context. \n\nHowever, it is generally accepted among the users (and legal entities), for any document to serve as evidence Identity and Address will need at least:\n1) To contain an image with name along side date & time of creation or last update; this can be done using Aadhaar card itself. \n2) The information should not have been tampered in the process, ie., it must remain unchanged after being created/updated on a physical device (like smartphone). This is to ensure that even if someone else accesses your data from another source or location they cannot alter this document for themselves without changing its content.\n3) The name of person should be mentioned along with the image in such documents, so as not only can it serve identity but also serves a purpose (like proofing an event). \n4) It must contain at least one date-of-birth and/or birth certificate if applicable for children under five years. This is to ensure that even though they are younger than sixteen the document will be valid, as per Aadhaar's rules of dating from a child (five or more).\n5) The documents should not contain any other information apart from these four mentioned above which can serve identity and address/date-of-birth. \n6) It must have been submitted in the name that is being enrolled, otherwise it cannot be used as proof of Identity for a person under sixteen years old or older because Aadhaar rules do not allow this (unless they are children). This can also serve to prove their identity if someone else accesses your data from another source.\n",
+          "answer": "The information was not found in the provided Aadhaar Handbook.",
           "correctness": 0.0,
-          "response_relevance": 1.0,
+          "response_relevance": 0.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -6729,7 +6713,7 @@
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": true,
+              "relevance": false,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
@@ -6741,12 +6725,12 @@
           "fact_details": [
             {
               "fact": "Only documents from the UIDAI-valid supporting-document list should be presented as POI.",
-              "overlap": 0.5556,
+              "overlap": 0.0,
               "supported": false
             },
             {
               "fact": "The handbook provides a specific list of acceptable POI documents.",
-              "overlap": 0.4286,
+              "overlap": 0.1429,
               "supported": false
             }
           ]
@@ -6754,9 +6738,9 @@
         {
           "question_id": 14,
           "question": "What documents can be used as proof of address?",
-          "answer": "The list provided in UIAI_2.pdf page 13, \"List of Acceptable Documents for Enrolment and Update Mera Aadhaar , Meri Pehchaan * Proof of Address documents\", includes the following types of proof-of-address (PoA) documents:\n\nProof of Identity Document(s): Name & photograph 1. Passport, ID card number or government photo identity cards issued by PSU and Electricity Bill not older than three months; Water bill not older than three months ; Telephone landline bills not older than three months (not more recent); Property tax receipt not over a year old; Credit Card statement not longer than 3 months in use, Insurance policy.\nProof of Address Document(s): Name & address details such as passport ID card number or government photo identity cards issued by PSU and Electricity Bill older than three years (not more recent); Water bill newer than two years but less then four; Telephone landline bills not longer in use, Property tax receipt over a year old with no renewal required ; Credit Card statement new for 3 months of usage or insurance policy.\n",
+          "answer": "The information was not found in the provided Aadhaar Handbook.",
           "correctness": 0.0,
-          "response_relevance": 1.0,
+          "response_relevance": 0.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -6816,15 +6800,15 @@
               }
             ]
           },
-          "hallucination_signal": true,
+          "hallucination_signal": false,
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": true,
+              "relevance": false,
               "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": false,
+              "unsupported_claim_screen": true,
               "expected_format": true,
               "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
@@ -6834,17 +6818,17 @@
           "fact_details": [
             {
               "fact": "Only documents from the UIDAI-valid supporting-document list should be presented as POA.",
-              "overlap": 0.4444,
+              "overlap": 0.0,
               "supported": false
             },
             {
               "fact": "The handbook provides a specific list of acceptable POA documents.",
-              "overlap": 0.5714,
+              "overlap": 0.1429,
               "supported": false
             },
             {
               "fact": "Examples include accepted utility or property-related documents where they satisfy the stated validity conditions.",
-              "overlap": 0.1818,
+              "overlap": 0.0,
               "supported": false
             }
           ]
@@ -6852,9 +6836,9 @@
         {
           "question_id": 15,
           "question": "What documents can be used as proof of date of birth?",
-          "answer": "The Aadhaar Handbook provides a list of acceptable proofs of identity, address (AADHAAR), and dates of birth for residents. For non-residents or individuals under 18 years old who are not resident Indians as per the UIAI_2 document provided in source page number \"3\", only documents related to date of birth can be used:\n\ni) Birth certificate (for Non-Resident Indian NRI below 18): This is a digital or physical form that contains information such as name, gender and age. It's usually obtained from the government department in India for residents who are not resident Indians under 18 years of old. For non-residents above this year (NRI), only birth certificate can be used to prove their date of birth which is a physical document that contains information such as name, gender and age on it or any other proof they have obtained from the government department in India for residents who are not resident Indians under 18 years old.\n\nii) Indian Passport (for Resident Individuals): This can be either an original passport with a digital photo ID card attached to one side, as well as another copy on both sides of each document or any other proof they have obtained from the government department in India for residents who are not resident Indians under 18 years old.\n",
-          "correctness": 0.5,
-          "response_relevance": 1.0,
+          "answer": "The information was not found in the provided Aadhaar Handbook.",
+          "correctness": 0.0,
+          "response_relevance": 0.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -6923,36 +6907,36 @@
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
-              "relevance": true,
+              "relevance": false,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": true,
+              "answer_when_information_exists": false,
               "refuse_when_information_unavailable": true
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "fact": "Only documents from the UIDAI-valid supporting-document list should be used as DoB proof.",
-              "overlap": 0.4444,
+              "overlap": 0.0,
               "supported": false
             },
             {
               "fact": "Birth certificate is an example of an accepted DoB document in the handbook's document list.",
-              "overlap": 0.625,
-              "supported": true
+              "overlap": 0.125,
+              "supported": false
             }
           ]
         },
         {
           "question_id": 16,
           "question": "What is the role of the enrolment operator?",
-          "answer": "The Enrollment Operator's main function in an Aadhaar system, as per UIAI_1.pdf page 50 and source mentioned above (Source :UIAI_1.pdf), is to provide information about the enrollee such as their name, aadhar number etc., for further verification during enrollment process or identification of an existing user in case they have already registered with Aadhaar system beforehand using biometric data provided by them at registration time (as per UIAI_1.pdf page 52).\n",
+          "answer": "The role of the enrolment operator is to assist with the enrollment process by providing assistance and guidance during the biometric confirmation at the time of enrolment.",
           "correctness": 0.3333,
-          "response_relevance": 0.5,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -7040,12 +7024,12 @@
             },
             {
               "fact": "The operator is involved in capturing and entering resident information into the enrolment system.",
-              "overlap": 0.375,
+              "overlap": 0.25,
               "supported": false
             },
             {
               "fact": "The operator assists residents at the enrolment centre.",
-              "overlap": 0.2,
+              "overlap": 0.4,
               "supported": false
             }
           ]
@@ -7053,7 +7037,7 @@
         {
           "question_id": 17,
           "question": "What is the role of the verifier?",
-          "answer": "The Verifier in an Aadhaar system plays a crucial role. It's responsible for validating and confirming information related to individuals, including their personal details like name, date of birth etc., as well as authenticity through digital signatures or photos taken during the enrollment process by users who want to register themselves on this platform (like Aadhaar).\n",
+          "answer": "The role of the verifier is to verify the information provided by the certifier according to the checklist.",
           "correctness": 0.0,
           "response_relevance": 1.0,
           "retrieval": {
@@ -7116,7 +7100,7 @@
             },
             {
               "fact": "The enrolment/update form contains a verifier stamp and signature as part of the verification process.",
-              "overlap": 0.2,
+              "overlap": 0.1,
               "supported": false
             }
           ]
@@ -7124,9 +7108,9 @@
         {
           "question_id": 18,
           "question": "How is an Aadhaar number generated?",
-          "answer": null,
+          "answer": "The information was not found in the provided Aadhaar Handbook.",
           "correctness": 0.0,
-          "response_relevance": 0.0,
+          "response_relevance": 0.5,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -7192,28 +7176,44 @@
             ]
           },
           "hallucination_signal": false,
-          "generation_error": "HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=300)",
+          "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": false,
-              "supported_by_retrieved_context": false,
-              "unsupported_claim_screen": false,
-              "expected_format": false,
+              "relevance": true,
+              "supported_by_retrieved_context": true,
+              "unsupported_claim_screen": true,
+              "expected_format": true,
               "answer_when_information_exists": false,
-              "refuse_when_information_unavailable": false
+              "refuse_when_information_unavailable": true
             },
-            "reason": "Generation error"
+            "reason": "One or more output checks failed"
           },
-          "fact_details": []
+          "fact_details": [
+            {
+              "fact": "Aadhaar generation occurs after enrolment information has been submitted and processed.",
+              "overlap": 0.2,
+              "supported": false
+            },
+            {
+              "fact": "The Aadhaar number is generated by UIDAI's system rather than manually assigned by the resident or operator.",
+              "overlap": 0.0909,
+              "supported": false
+            },
+            {
+              "fact": "The Aadhaar number is a unique 12-digit identity number.",
+              "overlap": 0.2,
+              "supported": false
+            }
+          ]
         },
         {
           "question_id": 19,
           "question": "What should a resident do if there is an error in their Aadhaar information?",
-          "answer": "The user needs to contact the UID AI's regional office, which handles all residents for due diligence. They can then file a complaint with them and provide necessary details such as your name (name), gender(gender) , date of birth (date of Birth). The unique identification authority will process this request once verified by their official channels or through email to help@uidai.gov.in .\n",
+          "answer": "If there is an error in your Aadhaar information, you should visit an Aadhaar Enrolment Centre with a valid supporting document for Name and Date of Birth. Place an update request, send the latest URN to the Aadhaar help centre by calling 1947 or via email to help@uidai.gov.in and request for 'exception update'. The case is then assigned to the UIDAI's Regional Office that handles your region for due diligence. Once verified, your update request will be processed and the outcome communicated to you.",
           "correctness": 0.0,
-          "response_relevance": 0.0,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -7292,7 +7292,7 @@
           "ai_output_testing": {
             "pass": false,
             "checks": {
-              "relevance": false,
+              "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
@@ -7304,7 +7304,7 @@
           "fact_details": [
             {
               "fact": "The resident should request an update/correction of the incorrect information.",
-              "overlap": 0.1429,
+              "overlap": 0.5714,
               "supported": false
             },
             {
@@ -7314,7 +7314,7 @@
             },
             {
               "fact": "Valid supporting documents may be required depending on the field being corrected.",
-              "overlap": 0.0,
+              "overlap": 0.25,
               "supported": false
             }
           ]
@@ -7322,8 +7322,8 @@
         {
           "question_id": 20,
           "question": "What is demographic authentication?",
-          "answer": "Demographic Authentication, also known as Personal Identification (PIN), refers to the process of verifying a person's identity by providing their personal details such as name and date of birth. This method uses an Aadhaar card which is unique for each individual in India. The PIN used during this authentication can be verified using various methods, including online services or mobile applications that provide secure QR codes to scan the digital ID on a physical device like smartphone (Aadhaar Scanner App).\n",
-          "correctness": 0.5,
+          "answer": "Demographic authentication involves verifying the identity of a person using their Aadhaar number and other relevant information. This can be done through various methods such as scanning a QR code on the Aadhaar card, verifying an email or mobile number, or using an Aadhaar-based credit service. The process typically requires a one-time password (OTP) to authenticate the user's identity.",
+          "correctness": 1.0,
           "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
@@ -7389,40 +7389,40 @@
               }
             ]
           },
-          "hallucination_signal": false,
+          "hallucination_signal": true,
           "generation_error": null,
-          "composite_test_pass": false,
+          "composite_test_pass": true,
           "ai_output_testing": {
-            "pass": true,
+            "pass": false,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": true,
+              "unsupported_claim_screen": false,
               "expected_format": true,
               "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "All output checks passed"
+            "reason": "One or more output checks failed"
           },
           "fact_details": [
             {
               "fact": "Demographic authentication is authentication using demographic information associated with Aadhaar.",
-              "overlap": 0.6,
+              "overlap": 0.8,
               "supported": true
             },
             {
               "fact": "It is one of the modes of Aadhaar authentication.",
-              "overlap": 0.5,
-              "supported": false
+              "overlap": 0.75,
+              "supported": true
             }
           ]
         },
         {
           "question_id": 21,
           "question": "What is biometric authentication?",
-          "answer": "Biometrics refers to a method of identification that uses physical characteristics such as fingerprints, facial recognition or voice data in place of password-like identifiers like usernames and passphrases. It's used for various purposes including user verification (logging into systems), access control, health information tracking etc., where the use of sensitive personal details is minimized to enhance security while maintaining privacy.\n",
-          "correctness": 0.0,
-          "response_relevance": 0.0,
+          "answer": "Biometric authentication involves using unique physical characteristics of an individual to verify their identity. This can include fingerprints, facial recognition, iris scans, or voice recognition. The Aadhaar Handbook provides specific instructions on how to update your biometrics if they are not provided during enrollment.",
+          "correctness": 0.3333,
+          "response_relevance": 1.0,
           "retrieval": {
             "top_k": 3,
             "retrieved_chunks": 3,
@@ -7487,35 +7487,35 @@
               }
             ]
           },
-          "hallucination_signal": true,
+          "hallucination_signal": false,
           "generation_error": null,
           "composite_test_pass": false,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
-              "relevance": false,
+              "relevance": true,
               "supported_by_retrieved_context": true,
-              "unsupported_claim_screen": false,
+              "unsupported_claim_screen": true,
               "expected_format": true,
-              "answer_when_information_exists": false,
+              "answer_when_information_exists": true,
               "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "fact": "Biometric authentication uses biometric information associated with the resident's Aadhaar.",
-              "overlap": 0.2857,
+              "overlap": 0.4286,
               "supported": false
             },
             {
               "fact": "Biometric information includes characteristics such as fingerprints and iris scans.",
-              "overlap": 0.5,
-              "supported": false
+              "overlap": 0.625,
+              "supported": true
             },
             {
               "fact": "Biometric authentication is one of the modes through which Aadhaar can be authenticated.",
-              "overlap": 0.0,
+              "overlap": 0.4286,
               "supported": false
             }
           ]
@@ -7523,7 +7523,7 @@
         {
           "question_id": 22,
           "question": "What is Aadhaar authentication?",
-          "answer": "AADHAAR (Unique Identification Authority of India Government of India) Authentication refers to the process by which a person's identity information, such as name and date of birth or PAN number, can be verified. This is done using Aadhaar-based services provided in mobile applications like UIDAI App for Android users (also available on iOS), eAadhaar app etc., to verify the authenticity of a person's identity information stored inside an individual’s digital wallet or card such as AADHAAR.\n",
+          "answer": "Aadhaar authentication involves verifying the identity of an individual using their Aadhaar number. This can be done online or offline, depending on the service provider's requirements. The process typically involves scanning a QR code that contains demographic details and a digital signature. The service provider needs to use an Aadhaar QR Code Scanner App (also available in mAadhaar) to scan the Secure QR Code on the presented Aadhaar.",
           "correctness": 0.25,
           "response_relevance": 1.0,
           "retrieval": {
@@ -7639,7 +7639,7 @@
         {
           "question_id": 23,
           "question": "Can a resident update Aadhaar information?",
-          "answer": "Yes, the user can update their personal details in an online form provided by UIDAI (Unique Identification Authority of India). This includes name and address. However, for biometric data like photographs or fingerprints that are not included as part of Aadhaar information itself cannot be updated directly through this process due to privacy concerns related with these sensitive details. \n\nFor updating the other personal identifiable attributes such as date of birth (DOB), gender and mobile number, you need a valid supporting document or verification from your UIDAI representative for each attribute separately which can take upto two days in most Aadhaar Enrolment Centres across India to complete. \n\nPlease note that the process may vary based on various factors like location of residence (Aadhaar enrolment centre), language preference, and other specific requirements set by UIDAI or your local government for updating personal details such as DOB in Aadhaars due to privacy concerns related with these sensitive attributes.\n",
+          "answer": "Yes, a resident can update Aadhaar information through an Aadhaar Enrolment Centre across the country. The handbook provides clear instructions on how to check details of your Aadhaar for any other required updates and submit valid supporting documents for verification or updating demographic details such as name, address, date of birth, gender, mobile number, or email ID.",
           "correctness": 0.6667,
           "response_relevance": 1.0,
           "retrieval": {
@@ -7729,7 +7729,7 @@
             },
             {
               "fact": "Updates can be performed through an enrolment centre.",
-              "overlap": 0.6,
+              "overlap": 0.8,
               "supported": true
             },
             {
@@ -7742,7 +7742,7 @@
         {
           "question_id": 24,
           "question": "What types of information can be updated in Aadhaar?",
-          "answer": "In an Aadhaar (Individual Universal ID), the following details are typically updatable by users. These include name, address, date of birth and gender if they wish to change them due to any reason such as marriage or divorce etc., along with biometric data like photographs, fingerprints, iris scans for identification verification purposes:\n\n1. Name - This is the full legal first name + last name (if applicable). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n2. Address - This is the complete address where one lives with full details (street name + house number). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n3. Date of Birth - This is the date when one was born (in DDMMYY format). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n4. Gender - This is the gender of one (Male/Female). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n5. Mobile Number - This is the phone number where one lives with full details (country code + actual Phone No). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n6. Email ID - This is the email address where one lives with full details (email id + domain). The Aadhaar system will update this information in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n7. Biometric Data - This includes photographs (if one has taken them), fingerprints/iris scans(for identification verification purposes). The Aadhaar system will update these details in real-time and it'll be visible to all users who have access to your account on any mobile or web application, including those using a different device for accessing same data if you choose.\n",
+          "answer": "The information that can be updated in Aadhaar includes:\n\n1. Name\n2. Address\n3. Date of Birth\n\nThese details are specified in the Aadhaar Handbook context provided.",
           "correctness": 0.4,
           "response_relevance": 1.0,
           "retrieval": {
@@ -7847,13 +7847,13 @@
           "fact_details": [
             {
               "fact": "Demographic information can be updated.",
-              "overlap": 0.3333,
-              "supported": false
+              "overlap": 0.6667,
+              "supported": true
             },
             {
               "fact": "Address can be updated.",
-              "overlap": 0.5,
-              "supported": false
+              "overlap": 1.0,
+              "supported": true
             },
             {
               "fact": "Name, gender and date of birth can be updated subject to the stated limits.",
@@ -7862,21 +7862,21 @@
             },
             {
               "fact": "Email ID and mobile number can be updated.",
-              "overlap": 0.75,
-              "supported": true
+              "overlap": 0.25,
+              "supported": false
             },
             {
               "fact": "Biometric information such as photograph, fingerprints and iris scans can be updated.",
-              "overlap": 0.75,
-              "supported": true
+              "overlap": 0.25,
+              "supported": false
             }
           ]
         },
         {
           "question_id": 25,
           "question": "What should be done if the requested information is not available in the Aadhaar Handbook?",
-          "answer": "The user's question seems to have been cut off. Could you please provide more context or clarify what specific issue they are facing with their Aadhaar details and how it relates to computer science, if this is a programming-related problem that requires information from an external source such as the UIAI_1 Handbook?\n",
-          "correctness": 0.0,
+          "answer": "The information was not found in the provided Aadhaar Handbook.",
+          "correctness": 1.0,
           "response_relevance": 0.5,
           "retrieval": {
             "top_k": 3,
@@ -7917,23 +7917,23 @@
           },
           "hallucination_signal": false,
           "generation_error": null,
-          "composite_test_pass": false,
+          "composite_test_pass": true,
           "ai_output_testing": {
-            "pass": false,
+            "pass": true,
             "checks": {
               "relevance": true,
               "supported_by_retrieved_context": true,
               "unsupported_claim_screen": true,
               "expected_format": true,
               "answer_when_information_exists": true,
-              "refuse_when_information_unavailable": false
+              "refuse_when_information_unavailable": true
             },
-            "reason": "One or more output checks failed"
+            "reason": "All output checks passed"
           },
           "fact_details": [
             {
               "criterion": "explicit_abstention",
-              "passed": false
+              "passed": true
             }
           ]
         }

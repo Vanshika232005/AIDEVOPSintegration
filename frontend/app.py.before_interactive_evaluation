@@ -22,12 +22,10 @@ import json
 import os
 import subprocess
 import sys
-import tempfile
 import time
 from datetime import datetime
 
 import pandas as pd
-import plotly.express as px
 import requests
 import streamlit as st
 
@@ -1901,548 +1899,154 @@ elif page == "Evaluation":
                     📝 25-Question Model Evaluation
                 </div>
                 <div class="card-desc">
-                    Inspect the fixed Week 4 evaluation set across the same
-                    Aadhaar application, knowledge base, prompts and retrieval
-                    conditions using Qwen 1.5B, Llama 3.2 3B and DeepSeek Coder 1.3B.
+                    Upload a representative 25-question JSON set,
+                    validate it, and run the same questions against
+                    Qwen 1.5B, Llama 3.2 3B and DeepSeek Coder 1.3B.
                 </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
+        # Load the official 25-question evaluation set.
         questions_file = os.path.join(
             EVAL_DIR,
             "questions.json",
         )
+
         questions_data = load_json(questions_file)
-        questions = questions_data if isinstance(questions_data, list) else []
+
+        if isinstance(questions_data, list):
+            questions = questions_data
+        else:
+            questions = []
 
         if questions:
+            question_options = [
+                f'{item.get("id", f"Q{index + 1}")} — '
+                f'{item.get("question", "")}'
+                for index, item in enumerate(questions)
+            ]
 
-            question_lookup = {}
-            question_options = ["All Questions"]
-
-            for index, item in enumerate(questions, start=1):
-                question_id = str(item.get("id", index))
-                if not question_id.upper().startswith("Q"):
-                    question_id = f"Q{question_id}"
-                question_text = str(item.get("question", ""))
-                question_lookup[question_id] = {
-                    "id": question_id,
-                    "question": question_text,
-                }
-                question_options.append(
-                    f"{question_id} — {question_text}"
-                )
-
-            # Normalize question IDs early because the source JSON may use
-            # numeric IDs (for example, 2) while the UI displays Q2.
-            def normalize_qid(value):
-                value = str(value)
-                return value if value.upper().startswith("Q") else f"Q{value}"
-
-            def record_qid(record):
-                return normalize_qid(
-                    record.get(
-                        "question_id",
-                        record.get("id", ""),
-                    )
-                )
-
-            def record_model(record):
-                return str(record.get("model", ""))
-
-            st.markdown("### Evaluation controls")
-
-            control_model, control_question = st.columns(2)
-
-            with control_model:
-                selected_model_filter = st.selectbox(
-                    "MODEL",
-                    ["All Models"] + MODELS,
-                    index=1,
-                    key="selected_25_model_filter",
-                )
-
-            with control_question:
-                selected_question_filter = st.selectbox(
-                    "QUESTION",
-                    question_options,
-                    index=1,
-                    key="selected_25_question_filter",
-                )
-
-            st.caption(
-                "Both controls are independent. Use one model + one question "
-                "for detailed inspection, All Models + one question for model "
-                "comparison, one model + All Questions for model-wide analysis, "
-                "or All Models + All Questions for the complete 75-run dashboard."
+            selected_question_label = st.selectbox(
+                "Select an evaluation question",
+                question_options,
+                key="selected_25_question",
             )
 
-            if selected_question_filter == "All Questions":
-                selected_question_id = None
-                selected_question_text = None
-            else:
-                selected_question_id = selected_question_filter.split(" — ", 1)[0]
-                selected_question_text = question_lookup.get(
-                    selected_question_id,
-                    {},
-                ).get("question", "")
+            selected_question_index = question_options.index(
+                selected_question_label
+            )
 
-            selected_models = (
-                MODELS
-                if selected_model_filter == "All Models"
-                else [selected_model_filter]
+            selected_question = questions[
+                selected_question_index
+            ]
+
+            st.markdown(
+                f"""
+                <div class="card">
+                    <div class="card-title">
+                        Selected question
+                    </div>
+                    <div class="card-desc"
+                         style="font-size:14px; color:#172B4D;">
+                        <b>{selected_question.get("id", "")}</b>
+                        &nbsp;·&nbsp;
+                        {selected_question.get("question", "")}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            st.caption(
+                "The dropdown contains the complete fixed "
+                "25-question Week 4 evaluation set."
             )
 
             st.markdown("### Run evaluation")
 
             st.info(
-                "Run only the selection you want to inspect, or run the "
-                "complete 25-question × 3-model evaluation. Selected runs "
-                "are merged into the main result file without changing the "
-                "other recorded evaluations."
+                "The evaluation always uses the same 25 questions "
+                "for all three models. Selecting a question below "
+                "controls which result you inspect; it does not "
+                "change the evaluation task set."
             )
 
-            selected_question_count = (
-                len(questions)
-                if selected_question_filter == "All Questions"
-                else 1
-            )
-            selected_model_count = len(selected_models)
+            if st.button(
+                "▶ Run 25 × 3 Model Evaluation",
+                type="primary",
+            ):
 
-            selected_total = (
-                selected_question_count * selected_model_count
-            )
-
-            run_col1, run_col2 = st.columns(2)
-
-            with run_col1:
-                if selected_total == 1:
-                    selected_button_label = (
-                        "▶ Run Selected Evaluation"
-                    )
-                else:
-                    selected_button_label = (
-                        f"▶ Run Selected Evaluation "
-                        f"({selected_total} run"
-                        f"{'s' if selected_total != 1 else ''})"
-                    )
-
-                run_selected = st.button(
-                    selected_button_label,
-                    type="primary",
-                    key="run_selected_25",
-                    width="stretch",
+                st.warning(
+                    "This runs 75 model evaluations "
+                    "(25 questions × 3 models)."
                 )
 
-            with run_col2:
-                run_full = st.button(
-                    "▶ Run Full 25 × 3 Evaluation",
-                    key="run_full_25",
-                    width="stretch",
+                progress = st.progress(0)
+                status = st.empty()
+
+                status.info(
+                    "Running the existing Week 4 evaluator..."
                 )
 
-            if run_selected or run_full:
+                uploaded_path = os.path.join(
+                    EVAL_DIR,
+                    "questions.json",
+                )
 
-                full_run = bool(run_full)
-                if full_run:
-                    execution_questions = questions
-                    execution_models = MODELS
-                    execution_label = (
-                        "Running the complete 25-question × 3-model evaluation"
-                    )
-                else:
-                    execution_questions = (
-                        questions
-                        if selected_question_filter == "All Questions"
-                        else [
-                            item
-                            for item in questions
-                            if normalize_qid(item.get("id", ""))
-                            == str(selected_question_id).upper()
-                        ]
-                    )
-                    execution_models = selected_models
-                    execution_label = (
-                        f"Running {selected_total} selected evaluation"
-                        f"{'s' if selected_total != 1 else ''}"
+                try:
+
+                    result = run_script(
+                        "evaluation/evaluate_models_25_newmodels.py",
+                        env={
+                            "QUESTIONS_FILE": uploaded_path,
+                            "RESULTS_FILE": os.path.join(
+                                RESULTS_DIR,
+                                "model_results_25_newmodels.json",
+                            ),
+                        },
+                        timeout=3600,
                     )
 
-                if not execution_questions:
+                    progress.progress(1.0)
+
+                    if result.returncode == 0:
+
+                        status.success(
+                            "75 model evaluations completed."
+                        )
+
+                        score_result = run_script(
+                            "evaluation/score_quality_25_newmodels.py",
+                            timeout=600,
+                        )
+
+                        if score_result.returncode == 0:
+                            st.success(
+                                "Quality scoring completed."
+                            )
+                        else:
+                            st.warning(
+                                "Evaluation completed, but "
+                                "quality scoring returned an error."
+                            )
+
+                    else:
+
+                        st.error(
+                            "Evaluation failed."
+                        )
+
+                        if result.stderr:
+                            st.code(
+                                result.stderr[-4000:]
+                            )
+
+                except subprocess.TimeoutExpired:
                     st.error(
-                        "No question matched the current selection."
+                        "Evaluation exceeded the 1-hour UI timeout."
                     )
-                else:
-
-                    st.warning(
-                        f"{execution_label}. "
-                        f"This will execute "
-                        f"{len(execution_questions)} question"
-                        f"{'s' if len(execution_questions) != 1 else ''} "
-                        f"× {len(execution_models)} model"
-                        f"{'s' if len(execution_models) != 1 else ''}."
-                    )
-
-                    progress = st.progress(0)
-                    status = st.empty()
-
-                    status.info(
-                        "Preparing the selected evaluation..."
-                    )
-
-                    base_questions_path = os.path.join(
-                        EVAL_DIR,
-                        "questions.json",
-                    )
-
-                    temp_dir = None
-                    temp_script_rel = None
-                    temp_questions_path = None
-                    temp_results_path = None
-
-                    try:
-                        if full_run:
-                            result = run_script(
-                                "evaluation/evaluate_models_25_newmodels.py",
-                                env={
-                                    "QUESTIONS_FILE": base_questions_path,
-                                    "RESULTS_FILE": os.path.join(
-                                        RESULTS_DIR,
-                                        "model_results_25_newmodels.json",
-                                    ),
-                                },
-                                timeout=3600,
-                            )
-                        else:
-                            # The existing evaluator is intentionally kept
-                            # unchanged. For a selective UI run, create a
-                            # temporary copy containing only the selected
-                            # question(s) and selected model(s).
-                            temp_dir = tempfile.mkdtemp(
-                                prefix="selected_25_",
-                                dir=EVAL_DIR,
-                            )
-
-                            temp_questions_path = os.path.join(
-                                temp_dir,
-                                "questions.json",
-                            )
-
-                            temp_results_path = os.path.join(
-                                temp_dir,
-                                "results.json",
-                            )
-
-                            with open(
-                                temp_questions_path,
-                                "w",
-                                encoding="utf-8",
-                            ) as temp_file:
-                                json.dump(
-                                    execution_questions,
-                                    temp_file,
-                                    indent=2,
-                                    ensure_ascii=False,
-                                )
-
-                            evaluator_source_path = os.path.join(
-                                REPO_ROOT,
-                                "evaluation",
-                                "evaluate_models_25_newmodels.py",
-                            )
-
-                            with open(
-                                evaluator_source_path,
-                                "r",
-                                encoding="utf-8",
-                            ) as source_file:
-                                evaluator_source = source_file.read()
-
-                            models_marker = "MODELS = ["
-                            models_start = evaluator_source.find(
-                                models_marker
-                            )
-
-                            if models_start < 0:
-                                raise RuntimeError(
-                                    "Could not locate MODELS in the "
-                                    "existing evaluator."
-                                )
-
-                            models_end = evaluator_source.find(
-                                "]",
-                                models_start,
-                            )
-
-                            if models_end < 0:
-                                raise RuntimeError(
-                                    "Could not locate the end of MODELS "
-                                    "in the existing evaluator."
-                                )
-
-                            model_block = (
-                                "MODELS = [\n"
-                                + "".join(
-                                    f'    "{model}",\n'
-                                    for model in execution_models
-                                )
-                                + "]"
-                            )
-
-                            evaluator_source = (
-                                evaluator_source[:models_start]
-                                + model_block
-                                + evaluator_source[models_end + 1:]
-                            )
-
-                            temp_script_name = (
-                                "_selected_evaluator_25.py"
-                            )
-
-                            temp_script_path = os.path.join(
-                                temp_dir,
-                                temp_script_name,
-                            )
-
-                            with open(
-                                temp_script_path,
-                                "w",
-                                encoding="utf-8",
-                            ) as script_file:
-                                script_file.write(evaluator_source)
-
-                            temp_script_rel = os.path.relpath(
-                                temp_script_path,
-                                REPO_ROOT,
-                            )
-
-                            result = run_script(
-                                temp_script_rel,
-                                env={
-                                    "QUESTIONS_FILE": temp_questions_path,
-                                    "RESULTS_FILE": temp_results_path,
-                                },
-                                timeout=3600,
-                            )
-
-                        progress.progress(1.0)
-
-                        if result.returncode == 0:
-
-                            if full_run:
-                                status.success(
-                                    "Full 75-run evaluation completed."
-                                )
-                            else:
-                                selected_result = load_json(
-                                    temp_results_path
-                                )
-
-                                selected_records = (
-                                    selected_result.get("results", [])
-                                    if isinstance(
-                                        selected_result,
-                                        dict,
-                                    )
-                                    else []
-                                )
-
-                                main_results_path = os.path.join(
-                                    RESULTS_DIR,
-                                    "model_results_25_newmodels.json",
-                                )
-
-                                existing_results = load_json(
-                                    main_results_path
-                                )
-
-                                existing_records = (
-                                    existing_results.get("results", [])
-                                    if isinstance(
-                                        existing_results,
-                                        dict,
-                                    )
-                                    else []
-                                )
-
-                                replacement_keys = {
-                                    (
-                                        str(record.get("question_id")),
-                                        str(record.get("model")),
-                                    )
-                                    for record in selected_records
-                                }
-
-                                merged_records = [
-                                    record
-                                    for record in existing_records
-                                    if (
-                                        str(record.get("question_id")),
-                                        str(record.get("model")),
-                                    )
-                                    not in replacement_keys
-                                ]
-
-                                merged_records.extend(selected_records)
-
-                                merged_records.sort(
-                                    key=lambda record: (
-                                        int(
-                                            str(
-                                                record.get(
-                                                    "question_id",
-                                                    "0",
-                                                )
-                                            ).lstrip("Qq")
-                                        )
-                                        if str(
-                                            record.get(
-                                                "question_id",
-                                                "",
-                                            )
-                                        ).lstrip("Qq").isdigit()
-                                        else 999,
-                                        str(record.get("model", "")),
-                                    )
-                                )
-
-                                if isinstance(
-                                    existing_results,
-                                    dict,
-                                ):
-                                    merged_results = dict(
-                                        existing_results
-                                    )
-                                elif isinstance(
-                                    selected_result,
-                                    dict,
-                                ):
-                                    merged_results = dict(
-                                        selected_result
-                                    )
-                                else:
-                                    merged_results = {}
-
-                                merged_results["results"] = merged_records
-                                merged_results["actual_evaluations"] = (
-                                    len(merged_records)
-                                )
-                                merged_results["expected_evaluations"] = 75
-                                merged_results["questions_expected"] = 25
-                                merged_results["models"] = MODELS
-
-                                with open(
-                                    main_results_path,
-                                    "w",
-                                    encoding="utf-8",
-                                ) as output_file:
-                                    json.dump(
-                                        merged_results,
-                                        output_file,
-                                        indent=2,
-                                        ensure_ascii=False,
-                                    )
-
-                                status.success(
-                                    f"{len(selected_records)} selected "
-                                    "evaluation"
-                                    f"{'s' if len(selected_records) != 1 else ''} "
-                                    "completed and merged into the "
-                                    "25-question results."
-                                )
-
-                            # Re-score only when a complete 75-record
-                            # result is available. This keeps the existing
-                            # quality scorer unchanged.
-                            current_results = load_json(
-                                os.path.join(
-                                    RESULTS_DIR,
-                                    "model_results_25_newmodels.json",
-                                )
-                            )
-
-                            current_records = (
-                                current_results.get("results", [])
-                                if isinstance(
-                                    current_results,
-                                    dict,
-                                )
-                                else []
-                            )
-
-                            if len(current_records) == 75:
-                                score_result = run_script(
-                                    "evaluation/score_quality_25_newmodels.py",
-                                    timeout=600,
-                                )
-
-                                if score_result.returncode == 0:
-                                    st.success(
-                                        "Quality scoring completed."
-                                    )
-                                else:
-                                    st.warning(
-                                        "Evaluation completed, but "
-                                        "quality scoring returned an error."
-                                    )
-                            else:
-                                st.info(
-                                    f"{len(current_records)}/75 evaluations "
-                                    "are currently recorded. Quality "
-                                    "scoring will run automatically once "
-                                    "the complete 75-run set is available."
-                                )
-
-                        else:
-
-                            st.error(
-                                "Evaluation failed."
-                            )
-
-                            if result.stderr:
-                                st.code(
-                                    result.stderr[-4000:]
-                                )
-
-                    except subprocess.TimeoutExpired:
-                        st.error(
-                            "Evaluation exceeded the 1-hour UI timeout."
-                        )
-
-                    except Exception as exc:
-                        st.error(
-                            f"Selected evaluation could not be completed: {exc}"
-                        )
-
-                    finally:
-                        if temp_script_path if "temp_script_path" in locals() else False:
-                            try:
-                                os.remove(temp_script_path)
-                            except OSError:
-                                pass
-
-                        if temp_questions_path:
-                            try:
-                                os.remove(temp_questions_path)
-                            except OSError:
-                                pass
-
-                        if temp_results_path:
-                            try:
-                                os.remove(temp_results_path)
-                            except OSError:
-                                pass
-
-                        if temp_dir:
-                            try:
-                                os.rmdir(temp_dir)
-                            except OSError:
-                                pass
-
-            else:
-                # No evaluation was launched on this rerun.
-                pass
 
         else:
 
@@ -2451,1254 +2055,496 @@ elif page == "Evaluation":
                 "could not be loaded."
             )
 
-        # --------------------------------------------------------------------
-        # RESULTS DASHBOARD
-        # --------------------------------------------------------------------
-
         st.markdown("### Current 25-question results")
 
         raw_25 = load_result("25_raw")
         quality_25 = load_result("25_quality")
 
-        raw_records = (
-            raw_25.get("results", [])
-            if isinstance(raw_25, dict)
-            and isinstance(raw_25.get("results"), list)
-            else []
-        )
-
-        def record_generation(record):
-            generation = record.get("generation", {})
-            return generation if isinstance(generation, dict) else {}
-
-        def record_retrieval(record):
-            retrieval = record.get("retrieval", {})
-            return retrieval if isinstance(retrieval, dict) else {}
-
-        def record_resources(record):
-            resources = record.get("resources", {})
-            return resources if isinstance(resources, dict) else {}
-
-        def numeric_value(value):
-            return (
-                float(value)
-                if isinstance(value, (int, float))
-                and not isinstance(value, bool)
-                else None
-            )
-
-        def record_metric(record, metric):
-            generation = record_generation(record)
-            retrieval = record_retrieval(record)
-            resources = record_resources(record)
-
-            locations = {
-                "Total latency": [
-                    generation.get("latency_seconds"),
-                    record.get("latency_seconds"),
-                ],
-                "Retrieval latency": [
-                    retrieval.get("latency_seconds"),
-                    record.get("retrieval_latency_seconds"),
-                ],
-                "Generation latency": [
-                    generation.get("generation_latency_seconds"),
-                    record.get("generation_latency_seconds"),
-                ],
-                "Prompt tokens": [
-                    generation.get("prompt_tokens"),
-                    record.get("prompt_tokens"),
-                ],
-                "Output tokens": [
-                    generation.get("output_tokens"),
-                    record.get("output_tokens"),
-                ],
-                "Total tokens": [
-                    generation.get("total_tokens"),
-                    record.get("total_tokens"),
-                ],
-                "Memory before (MB)": [
-                    resources.get("memory_before_mb"),
-                    record.get("memory_before_mb"),
-                ],
-                "Memory after (MB)": [
-                    resources.get("memory_after_mb"),
-                    record.get("memory_after_mb"),
-                ],
-                "Memory delta (MB)": [
-                    resources.get("memory_delta_mb"),
-                    record.get("memory_delta_mb"),
-                ],
-                "CPU user (s)": [
-                    resources.get("cpu_user_seconds"),
-                    record.get("cpu_user_seconds"),
-                ],
-                "CPU system (s)": [
-                    resources.get("cpu_system_seconds"),
-                    record.get("cpu_system_seconds"),
-                ],
-            }
-
-            for value in locations.get(metric, []):
-                value = numeric_value(value)
-                if value is not None:
-                    return value
-
-            if metric == "Retrieval distance":
-                distances = []
-                for source in record_retrieval(record).get("results", []) or []:
-                    distance = numeric_value(source.get("distance"))
-                    if distance is not None:
-                        distances.append(distance)
-                if distances:
-                    return min(distances)
-
-            return None
-
-        def test_status(record):
-            generation = record_generation(record)
-
-            if record.get("status") in {
-                "error",
-                "test_failed",
-            }:
-                return record.get("status")
-
-            if generation.get("error") is not None:
-                return "error"
-
-            if record.get("test_passed") is False:
-                return "test_failed"
-
-            if generation.get("answer") is None:
-                return "error"
-
-            return "success"
-
-        def quality_value(model_data, candidates):
-            value = find_metric(
-                model_data,
-                candidates,
-            )
-            return numeric_value(value)
-
-        def quality_metric_for_model(model, candidates, suffix="%"):
-            if not isinstance(quality_25, dict):
-                return None
-            models_results = quality_25.get(
-                "models_results",
-                {},
-            )
-            model_data = models_results.get(model, {})
-            value = quality_value(model_data, candidates)
-            if value is None:
-                return None
-            return f"{value:.2f}{suffix}"
-
-        if raw_records:
+        if raw_25:
 
             st.success(
                 f'{raw_25.get("questions_expected", 25)} questions · '
-                f'{len(raw_records)} recorded runs · '
-                f'{len(MODELS)} models'
+                f'{len(raw_25.get("results", []))} recorded runs'
             )
 
-            filtered_records = [
-                record
-                for record in raw_records
-                if record_model(record) in selected_models
-                and (
-                    selected_question_id is None
-                    or record_qid(record) == selected_question_id
-                )
-            ]
+        if quality_25:
 
-            # ---------------------------------------------------------------
-            # Current selection summary
-            # ---------------------------------------------------------------
-
-            if selected_question_id is not None:
-
-                st.markdown(
-                    f"""
-                    <div class="card">
-                        <div class="card-title">
-                            Selected question
-                        </div>
-                        <div class="card-desc"
-                             style="font-size:14px; color:#172B4D;">
-                            <b>{selected_question_id}</b>
-                            &nbsp;·&nbsp;
-                            {selected_question_text or ""}
-                        </div>
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
-
-            selection_label = (
-                f"{selected_model_filter} · "
-                f"{selected_question_id}"
-                if selected_question_id
-                else f"{selected_model_filter} · All Questions"
+            model_results = quality_25.get(
+                "models_results",
+                {},
             )
 
-            st.markdown(
-                f"#### 📊 Dashboard · {selection_label}"
-            )
+            comparison_rows = []
 
-            # ---------------------------------------------------------------
-            # KPI summary from the selected raw records
-            # ---------------------------------------------------------------
+            for model in MODELS:
 
-            completed = sum(
-                test_status(record) == "success"
-                for record in filtered_records
-            )
-            test_failed = sum(
-                test_status(record) == "test_failed"
-                for record in filtered_records
-            )
-            errors = sum(
-                test_status(record) == "error"
-                for record in filtered_records
-            )
-
-            latencies = [
-                value
-                for record in filtered_records
-                if (
-                    value := record_metric(
-                        record,
-                        "Total latency",
-                    )
-                ) is not None
-            ]
-
-            total_tokens_values = [
-                value
-                for record in filtered_records
-                if (
-                    value := record_metric(
-                        record,
-                        "Total tokens",
-                    )
-                ) is not None
-            ]
-
-            distances = [
-                value
-                for record in filtered_records
-                if (
-                    value := record_metric(
-                        record,
-                        "Retrieval distance",
-                    )
-                ) is not None
-            ]
-
-            kpis = st.columns(5)
-
-            with kpis[0]:
-                st.metric(
-                    "Evaluations",
-                    len(filtered_records),
+                model_data = model_results.get(
+                    model,
+                    {},
                 )
 
-            with kpis[1]:
-                st.metric(
-                    "Completed",
-                    completed,
-                )
-
-            with kpis[2]:
-                st.metric(
-                    "Test failures",
-                    test_failed,
-                )
-
-            with kpis[3]:
-                st.metric(
-                    "Errors",
-                    errors,
-                )
-
-            with kpis[4]:
-                st.metric(
-                    "Avg latency",
-                    (
-                        f"{sum(latencies) / len(latencies):.2f}s"
-                        if latencies
-                        else "N/A"
+                comparison_rows.append({
+                    "Model": model,
+                    "Correctness": format_metric(
+                        find_metric(
+                            model_data,
+                            [
+                                "correctness",
+                                "accuracy",
+                            ],
+                        ),
+                        "%",
                     ),
-                )
-
-            # ---------------------------------------------------------------
-            # Quality metrics — aggregate over the 25-question set
-            # ---------------------------------------------------------------
-
-            if quality_25:
-
-                st.markdown(
-                    "#### Quality metrics"
-                )
-
-                quality_rows = []
-
-                for model in selected_models:
-
-                    quality_rows.append({
-                        "Model": model,
-                        "Correctness / Accuracy": quality_metric_for_model(
-                            model,
-                            ["correctness", "accuracy"],
+                    "Relevance": format_metric(
+                        find_metric(
+                            model_data,
+                            [
+                                "response_relevance",
+                                "relevance",
+                            ],
                         ),
-                        "Relevance": quality_metric_for_model(
-                            model,
-                            ["response_relevance", "relevance"],
-                        ),
-                        "Retrieval quality": quality_metric_for_model(
-                            model,
+                        "%",
+                    ),
+                    "Retrieval": format_metric(
+                        find_metric(
+                            model_data,
                             [
                                 "retrieval_evidence_hit_rate",
                                 "retrieval_quality",
                             ],
                         ),
-                        "Hallucination signal": quality_metric_for_model(
-                            model,
+                        "%",
+                    ),
+                    "Hallucination": format_metric(
+                        find_metric(
+                            model_data,
                             [
                                 "hallucination_signal_rate",
                                 "hallucination_rate",
                             ],
                         ),
-                        "Code test-pass rate": quality_metric_for_model(
-                            model,
+                        "%",
+                    ),
+                    "Code pass": format_metric(
+                        find_metric(
+                            model_data,
                             [
                                 "composite_test_pass_rate",
                                 "test_pass_rate",
                             ],
                         ),
-                    })
-
-                quality_df = pd.DataFrame(quality_rows)
-
-                if not quality_df.empty:
-                    st.dataframe(
-                        quality_df,
-                        width="stretch",
-                        hide_index=True,
-                    )
-
-                    quality_chart_metric = st.selectbox(
-                        "Quality metric to compare",
-                        [
-                            "Correctness / Accuracy",
-                            "Relevance",
-                            "Retrieval quality",
-                            "Hallucination signal",
-                            "Code test-pass rate",
-                        ],
-                        key="25_quality_chart_metric",
-                    )
-
-                    quality_plot_rows = []
-
-                    for row in quality_rows:
-                        value_text = row.get(
-                            quality_chart_metric
-                        )
-                        if value_text is None:
-                            continue
-
-                        try:
-                            value = float(
-                                str(value_text).replace("%", "")
-                            )
-                        except ValueError:
-                            continue
-
-                        quality_plot_rows.append({
-                            "Model": row["Model"],
-                            "Value": value,
-                        })
-
-                    if quality_plot_rows:
-                        fig = px.bar(
-                            pd.DataFrame(quality_plot_rows),
-                            x="Model",
-                            y="Value",
-                            text="Value",
-                            title=quality_chart_metric,
-                            labels={
-                                "Value": "Percent",
-                                "Model": "Model",
-                            },
-                        )
-                        fig.update_traces(
-                            texttemplate="%{text:.2f}%",
-                            textposition="outside",
-                        )
-                        fig.update_layout(
-                            yaxis_range=[
-                                0,
-                                max(
-                                    100,
-                                    max(
-                                        row["Value"]
-                                        for row in quality_plot_rows
-                                    ) + 10,
-                                ),
+                        "%",
+                    ),
+                    "Latency": format_metric(
+                        find_metric(
+                            model_data,
+                            [
+                                "average_total_latency",
+                                "avg_total_latency",
+                                "latency",
                             ],
-                            height=390,
-                            margin=dict(
-                                l=20,
-                                r=20,
-                                t=60,
-                                b=20,
-                            ),
-                        )
-                        st.plotly_chart(
-                            fig,
-                            width="stretch",
-                        )
-
-                    st.caption(
-                        "Quality values are aggregate metrics for the stored "
-                        "25-question evaluation. They are not treated as "
-                        "question-level measurements when a single question "
-                        "is selected."
-                    )
-
-            # ---------------------------------------------------------------
-            # Shared retrieval pipeline
-            # ---------------------------------------------------------------
-
-            if quality_25:
-
-                shared = quality_25.get(
-                    "shared_retrieval_pipeline",
-                    {},
-                )
-
-                if shared:
-
-                    st.markdown(
-                        "#### Shared retrieval pipeline"
-                    )
-
-                    r1, r2 = st.columns(2)
-
-                    with r1:
-                        st.metric(
-                            "Evidence hit rate",
-                            format_metric(
-                                shared.get(
-                                    "average_evidence_hit_rate_percent"
-                                ),
-                                "%",
-                            ),
-                        )
-
-                    with r2:
-                        st.metric(
-                            "Gold coverage",
-                            format_metric(
-                                shared.get(
-                                    "average_gold_coverage_percent"
-                                ),
-                                "%",
-                            ),
-                        )
-
-            # ---------------------------------------------------------------
-            # Interactive performance analysis
-            # ---------------------------------------------------------------
-
-            st.markdown(
-                "#### Interactive performance analysis"
-            )
-
-            chart_metric = st.selectbox(
-                "Metric",
-                [
-                    "Total latency",
-                    "Retrieval latency",
-                    "Generation latency",
-                    "Prompt tokens",
-                    "Output tokens",
-                    "Total tokens",
-                    "Memory before (MB)",
-                    "Memory after (MB)",
-                    "Memory delta (MB)",
-                    "CPU user (s)",
-                    "CPU system (s)",
-                    "Retrieval distance",
-                ],
-                key="25_performance_chart_metric",
-            )
-
-            chart_rows = []
-
-            for record in filtered_records:
-
-                value = record_metric(
-                    record,
-                    chart_metric,
-                )
-
-                if value is None:
-                    continue
-
-                chart_rows.append({
-                    "Question": record_qid(record),
-                    "Model": record_model(record),
-                    "Value": value,
-                    "Status": test_status(record),
+                        ),
+                        "s",
+                    ),
+                    "Tokens": format_metric(
+                        find_metric(
+                            model_data,
+                            [
+                                "average_total_tokens",
+                                "avg_total_tokens",
+                                "total_tokens",
+                            ],
+                        ),
+                    ),
                 })
 
-            if chart_rows:
+            st.markdown(
+                "#### Model comparison"
+            )
 
-                chart_df = pd.DataFrame(chart_rows)
+            st.dataframe(
+                pd.DataFrame(comparison_rows),
+                width="stretch",
+                hide_index=True,
+            )
 
-                if selected_question_id is None:
+            shared = quality_25.get(
+                "shared_retrieval_pipeline",
+                {},
+            )
 
-                    fig = px.bar(
-                        chart_df,
-                        x="Question",
-                        y="Value",
-                        color="Model",
-                        barmode="group",
-                        hover_data=["Status"],
-                        title=chart_metric,
-                    )
-
-                else:
-
-                    fig = px.bar(
-                        chart_df,
-                        x="Model",
-                        y="Value",
-                        color="Model",
-                        hover_data=["Question", "Status"],
-                        title=(
-                            f"{chart_metric} · "
-                            f"{selected_question_id}"
-                        ),
-                    )
-
-                fig.update_layout(
-                    height=430,
-                    margin=dict(
-                        l=20,
-                        r=20,
-                        t=60,
-                        b=20,
-                    ),
-                    legend_title_text="Model",
-                )
-
-                st.plotly_chart(
-                    fig,
-                    width="stretch",
-                )
-
-            else:
-                st.info(
-                    f"No numeric `{chart_metric}` values are available "
-                    "for the current selection."
-                )
-
-            # ---------------------------------------------------------------
-            # Model-wide / full-set summary table
-            # ---------------------------------------------------------------
-
-            if selected_question_id is None:
+            if shared:
 
                 st.markdown(
-                    "#### Question-wise evaluation table"
+                    "#### Shared retrieval pipeline"
                 )
 
-                table_rows = []
+                r1, r2 = st.columns(2)
 
-                for record in filtered_records:
-
-                    table_rows.append({
-                        "Question": record_qid(record),
-                        "Model": record_model(record),
-                        "Status": test_status(record).replace(
-                            "_",
-                            " ",
-                        ).title(),
-                        "Latency (s)": record_metric(
-                            record,
-                            "Total latency",
+                with r1:
+                    st.metric(
+                        "Evidence hit rate",
+                        format_metric(
+                            shared.get(
+                                "average_evidence_hit_rate_percent"
+                            ),
+                            "%",
                         ),
-                        "Retrieval latency (s)": record_metric(
-                            record,
-                            "Retrieval latency",
-                        ),
-                        "Output tokens": record_metric(
-                            record,
-                            "Output tokens",
-                        ),
-                        "Total tokens": record_metric(
-                            record,
-                            "Total tokens",
-                        ),
-                        "Best retrieval distance": record_metric(
-                            record,
-                            "Retrieval distance",
-                        ),
-                    })
-
-                table_df = pd.DataFrame(table_rows)
-
-                if not table_df.empty:
-                    st.dataframe(
-                        table_df,
-                        width="stretch",
-                        hide_index=True,
                     )
 
-                if (
-                    selected_model_filter != "All Models"
-                    and filtered_records
-                ):
-
-                    st.markdown(
-                        "#### Inspect individual answers"
+                with r2:
+                    st.metric(
+                        "Gold coverage",
+                        format_metric(
+                            shared.get(
+                                "average_gold_coverage_percent"
+                            ),
+                            "%",
+                        ),
                     )
 
-                    st.caption(
-                        "Expand a question to inspect the stored answer, "
-                        "retrieved sources, performance and automated test result."
-                    )
+        else:
 
-                    for record in filtered_records:
+            st.info(
+                "No 25-question quality result is currently available."
+            )
 
-                        question_id = record_qid(record)
-                        question_text = record.get(
-                            "question",
-                            question_lookup.get(
-                                question_id,
-                                {},
-                            ).get("question", ""),
+        # Question-level inspection
+        if raw_25 and isinstance(raw_25.get("results"), list):
+
+            raw_records = raw_25["results"]
+
+            st.markdown(
+                "#### 🔎 Compare all 3 models for one question"
+            )
+
+            st.caption(
+                "Select one of the fixed 25 evaluation questions. "
+                "The stored result from each of the three models "
+                "is displayed side-by-side."
+            )
+
+            question_options = []
+
+            seen_questions = set()
+
+            for record in raw_records:
+
+                question_id = record.get("question_id")
+                question = record.get("question", "")
+
+                key = (
+                    question_id,
+                    question,
+                )
+
+                if key not in seen_questions:
+                    seen_questions.add(key)
+
+                    question_options.append(
+                        (
+                            question_id,
+                            question,
                         )
-
-                        with st.expander(
-                            f"{question_id} — {question_text}"
-                        ):
-
-                            generation = record_generation(record)
-                            retrieval = record_retrieval(record)
-                            answer = generation.get("answer")
-
-                            st.markdown(
-                                "##### Response"
-                            )
-
-                            if answer:
-                                st.markdown(
-                                    f"""
-                                    <div class="answer-card">
-                                        {answer}
-                                    </div>
-                                    """,
-                                    unsafe_allow_html=True,
-                                )
-                            else:
-                                st.warning(
-                                    "No answer returned."
-                                )
-
-                            st.markdown(
-                                "##### Retrieved sources"
-                            )
-
-                            sources = retrieval.get(
-                                "results",
-                                [],
-                            )
-
-                            if sources:
-
-                                for source in sources:
-
-                                    distance = source.get(
-                                        "distance"
-                                    )
-
-                                    distance_text = (
-                                        f"{distance:.4f}"
-                                        if isinstance(
-                                            distance,
-                                            (int, float),
-                                        )
-                                        else "N/A"
-                                    )
-
-                                    st.markdown(
-                                        f"""
-                                        <div class="source-card">
-                                            <b>{source.get("source", "?")}</b>
-                                            · page {source.get("page", "?")}
-                                            · distance {distance_text}
-                                        </div>
-                                        """,
-                                        unsafe_allow_html=True,
-                                    )
-
-                            else:
-                                st.caption(
-                                    "No retrieval sources recorded."
-                                )
-
-                            st.markdown(
-                                "##### Performance"
-                            )
-
-                            performance_rows = [
-                                {
-                                    "Metric": "Total latency",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Total latency",
-                                        ),
-                                        "s",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Retrieval latency",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Retrieval latency",
-                                        ),
-                                        "s",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Generation latency",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Generation latency",
-                                        ),
-                                        "s",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Prompt tokens",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Prompt tokens",
-                                        ),
-                                    ),
-                                },
-                                {
-                                    "Metric": "Output tokens",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Output tokens",
-                                        ),
-                                    ),
-                                },
-                                {
-                                    "Metric": "Total tokens",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Total tokens",
-                                        ),
-                                    ),
-                                },
-                                {
-                                    "Metric": "Memory delta",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Memory delta (MB)",
-                                        ),
-                                        " MB",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Best retrieval distance",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Retrieval distance",
-                                        ),
-                                    ),
-                                },
-                            ]
-
-                            st.dataframe(
-                                pd.DataFrame(performance_rows),
-                                width="stretch",
-                                hide_index=True,
-                            )
-
-                            test_passed = record.get(
-                                "test_passed"
-                            )
-
-                            if test_passed is True:
-                                st.success(
-                                    "Automated test: PASS"
-                                )
-                            elif test_passed is False:
-                                st.warning(
-                                    "Automated test: FAIL"
-                                )
-
-                            test_output = record.get(
-                                "test_output"
-                            )
-
-                            if test_output:
-
-                                with st.expander(
-                                    "Test output"
-                                ):
-                                    st.code(
-                                        str(test_output)
-                                    )
-
-                            with st.expander(
-                                "Raw evaluation record"
-                            ):
-                                st.json(
-                                    record,
-                                    expanded=False,
-                                )
-
-            else:
-
-                # -----------------------------------------------------------
-                # One-question inspection
-                # -----------------------------------------------------------
-
-                st.markdown(
-                    "#### 🔎 Question-level model comparison"
-                )
-
-                if len(selected_models) > 1:
-
-                    st.caption(
-                        "The same selected question is shown side-by-side "
-                        "for all selected models."
                     )
 
-                    model_columns = st.columns(
-                        len(selected_models)
-                    )
+            question_options.sort(
+                key=lambda item: int(item[0])
+                if str(item[0]).isdigit()
+                else str(item[0])
+            )
 
-                    for column, model in zip(
-                        model_columns,
-                        selected_models,
-                    ):
+            question_labels = [
+                f"Q{question_id} — {question}"
+                for question_id, question
+                in question_options
+            ]
 
-                        with column:
+            selected_label = st.selectbox(
+                "Evaluation question",
+                question_labels,
+                key="comparison_question_25",
+            )
 
-                            record = next(
-                                (
-                                    item
-                                    for item in filtered_records
-                                    if record_model(item) == model
-                                ),
-                                None,
-                            )
+            selected_index = question_labels.index(
+                selected_label
+            )
 
-                            st.markdown(
-                                f"""
-                                <div class="card">
-                                    <div class="card-title">
-                                        {model}
-                                    </div>
-                                </div>
-                                """,
-                                unsafe_allow_html=True,
-                            )
+            selected_question_id = question_options[
+                selected_index
+            ][0]
 
-                            if not record:
-                                st.error(
-                                    "No result recorded for this model."
-                                )
-                                continue
+            selected_question_text = question_options[
+                selected_index
+            ][1]
 
-                            generation = record_generation(record)
-                            retrieval = record_retrieval(record)
+            st.markdown(
+                f"""
+                <div class="card">
+                    <div class="card-title">
+                        Selected evaluation question
+                    </div>
+                    <div class="card-desc"
+                         style="font-size:14px; color:#172B4D;">
+                        <b>Q{selected_question_id}</b>
+                        &nbsp;·&nbsp;
+                        {selected_question_text}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
-                            status = test_status(record)
+            selected_records = [
+                record
+                for record in raw_records
+                if record.get("question_id")
+                == selected_question_id
+            ]
 
-                            if status == "success":
-                                st.markdown(
-                                    '<span class="badge badge-ok">'
-                                    '✓ COMPLETED'
-                                    '</span>',
-                                    unsafe_allow_html=True,
-                                )
-                            elif status == "test_failed":
-                                st.markdown(
-                                    '<span class="badge badge-warn">'
-                                    '⚠ TEST FAILED'
-                                    '</span>',
-                                    unsafe_allow_html=True,
-                                )
-                            else:
-                                st.markdown(
-                                    '<span class="badge badge-down">'
-                                    '✗ ERROR'
-                                    '</span>',
-                                    unsafe_allow_html=True,
-                                )
+            model_columns = st.columns(3)
 
-                            st.markdown(
-                                "##### Response"
-                            )
+            for column, model in zip(
+                model_columns,
+                MODELS,
+            ):
 
-                            answer = generation.get(
-                                "answer"
-                            )
+                with column:
 
-                            if answer:
-                                st.markdown(
-                                    f"""
-                                    <div class="answer-card">
-                                        {answer}
-                                    </div>
-                                    """,
-                                    unsafe_allow_html=True,
-                                )
-                            else:
-                                st.warning(
-                                    "No answer returned."
-                                )
-
-                            st.markdown(
-                                "##### Retrieved sources"
-                            )
-
-                            sources = retrieval.get(
-                                "results",
-                                [],
-                            )
-
-                            if sources:
-
-                                for source in sources:
-
-                                    distance = source.get(
-                                        "distance"
-                                    )
-
-                                    distance_text = (
-                                        f"{distance:.4f}"
-                                        if isinstance(
-                                            distance,
-                                            (int, float),
-                                        )
-                                        else "N/A"
-                                    )
-
-                                    st.markdown(
-                                        f"""
-                                        <div class="source-card">
-                                            <b>{source.get("source", "?")}</b>
-                                            · page {source.get("page", "?")}
-                                            · distance {distance_text}
-                                        </div>
-                                        """,
-                                        unsafe_allow_html=True,
-                                    )
-
-                            else:
-                                st.caption(
-                                    "No retrieval sources recorded."
-                                )
-
-                            metrics = pd.DataFrame([
-                                {
-                                    "Metric": "Total latency",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Total latency",
-                                        ),
-                                        "s",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Retrieval latency",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Retrieval latency",
-                                        ),
-                                        "s",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Generation latency",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Generation latency",
-                                        ),
-                                        "s",
-                                    ),
-                                },
-                                {
-                                    "Metric": "Prompt tokens",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Prompt tokens",
-                                        ),
-                                    ),
-                                },
-                                {
-                                    "Metric": "Output tokens",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Output tokens",
-                                        ),
-                                    ),
-                                },
-                                {
-                                    "Metric": "Total tokens",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Total tokens",
-                                        ),
-                                    ),
-                                },
-                                {
-                                    "Metric": "Best retrieval distance",
-                                    "Value": format_metric(
-                                        record_metric(
-                                            record,
-                                            "Retrieval distance",
-                                        ),
-                                    ),
-                                },
-                            ])
-
-                            st.dataframe(
-                                metrics,
-                                width="stretch",
-                                hide_index=True,
-                            )
-
-                            if record.get("test_passed") is True:
-                                st.success(
-                                    "Automated test: PASS"
-                                )
-                            elif record.get("test_passed") is False:
-                                st.warning(
-                                    "Automated test: FAIL"
-                                )
-
-                            with st.expander(
-                                "Raw evaluation record"
-                            ):
-                                st.json(
-                                    record,
-                                    expanded=False,
-                                )
-
-                else:
-
-                    model = selected_models[0]
                     record = next(
                         (
                             item
-                            for item in filtered_records
-                            if record_model(item) == model
+                            for item in selected_records
+                            if item.get("model")
+                            == model
                         ),
                         None,
                     )
 
-                    if record:
+                    st.markdown(
+                        f"""
+                        <div class="card">
+                            <div class="card-title">
+                                {model}
+                            </div>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
 
-                        generation = record_generation(record)
-                        retrieval = record_retrieval(record)
+                    if not record:
 
-                        if test_status(record) == "success":
-                            st.success(
-                                f"{model} · evaluation completed"
-                            )
-                        elif test_status(record) == "test_failed":
-                            st.warning(
-                                f"{model} · evaluation completed but automated test failed"
-                            )
-                        else:
-                            st.error(
-                                f"{model} · evaluation error"
-                            )
+                        st.error(
+                            "No result recorded for this model."
+                        )
+                        continue
 
+                    generation = record.get(
+                        "generation",
+                        {},
+                    )
+
+                    resources = record.get(
+                        "resources",
+                        {},
+                    )
+
+                    status = (
+                        "success"
+                        if generation.get("error") is None
+                        and generation.get("answer") is not None
+                        else "error"
+                    )
+
+                    if status == "success":
                         st.markdown(
-                            "##### Response"
+                            '<span class="badge badge-ok">'
+                            '✓ COMPLETED'
+                            '</span>',
+                            unsafe_allow_html=True,
                         )
 
-                        answer = generation.get("answer")
+                    elif status == "test_failed":
+                        st.markdown(
+                            '<span class="badge badge-warn">'
+                            '⚠ TEST FAILED'
+                            '</span>',
+                            unsafe_allow_html=True,
+                        )
 
-                        if answer:
+                    else:
+                        st.markdown(
+                            '<span class="badge badge-down">'
+                            '✗ ERROR'
+                            '</span>',
+                            unsafe_allow_html=True,
+                        )
+
+                    st.markdown(
+                        "##### Response"
+                    )
+
+                    answer = generation.get(
+                        "answer"
+                    )
+
+                    if answer:
+
+                        st.markdown(
+                            f"""
+                            <div class="answer-card">
+                                {answer}
+                            </div>
+                            """,
+                            unsafe_allow_html=True,
+                        )
+
+                    else:
+
+                        st.warning(
+                            "No answer returned."
+                        )
+
+                    st.markdown(
+                        "##### Retrieved sources"
+                    )
+
+                    retrieval = record.get(
+                        "retrieval",
+                        {},
+                    )
+
+                    retrieval_results = retrieval.get(
+                        "results",
+                        [],
+                    )
+
+                    if retrieval_results:
+
+                        for source in retrieval_results:
+
+                            source_name = source.get(
+                                "source",
+                                "?",
+                            )
+
+                            page_number = source.get(
+                                "page",
+                                "?",
+                            )
+
+                            distance = source.get(
+                                "distance"
+                            )
+
+                            distance_text = (
+                                f"{distance:.4f}"
+                                if isinstance(
+                                    distance,
+                                    (int, float),
+                                )
+                                else "N/A"
+                            )
+
                             st.markdown(
                                 f"""
-                                <div class="answer-card">
-                                    {answer}
+                                <div class="source-card">
+                                    <b>{source_name}</b>
+                                    · page {page_number}
+                                    · distance {distance_text}
                                 </div>
                                 """,
                                 unsafe_allow_html=True,
                             )
-                        else:
-                            st.warning(
-                                "No answer returned."
-                            )
+
+                    else:
+
+                        st.caption(
+                            "No retrieval sources recorded."
+                        )
+
+                    st.markdown(
+                        "##### Performance"
+                    )
+
+                    latency = generation.get(
+                        "latency_seconds"
+                    )
+
+                    retrieval_latency = retrieval.get(
+                        "latency_seconds"
+                    )
+
+                    output_tokens = generation.get(
+                        "output_tokens"
+                    )
+
+                    total_tokens = generation.get(
+                        "total_tokens"
+                    )
+
+                    performance = pd.DataFrame([
+                        {
+                            "Metric": "Total latency",
+                            "Value": (
+                                f"{latency:.2f}s"
+                                if isinstance(
+                                    latency,
+                                    (int, float),
+                                )
+                                else "N/A"
+                            ),
+                        },
+                        {
+                            "Metric": "Retrieval latency",
+                            "Value": (
+                                f"{retrieval_latency:.3f}s"
+                                if isinstance(
+                                    retrieval_latency,
+                                    (int, float),
+                                )
+                                else "N/A"
+                            ),
+                        },
+                        {
+                            "Metric": "Output tokens",
+                            "Value": (
+                                str(output_tokens)
+                                if output_tokens is not None
+                                else "N/A"
+                            ),
+                        },
+                        {
+                            "Metric": "Total tokens",
+                            "Value": (
+                                str(total_tokens)
+                                if total_tokens is not None
+                                else "N/A"
+                            ),
+                        },
+                    ])
+
+                    st.dataframe(
+                        performance,
+                        width="stretch",
+                        hide_index=True,
+                    )
+
+                    if record.get("test_passed") is not None:
 
                         st.markdown(
-                            "##### Retrieved sources"
+                            "##### Test result"
                         )
 
-                        sources = retrieval.get(
-                            "results",
-                            [],
+                        test_passed = record.get(
+                            "test_passed"
                         )
 
-                        if sources:
-
-                            for source in sources:
-
-                                distance = source.get(
-                                    "distance"
-                                )
-
-                                distance_text = (
-                                    f"{distance:.4f}"
-                                    if isinstance(
-                                        distance,
-                                        (int, float),
-                                    )
-                                    else "N/A"
-                                )
-
-                                st.markdown(
-                                    f"""
-                                    <div class="source-card">
-                                        <b>{source.get("source", "?")}</b>
-                                        · page {source.get("page", "?")}
-                                        · distance {distance_text}
-                                    </div>
-                                    """,
-                                    unsafe_allow_html=True,
-                                )
-
-                        else:
-                            st.caption(
-                                "No retrieval sources recorded."
-                            )
-
-                        st.markdown(
-                            "##### Performance metrics"
-                        )
-
-                        single_performance = pd.DataFrame([
-                            {
-                                "Metric": "Total latency",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Total latency",
-                                    ),
-                                    "s",
-                                ),
-                            },
-                            {
-                                "Metric": "Retrieval latency",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Retrieval latency",
-                                    ),
-                                    "s",
-                                ),
-                            },
-                            {
-                                "Metric": "Generation latency",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Generation latency",
-                                    ),
-                                    "s",
-                                ),
-                            },
-                            {
-                                "Metric": "Prompt tokens",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Prompt tokens",
-                                    ),
-                                ),
-                            },
-                            {
-                                "Metric": "Output tokens",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Output tokens",
-                                    ),
-                                ),
-                            },
-                            {
-                                "Metric": "Total tokens",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Total tokens",
-                                    ),
-                                ),
-                            },
-                            {
-                                "Metric": "Memory delta",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Memory delta (MB)",
-                                    ),
-                                    " MB",
-                                ),
-                            },
-                            {
-                                "Metric": "Best retrieval distance",
-                                "Value": format_metric(
-                                    record_metric(
-                                        record,
-                                        "Retrieval distance",
-                                    ),
-                                ),
-                            },
-                        ])
-
-                        st.dataframe(
-                            single_performance,
-                            width="stretch",
-                            hide_index=True,
-                        )
-
-                        if record.get("test_passed") is True:
+                        if test_passed:
                             st.success(
                                 "Automated test: PASS"
                             )
-                        elif record.get("test_passed") is False:
+                        else:
                             st.warning(
                                 "Automated test: FAIL"
                             )
@@ -3716,93 +2562,22 @@ elif page == "Evaluation":
                                     str(test_output)
                                 )
 
-                        with st.expander(
-                            "Raw evaluation record"
-                        ):
-                            st.json(
-                                record,
-                                expanded=False,
-                            )
-
-                    else:
-                        st.warning(
-                            "No result recorded for the selected "
-                            "model and question."
+                    with st.expander(
+                        "Raw evaluation record"
+                    ):
+                        st.json(
+                            record,
+                            expanded=False,
                         )
-
-            # ---------------------------------------------------------------
-            # Full 75-run view: compact overview only
-            # ---------------------------------------------------------------
-
-            if (
-                selected_model_filter == "All Models"
-                and selected_question_id is None
-            ):
-
-                st.markdown(
-                    "#### 📋 Complete 75-run overview"
-                )
-
-                st.caption(
-                    "All 75 evaluations are represented below. "
-                    "Use the selectors above to inspect any individual answer "
-                    "without rendering all 75 responses simultaneously."
-                )
-
-                overview_rows = []
-
-                for record in filtered_records:
-
-                    overview_rows.append({
-                        "Question": record_qid(record),
-                        "Model": record_model(record),
-                        "Status": test_status(record).replace(
-                            "_",
-                            " ",
-                        ).title(),
-                        "Latency (s)": record_metric(
-                            record,
-                            "Total latency",
-                        ),
-                        "Retrieval (s)": record_metric(
-                            record,
-                            "Retrieval latency",
-                        ),
-                        "Output tokens": record_metric(
-                            record,
-                            "Output tokens",
-                        ),
-                        "Total tokens": record_metric(
-                            record,
-                            "Total tokens",
-                        ),
-                        "Best distance": record_metric(
-                            record,
-                            "Retrieval distance",
-                        ),
-                    })
-
-                overview_df = pd.DataFrame(overview_rows)
-
-                st.dataframe(
-                    overview_df,
-                    width="stretch",
-                    hide_index=True,
-                )
 
         else:
 
-            if raw_25:
-                st.info(
-                    "The 25-question result file exists, but it contains "
-                    "no evaluation records."
-                )
-            else:
-                st.info(
-                    "No 25-question evaluation results are currently available. "
-                    "Run the evaluation above first."
-                )
+            st.warning(
+                "No 25-question evaluation records "
+                "were found."
+            )
 
+        # --------------------------------------------------------------------
         # QUANTITATIVE INTERPRETATION
         # --------------------------------------------------------------------
 
