@@ -1,0 +1,102 @@
+export const questionsData = [
+  {
+    "id": 1,
+    "question": "What documents are required for Aadhaar enrolment?"
+  },
+  {
+    "id": 2,
+    "question": "What is Aadhaar enrolment?"
+  },
+  {
+    "id": 3,
+    "question": "What is the purpose of Aadhaar?"
+  },
+  {
+    "id": 4,
+    "question": "What is Proof of Identity?"
+  },
+  {
+    "id": 5,
+    "question": "What is Proof of Address?"
+  },
+  {
+    "id": 6,
+    "question": "What is Proof of Date of Birth?"
+  },
+  {
+    "id": 7,
+    "question": "What is Proof of Relationship?"
+  },
+  {
+    "id": 8,
+    "question": "Can Aadhaar enrolment be done without supporting documents?"
+  },
+  {
+    "id": 9,
+    "question": "What information is collected during Aadhaar enrolment?"
+  },
+  {
+    "id": 10,
+    "question": "What biometric information is collected for Aadhaar?"
+  },
+  {
+    "id": 11,
+    "question": "What demographic information is collected during enrolment?"
+  },
+  {
+    "id": 12,
+    "question": "What happens after Aadhaar enrolment?"
+  },
+  {
+    "id": 13,
+    "question": "What documents can be used as proof of identity?"
+  },
+  {
+    "id": 14,
+    "question": "What documents can be used as proof of address?"
+  },
+  {
+    "id": 15,
+    "question": "What documents can be used as proof of date of birth?"
+  },
+  {
+    "id": 16,
+    "question": "What is the role of the enrolment operator?"
+  },
+  {
+    "id": 17,
+    "question": "What is the role of the verifier?"
+  },
+  {
+    "id": 18,
+    "question": "How is an Aadhaar number generated?"
+  },
+  {
+    "id": 19,
+    "question": "What should a resident do if there is an error in their Aadhaar information?"
+  },
+  {
+    "id": 20,
+    "question": "What is demographic authentication?"
+  },
+  {
+    "id": 21,
+    "question": "What is biometric authentication?"
+  },
+  {
+    "id": 22,
+    "question": "What is Aadhaar authentication?"
+  },
+  {
+    "id": 23,
+    "question": "Can a resident update Aadhaar information?"
+  },
+  {
+    "id": 24,
+    "question": "What types of information can be updated in Aadhaar?"
+  },
+  {
+    "id": 25,
+    "question": "What should be done if the requested information is not available in the Aadhaar Handbook?"
+  }
+];

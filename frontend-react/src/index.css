@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: #F8FAF9;
+  color: #1A2822;
+  overflow-x: hidden;
+}
+
+/* Ambient glow in background matching the reference UI */
+.bg-ambient-glow {
+  background: 
+    radial-gradient(circle at 95% 8%, rgba(30, 111, 80, 0.08) 0%, rgba(248, 250, 249, 0) 45%),
+    radial-gradient(circle at 80% 25%, rgba(134, 239, 172, 0.07) 0%, rgba(248, 250, 249, 0) 35%),
+    #F8FAF9;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Hide scrollbar for clean horizontal tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

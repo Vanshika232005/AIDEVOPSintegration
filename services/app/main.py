@@ -16,11 +16,22 @@ LLM_URL = "http://llm:8002/generate"
 # FastAPI Application
 # ============================================================
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(
     title="Aadhaar AI Assistant",
     description="Application orchestration service for Aadhaar RAG",
     version="1.0"
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 
 # ============================================================
