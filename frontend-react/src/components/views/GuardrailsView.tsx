@@ -6,6 +6,98 @@ import { StatusBadge } from '../common/StatusBadge';
 import { guardrailData } from '../../data/guardrailData';
 import { askQuestion } from '../../services/api';
 
+type GuardrailMetric = {
+  label: string;
+  tested: number;
+  intercepted: number;
+  latency: number;
+};
+
+const routeLabels: Record<string, string> = {
+  valid_in_scope: 'Valid\ninquiries',
+  out_of_scope: 'Out-of-scope',
+  insufficient_evidence: 'Evidence\nboundary',
+  long_input: 'Input\nlength',
+};
+
+const GuardrailChart: React.FC<{
+  title: string;
+  subtitle: string;
+  metrics: GuardrailMetric[];
+  mode: 'coverage' | 'latency';
+}> = ({ title, subtitle, metrics, mode }) => {
+  const [hoveredBar, setHoveredBar] = useState<{ label: string; detail: string; color: string; x: number; y: number } | null>(null);
+  const chartWidth = 540;
+  const chartHeight = 202;
+  const plot = { left: 34, top: 12, width: 486, height: 142 };
+  const baseline = plot.top + plot.height;
+  const groupWidth = plot.width / metrics.length;
+  const maxValue = mode === 'coverage' ? Math.max(4, ...metrics.map((metric) => metric.tested)) : Math.max(1, ...metrics.map((metric) => metric.latency));
+  const ticks = mode === 'coverage' ? [0, 1, 2, 3, 4] : [0, maxValue / 2, maxValue];
+  const series = mode === 'coverage'
+    ? [
+        { key: 'tested' as const, label: 'Tests run', color: '#1E6F50' },
+        { key: 'intercepted' as const, label: 'Guardrail intercepts', color: '#C46A4A' },
+      ]
+    : [{ key: 'latency' as const, label: 'Average response time', color: '#6677A8' }];
+
+  return (
+    <section className="rounded-2xl border border-[#E7ECE9] bg-white p-5 shadow-sm">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h2 className="text-sm font-bold text-[#192823]">{title}</h2>
+          <p className="mt-1 text-xs text-[#64748B]">{subtitle}</p>
+        </div>
+        <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-[10px] font-semibold text-[#475569]">
+          {series.map((item) => <span className="flex items-center gap-1.5" key={item.key}>
+            <span className="inline-block h-3 w-3 shrink-0 rounded-full ring-1 ring-black/10" style={{ backgroundColor: item.color }} />
+            {item.label}
+          </span>)}
+        </div>
+      </div>
+      <div className="mt-4 w-full overflow-x-auto">
+        <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="min-w-[420px] w-full" role="img" aria-label={`${title} chart`}>
+          {ticks.map((value) => {
+            const y = baseline - (value / maxValue) * plot.height;
+            const label = mode === 'latency' ? `${value.toFixed(value < 0.1 ? 3 : 1)}s` : value;
+            return <g key={value}>
+              <line x1={plot.left} x2={plot.left + plot.width} y1={y} y2={y} stroke="#E7ECE9" strokeDasharray={value === 0 ? undefined : '3 3'} />
+              <text x={plot.left - 8} y={y + 3} textAnchor="end" className="fill-slate-400 text-[9px]">{label}</text>
+            </g>;
+          })}
+          {metrics.map((metric, metricIndex) => {
+            const groupStart = plot.left + metricIndex * groupWidth;
+            const barWidth = series.length === 1 ? Math.min(52, groupWidth - 26) : Math.min(34, (groupWidth - 18) / 2);
+            const totalWidth = barWidth * series.length;
+            const firstBar = groupStart + (groupWidth - totalWidth) / 2;
+            return <g key={metric.label}>
+              {series.map((item, itemIndex) => {
+                const value = metric[item.key];
+                const height = (value / maxValue) * plot.height;
+                const x = firstBar + itemIndex * barWidth;
+                const y = baseline - height;
+                const detail = mode === 'latency' ? `${item.label} · ${value.toFixed(value < 0.1 ? 3 : 2)}s` : `${item.label} · ${value}`;
+                return <rect key={item.key} x={x} y={y} width={barWidth} height={height} rx={series.length === 1 || itemIndex === 0 || itemIndex === series.length - 1 ? '3' : '0'} fill={item.color} className="cursor-pointer" onMouseEnter={() => setHoveredBar({ label: metric.label.replace('\n', ' '), detail, color: item.color, x: x + barWidth / 2, y })} onMouseLeave={() => setHoveredBar(null)} />;
+              })}
+              {metric.label.split('\n').map((line, lineIndex) => <text key={line} x={groupStart + groupWidth / 2} y={baseline + 19 + lineIndex * 11} textAnchor="middle" className="fill-slate-500 text-[10px]">{line}</text>)}
+            </g>;
+          })}
+          {hoveredBar && (() => {
+            const tooltipWidth = 170;
+            const tooltipX = Math.max(4, Math.min(chartWidth - tooltipWidth - 4, hoveredBar.x - tooltipWidth / 2));
+            const tooltipY = Math.max(4, hoveredBar.y - 34);
+            return <g pointerEvents="none">
+              <rect x={tooltipX} y={tooltipY} width={tooltipWidth} height="26" rx="6" fill="white" stroke="#CBD5E1" strokeWidth="1" />
+              <circle cx={tooltipX + 13} cy={tooltipY + 13} r="4" fill={hoveredBar.color} />
+              <text x={tooltipX + 23} y={tooltipY + 17} className="fill-[#192823] text-[10px] font-semibold">{hoveredBar.detail}</text>
+            </g>;
+          })()}
+        </svg>
+      </div>
+    </section>
+  );
+};
+
 export const GuardrailsView: React.FC = () => {
   const [testPrompt, setTestPrompt] = useState('How do I cancel my hotel booking refund using Aadhaar?');
   const [testLoading, setTestLoading] = useState(false);
@@ -21,6 +113,17 @@ export const GuardrailsView: React.FC = () => {
   };
 
   const records = guardrailData.records || [];
+  const routeOrder = ['valid_in_scope', 'out_of_scope', 'insufficient_evidence', 'long_input'];
+  const guardrailMetrics: GuardrailMetric[] = routeOrder.map((category) => {
+    const categoryRecords = records.filter((record: any) => record.category === category);
+    const totalLatency = categoryRecords.reduce((sum: number, record: any) => sum + (record.latency_seconds || 0), 0);
+    return {
+      label: routeLabels[category],
+      tested: categoryRecords.length,
+      intercepted: categoryRecords.filter((record: any) => record.guardrail?.triggered).length,
+      latency: categoryRecords.length ? totalLatency / categoryRecords.length : 0,
+    };
+  });
 
   const handleTest = async () => {
     if (!testPrompt.trim() || testLoading) return;
@@ -79,6 +182,21 @@ export const GuardrailsView: React.FC = () => {
           subtitle="FAISS L2 cutoff"
           icon={AlertTriangle}
           iconColor="amber"
+        />
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <GuardrailChart
+          title="Policy Coverage & Interceptions"
+          subtitle="How the benchmark routes in-scope, unsafe, and boundary-condition prompts"
+          metrics={guardrailMetrics}
+          mode="coverage"
+        />
+        <GuardrailChart
+          title="Response Time by Guardrail Route"
+          subtitle="Average end-to-end time for each benchmark route · lower is better"
+          metrics={guardrailMetrics}
+          mode="latency"
         />
       </div>
 
