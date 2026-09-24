@@ -36,11 +36,15 @@ export async function checkServicesHealth() {
   }
 }
 
-export async function askQuestion(question: string): Promise<{
+export async function askQuestion(question: string, model?: string): Promise<{
   answer: string;
   sources: SourceCitation[];
   guardrail?: { triggered: boolean; type: string };
   latency?: number;
+  model?: string;
+  promptTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
 }> {
   const startTime = performance.now();
   
@@ -49,14 +53,14 @@ export async function askQuestion(question: string): Promise<{
     let res = await fetch(`${BRIDGE_BASE}/ask`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question, top_k: 3 }),
+      body: JSON.stringify({ question, top_k: 3, model }),
     }).catch(() => null);
 
     if (!res || !res.ok) {
       res = await fetch(`${API_BASE}/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, model }),
       });
     }
 
@@ -68,6 +72,10 @@ export async function askQuestion(question: string): Promise<{
         sources: data.sources || data.results || [],
         guardrail: data.guardrail,
         latency: Number(((endTime - startTime) / 1000).toFixed(2)),
+        model: data.model || model,
+        promptTokens: data.prompt_tokens,
+        outputTokens: data.output_tokens,
+        totalTokens: data.total_tokens,
       };
     }
   } catch (err) {
@@ -88,6 +96,7 @@ Grounded query: "${question}"`,
       { source: "Aadhaar Handbook (Offline Preview)", page: 12, distance: 0.28 }
     ],
     latency: Number(((endTime - startTime) / 1000).toFixed(2)),
+    model,
   };
 }
 

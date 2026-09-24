@@ -25,6 +25,8 @@ export const Topbar: React.FC<TopbarProps> = ({
         return { section: 'Assistant & RAG', title: 'Knowledge Base' };
       case 'eval-25':
         return { section: 'Evaluation Lab', title: '25-Question Evaluation' };
+      case 'eval-dynamic':
+        return { section: 'Evaluation Lab', title: 'Dynamic Evaluation' };
       case 'eval-7cat':
         return { section: 'Evaluation Lab', title: 'Seven-Category Evaluation' };
       case 'eval-rag':

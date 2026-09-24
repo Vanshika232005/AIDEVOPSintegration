@@ -46,6 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       title: 'EVALUATION LAB',
       items: [
         { id: 'eval-25' as ViewId, label: '25-Question Eval', icon: FileCheck },
+        { id: 'eval-dynamic' as ViewId, label: 'Dynamic Evaluation', icon: Sparkles },
         { id: 'eval-7cat' as ViewId, label: '7-Category Eval', icon: BarChart3 },
         { id: 'eval-rag' as ViewId, label: 'RAG Analysis', icon: Search },
         { id: 'eval-guardrails' as ViewId, label: 'Guardrails', icon: ShieldCheck },

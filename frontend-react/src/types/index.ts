@@ -5,6 +5,7 @@ export type ViewId =
   | 'models'
   | 'architecture'
   | 'eval-25'
+  | 'eval-dynamic'
   | 'eval-7cat'
   | 'eval-rag'
   | 'eval-guardrails'

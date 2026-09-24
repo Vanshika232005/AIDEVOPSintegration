@@ -38,6 +38,7 @@ app.add_middleware(
 class QuestionRequest(BaseModel):
     question: str
     top_k: Optional[int] = 3
+    model: Optional[str] = None
 
 def safe_get(url: str, timeout: int = 3):
     try:
@@ -96,7 +97,7 @@ def services_status():
 
 @app.post("/ask")
 def proxy_ask(request: QuestionRequest):
-    ok, data = safe_post(f"{APP_API}/ask", {"question": request.question})
+    ok, data = safe_post(f"{APP_API}/ask", {"question": request.question, "model": request.model})
     if ok:
         return data
     # Fallback to local answering or descriptive status

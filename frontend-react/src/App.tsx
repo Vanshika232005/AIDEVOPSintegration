@@ -10,6 +10,7 @@ import { KnowledgeBaseView } from './components/views/KnowledgeBaseView';
 import { ModelsView } from './components/views/ModelsView';
 import { ArchitectureView } from './components/views/ArchitectureView';
 import { Evaluation25View } from './components/views/Evaluation25View';
+import { DynamicEvaluationView } from './components/views/DynamicEvaluationView';
 import { SevenCategoryView } from './components/views/SevenCategoryView';
 import { RagAnalysisView } from './components/views/RagAnalysisView';
 import { GuardrailsView } from './components/views/GuardrailsView';
@@ -35,6 +36,8 @@ export const App: React.FC = () => {
         return <ArchitectureView />;
       case 'eval-25':
         return <Evaluation25View />;
+      case 'eval-dynamic':
+        return <DynamicEvaluationView />;
       case 'eval-7cat':
         return <SevenCategoryView />;
       case 'eval-rag':

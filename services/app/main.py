@@ -40,6 +40,7 @@ app.add_middleware(
 
 class QuestionRequest(BaseModel):
     question: str
+    model: str | None = None
 
 
 # ============================================================
@@ -299,7 +300,8 @@ Content:
             LLM_URL,
             json={
                 "question": question,
-                "context": context
+                "context": context,
+                "model": request.model,
             },
             timeout=300
         )
@@ -331,7 +333,11 @@ Content:
                 "distance": result.get("distance")
             }
             for result in results
-        ]
+        ],
+        "model": llm_data.get("model"),
+        "prompt_tokens": llm_data.get("prompt_tokens"),
+        "output_tokens": llm_data.get("output_tokens"),
+        "total_tokens": llm_data.get("total_tokens"),
     }
 # ============================================================
 # No-RAG endpoint

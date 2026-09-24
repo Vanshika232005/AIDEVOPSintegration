@@ -32,6 +32,7 @@ app = FastAPI(
 class ChatRequest(BaseModel):
     question: str
     context: str = ""
+    model: str | None = None
 
 
 # ============================================================
@@ -155,10 +156,11 @@ state that the information is unavailable.
 
     try:
 
+        selected_model = request.model or MODEL
         response = requests.post(
             OLLAMA_URL,
             json={
-                "model": MODEL,
+                "model": selected_model,
 
                 "messages": [
                     {
@@ -217,8 +219,11 @@ state that the information is unavailable.
     # --------------------------------------------------------
 
     return {
-        "model": MODEL,
-        "answer": answer
+        "model": selected_model,
+        "answer": answer,
+        "prompt_tokens": data.get("prompt_eval_count", 0),
+        "output_tokens": data.get("eval_count", 0),
+        "total_tokens": data.get("prompt_eval_count", 0) + data.get("eval_count", 0),
     }
 
 
